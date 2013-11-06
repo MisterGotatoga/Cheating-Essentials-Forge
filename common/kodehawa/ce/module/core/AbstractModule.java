@@ -81,6 +81,11 @@ public abstract class AbstractModule implements Listener {
 		return cat;
 	}
 	
+	public void reset(){
+		this.toggle();
+		this.toggle();
+	}
+	
 	public void toggle(){
 		//Register, register, call and REGISTER :)
 		state = !state;

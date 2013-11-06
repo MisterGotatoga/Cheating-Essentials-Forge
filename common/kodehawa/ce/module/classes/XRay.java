@@ -2,18 +2,22 @@ package common.kodehawa.ce.module.classes;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockOre;
-import net.minecraft.block.BlockRedstoneOre;
 
 import org.lwjgl.input.Keyboard;
 
+import com.google.common.collect.Lists;
+
 import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.enums.Category;
+import common.kodehawa.ce.module.man.ModuleManager;
 
 public class XRay extends AbstractModule
 {
+
+	public static ArrayList<Integer> xrayList2 = Lists.newArrayList();
 	
 	public XRay() 
 	{
@@ -30,12 +34,14 @@ public class XRay extends AbstractModule
 	@Override
 	public void enable()
 	{
-		float[] bright = world().provider.lightBrightnessTable;
-		for(int i = 0; i < bright.length; i++){
-			bright[i] = 1.0F;
+		if(!ModuleManager.instance().getModuleClass(Fullbright.class).isActive())
+		{
+			float[] bright = world().provider.lightBrightnessTable;
+			for(int i = 0; i < bright.length; i++){
+				bright[i] = 1.0F;
+			}
 		}
 		rerender();
-		Object obj = Block.blocksList;
 		try
 		{
 			Field field = Block.class.getDeclaredField("enabled");
@@ -44,17 +50,21 @@ public class XRay extends AbstractModule
 				field.setBoolean(null, true);
 			}
 		}
-		catch(Exception e){}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 		
-		this.addDefaultList();
+		addDefaultList();
 	}
 	
 	@Override
 	public void disable()
 	{
-		world().provider.registerWorld(world());
+		if(!ModuleManager.instance().getModuleClass(Fullbright.class).isActive())
+		{
+			world().provider.registerWorld(world());
+		}
 		rerender();
-		Object obj = Block.blocksList;
 		try
 		{
 			Field field = Block.class.getDeclaredField("enabled");
@@ -63,59 +73,67 @@ public class XRay extends AbstractModule
 				field.setBoolean(null, false);
 			}
 		}
-		catch(Exception e){}
-		
-		this.removeDefaultList();
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
-	private void addDefaultList()
+	public static void addDefaultList()
 	{
 		try
 		{
 			Field field = Block.class.getDeclaredField("xrayList");
 			field.setAccessible(true);
 			ArrayList<Integer> xray = (ArrayList<Integer>) field.get(null);
-			xray.add(Block.oreCoal.blockID);
-			xray.add(Block.oreIron.blockID);
-			xray.add(Block.oreGold.blockID);
-			xray.add(Block.oreEmerald.blockID);
-			xray.add(Block.oreDiamond.blockID);
-			xray.add(Block.oreLapis.blockID);
-			xray.add(Block.oreRedstone.blockID);
-			xray.add(Block.oreRedstoneGlowing.blockID);
-			xray.add(Block.oreNetherQuartz.blockID);
+			xrayList2.add(Block.oreCoal.blockID);
+			xrayList2.add(Block.oreIron.blockID);
+			xrayList2.add(Block.oreGold.blockID);
+			xrayList2.add(Block.oreEmerald.blockID);
+			xrayList2.add(Block.oreDiamond.blockID);
+			xrayList2.add(Block.oreLapis.blockID);
+			xrayList2.add(Block.oreRedstone.blockID);
+			xrayList2.add(Block.oreRedstoneGlowing.blockID);
+			xrayList2.add(Block.oreNetherQuartz.blockID);
+			for(Integer i : xrayList2)
+			{
+				xray.add(i);
+				removeDupes(xray);
+			}
 		} 
 		catch (Exception e){
 			e.printStackTrace();
 		}
 	}
 	
-	private void removeDefaultList()
+	public static void removeDefaultList()
 	{
 		try
 		{
 			Field field = Block.class.getDeclaredField("xrayList");
 			field.setAccessible(true);
 			ArrayList<Integer> xray = (ArrayList<Integer>) field.get(null);
-			xray.remove(Block.oreCoal.blockID);
-			xray.remove(Block.oreIron.blockID);
-			xray.remove(Block.oreGold.blockID);
-			xray.remove(Block.oreEmerald.blockID);
-			xray.remove(Block.oreDiamond.blockID);
-			xray.remove(Block.oreLapis.blockID);
-			xray.remove(Block.oreRedstone.blockID);
-			xray.remove(Block.oreRedstoneGlowing.blockID);
-			xray.remove(Block.oreNetherQuartz.blockID);
+			for(Integer i : xrayList2)
+			{
+				xray.remove(i);
+			}
 		} 
 		catch (Exception e){
 			e.printStackTrace();
 		}
 	}
-	
-	private void rerender(){
+
+	private void rerender()
+	{
 		int x = (int) player().posX;
 		int y = (int) player().posY;
 		int z = (int) player().posZ;
 		minecraft().renderGlobal.markBlockRangeForRenderUpdate(x - 200, y - 200, z - 200, x + 200, y + 200, z + 200);
 	}
+	
+    private static void removeDupes(ArrayList list) 
+    {
+        HashSet set = new HashSet(list);
+        list.clear();
+        list.addAll(set);
+    }
 }

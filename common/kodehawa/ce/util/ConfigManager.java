@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 
 import org.lwjgl.input.Keyboard;
@@ -20,6 +22,8 @@ import org.lwjgl.input.Keyboard;
 import com.google.common.collect.Lists;
 
 import common.kodehawa.ce.logger.DynamicLogger;
+import common.kodehawa.ce.module.classes.BlockFinder;
+import common.kodehawa.ce.module.classes.XRay;
 import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.man.ModuleManager;
 
@@ -34,9 +38,10 @@ public class ConfigManager {
 	private String configPath = "/config/Cheating Essentials/";
 	private File keybindConfig = new File(mcdata, configPath+"CEKeybindConfig.txt");
 	private File debugConfig = new File(mcdata, configPath+"CEDebugConfig.txt");
-	private File testConfig = new File(mcdata, configPath+"CETestConfig.txt");
 	private File friendConfig = new File(mcdata, configPath+"CEFriends.txt");
 	private File enemyConfig = new File(mcdata, configPath+"CEEnemies.txt");
+	private File blockESPConfig = new File(mcdata, configPath+"CEBlockESP.txt");
+	private File xrayConfig = new File(mcdata, configPath+"CEXrayBlocks.txt");
 	public ArrayList<String> friends = Lists.newArrayList();
 	public ArrayList<String> enemies = Lists.newArrayList();
 	public boolean universalDebug = false;
@@ -47,7 +52,10 @@ public class ConfigManager {
 		write();
 		readBooleanConfig();
 		readFriendsConfig();
+		readEnemyConfig();
 		readKeybindConfig();
+		readXrayConfig();
+		readBlockESPConfig();
 	}
 	
 	public void writeKeybindConfig()
@@ -62,7 +70,8 @@ public class ConfigManager {
 			}
 			bufferedwriter.close();
 		}
-		catch(Exception exception){
+		catch(Exception exception)
+		{
 			exception.printStackTrace();
 		}
 	}
@@ -115,7 +124,8 @@ public class ConfigManager {
 			}
 			bufferedwriter.close();
 		}
-		catch(Exception e){
+		catch(Exception e)
+		{
 			e.printStackTrace();
 		}
 	}
@@ -133,8 +143,41 @@ public class ConfigManager {
 			}
 			bufferedreader.close();
 		}
-		catch(Exception e){
+		catch(Exception e)
+		{}
+	}
+	
+	public void writeEnemyConfig()
+	{
+		try{
+			FileWriter filewriter = new FileWriter(friendConfig);
+			BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
+			for(String s : enemies){
+				bufferedwriter.write(s+"\r\n");
+			}
+			bufferedwriter.close();
 		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void readEnemyConfig()
+	{
+		DynamicLogger.instance().writeLog("[CM] Loading Enemies Config File...", Level.INFO);
+		try{
+			FileInputStream imputstream = new FileInputStream(friendConfig.getAbsolutePath());
+			DataInputStream datastream = new DataInputStream(imputstream);
+			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(datastream));
+			String s;
+			while((s = bufferedreader.readLine()) != null){
+				enemies.add(s.toLowerCase().trim());
+			}
+			bufferedreader.close();
+		}
+		catch(Exception e)
+		{}
 	}
 	
 	public void writeBooleanConfig()
@@ -146,7 +189,8 @@ public class ConfigManager {
 			bufferedwriter.write("ce.config.enableDebug:" + s);
 			bufferedwriter.close();
 		}
-		catch(Exception exception){
+		catch(Exception exception)
+		{
 			exception.printStackTrace();
 		}
 	}
@@ -171,14 +215,91 @@ public class ConfigManager {
 						DynamicLogger.instance().writeLog("[CM] Can't recognize boolean: "+value1, Level.WARNING);
 					}
 				}
-				catch(Exception e){
+				catch(Exception e)
+				{
 					e.printStackTrace();
 				}
 			}
 			bufferedreader.close();
 		} 
-		catch (Exception e) {
+		catch (Exception e) 
+		{
 			e.printStackTrace();
+		}
+	}
+	
+	public void writeXrayConfig(){
+		DynamicLogger.instance().writeLogWithPrefix("CECM", "Writing X-Ray config file..-", Level.INFO, 1);
+		try
+		{
+			FileWriter filewriter = new FileWriter(xrayConfig);
+			BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
+			for(Integer i : XRay.xrayList2)
+			{
+				bufferedwriter.write(i+"\r\n");
+			}
+			bufferedwriter.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void readXrayConfig(){
+		DynamicLogger.instance().writeLogWithPrefix("CECM", "Reading X-Ray config file..-", Level.INFO, 1);
+		try {
+			FileInputStream inputstream = new FileInputStream(xrayConfig.getAbsolutePath());
+			DataInputStream datastream = new DataInputStream(inputstream);
+			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(datastream));
+			String value;
+			while((value = bufferedreader.readLine()) != null)
+			{
+				Integer i1 = Integer.parseInt(value);
+				XRay.xrayList2.add(i1);
+				//System.out.println("Added: "+i1);
+			}
+			bufferedreader.close();
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public void writeBlockESPConfig(){
+		DynamicLogger.instance().writeLogWithPrefix("CECM", "Writing BlockESP config file..-", Level.INFO, 1);
+		try
+		{
+			FileWriter filewriter = new FileWriter(xrayConfig);
+			BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
+			for(Integer i : BlockFinder.espList)
+			{
+				bufferedwriter.write(i+"\r\n");
+			}
+			bufferedwriter.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void readBlockESPConfig(){
+		DynamicLogger.instance().writeLogWithPrefix("CECM", "Reading BlockESP config file..-", Level.INFO, 1);
+		try {
+			FileInputStream inputstream = new FileInputStream(xrayConfig.getAbsolutePath());
+			DataInputStream datastream = new DataInputStream(inputstream);
+			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(datastream));
+			String value;
+			while((value = bufferedreader.readLine()) != null)
+			{
+				Integer i1 = Integer.parseInt(value);
+				BlockFinder.espList.add(i1);
+			}
+			bufferedreader.close();
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
 		}
 	}
 
@@ -190,7 +311,6 @@ public class ConfigManager {
 	
 	private void write()
 	{
-		//if's everywhere.
 		if(!keybindConfig.exists())
 		{ 
 			keybindConfig.getParentFile().mkdirs();
@@ -231,6 +351,51 @@ public class ConfigManager {
 			}
 			
 			writeFriendsConfig();
+		}
+		
+		if(!xrayConfig.exists())
+		{
+			xrayConfig.getParentFile().mkdirs();
+			try
+			{
+				xrayConfig.createNewFile();
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+			writeXrayConfig();
+		}
+		
+		if(!blockESPConfig.exists())
+		{
+			blockESPConfig.getParentFile().mkdirs();
+			try
+			{
+				blockESPConfig.createNewFile();
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+			writeBlockESPConfig();
+		}
+		
+		if(!enemyConfig.exists())
+		{
+			enemyConfig.getParentFile().mkdirs();
+			try
+			{
+				enemyConfig.createNewFile();
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+			writeEnemyConfig();
 		}
 	}
 

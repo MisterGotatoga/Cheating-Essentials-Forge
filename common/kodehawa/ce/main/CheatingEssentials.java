@@ -12,17 +12,7 @@ import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 
-import common.kodehawa.ce.commands.CommandAddEnemy;
-import common.kodehawa.ce.commands.CommandAddFriend;
-import common.kodehawa.ce.commands.CommandBlockESP;
-import common.kodehawa.ce.commands.CommandBreadcrumbClear;
-import common.kodehawa.ce.commands.CommandFlySpeed;
-import common.kodehawa.ce.commands.CommandModuleHelp;
-import common.kodehawa.ce.commands.CommandModuleList;
-import common.kodehawa.ce.commands.CommandModuleToggle;
-import common.kodehawa.ce.commands.CommandSMKeybind;
-import common.kodehawa.ce.commands.CommandSpeedValue;
-import common.kodehawa.ce.commands.CommandStepHeight;
+import common.kodehawa.ce.commands.*;
 import common.kodehawa.ce.logger.DynamicLogger;
 import common.kodehawa.ce.module.classes.Gui;
 import common.kodehawa.ce.module.man.ModuleManager;
@@ -123,7 +113,8 @@ public class CheatingEssentials
 		command.registerCommand(new CommandBreadcrumbClear());
 		command.registerCommand(new CommandBlockESP());
 		command.registerCommand(new CommandModuleHelp());
-		command.registerCommand(new CommandSpeedValue());		
+		command.registerCommand(new CommandSpeedValue());
+		command.registerCommand(new CommandXray());
 	}
 	
 	private void load() 
