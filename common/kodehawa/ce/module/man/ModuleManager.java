@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.logging.Level;
 
 import com.google.common.collect.Lists;
+
 import common.kodehawa.ce.logger.DynamicLogger;
+import common.kodehawa.ce.module.classes.Gui;
 import common.kodehawa.ce.module.core.AbstractModule;
 
 public class ModuleManager {
@@ -51,6 +53,10 @@ public class ModuleManager {
 			}
 		}
 		return null;
+    }
+    
+    public void addSpecialModules(){
+		avModules.add(new Gui());
     }
     
     public List getModules(){

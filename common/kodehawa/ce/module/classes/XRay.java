@@ -13,6 +13,7 @@ import com.google.common.collect.Lists;
 import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.enums.Category;
 import common.kodehawa.ce.module.man.ModuleManager;
+import common.kodehawa.ce.util.Utils;
 
 public class XRay extends AbstractModule
 {
@@ -23,6 +24,7 @@ public class XRay extends AbstractModule
 	{
 		super(Category.RENDER);
 		this.setKeybinding(Keyboard.KEY_X);
+		addDefaultBlocks();
 	}
 
 	@Override
@@ -78,26 +80,31 @@ public class XRay extends AbstractModule
 		}
 	}
 	
+	private static void addDefaultBlocks(){
+		xrayList2.add(Block.oreCoal.blockID);
+		xrayList2.add(Block.oreIron.blockID);
+		xrayList2.add(Block.oreGold.blockID);
+		xrayList2.add(Block.oreEmerald.blockID);
+		xrayList2.add(Block.oreDiamond.blockID);
+		xrayList2.add(Block.oreLapis.blockID);
+		xrayList2.add(Block.oreRedstone.blockID);
+		xrayList2.add(Block.oreRedstoneGlowing.blockID);
+		xrayList2.add(Block.oreNetherQuartz.blockID);
+	}
+	
 	public static void addDefaultList()
 	{
+		Utils.instance().removeDupes(xrayList2);
 		try
 		{
 			Field field = Block.class.getDeclaredField("xrayList");
 			field.setAccessible(true);
 			ArrayList<Integer> xray = (ArrayList<Integer>) field.get(null);
-			xrayList2.add(Block.oreCoal.blockID);
-			xrayList2.add(Block.oreIron.blockID);
-			xrayList2.add(Block.oreGold.blockID);
-			xrayList2.add(Block.oreEmerald.blockID);
-			xrayList2.add(Block.oreDiamond.blockID);
-			xrayList2.add(Block.oreLapis.blockID);
-			xrayList2.add(Block.oreRedstone.blockID);
-			xrayList2.add(Block.oreRedstoneGlowing.blockID);
-			xrayList2.add(Block.oreNetherQuartz.blockID);
+			addDefaultBlocks();
 			for(Integer i : xrayList2)
 			{
 				xray.add(i);
-				removeDupes(xray);
+				Utils.instance().removeDupes(xray);
 			}
 		} 
 		catch (Exception e){
@@ -107,6 +114,7 @@ public class XRay extends AbstractModule
 	
 	public static void removeDefaultList()
 	{
+		Utils.instance().removeDupes(xrayList2);
 		try
 		{
 			Field field = Block.class.getDeclaredField("xrayList");
@@ -129,11 +137,4 @@ public class XRay extends AbstractModule
 		int z = (int) player().posZ;
 		minecraft().renderGlobal.markBlockRangeForRenderUpdate(x - 200, y - 200, z - 200, x + 200, y + 200, z + 200);
 	}
-	
-    private static void removeDupes(ArrayList list) 
-    {
-        HashSet set = new HashSet(list);
-        list.clear();
-        list.addAll(set);
-    }
 }

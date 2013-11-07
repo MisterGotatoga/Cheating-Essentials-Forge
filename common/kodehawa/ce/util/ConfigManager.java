@@ -31,6 +31,7 @@ import common.kodehawa.ce.module.man.ModuleManager;
  * Class that loads / writes all the configurations in Cheating Essentials.
  * @author Kodehawa
  */
+
 public class ConfigManager {
 
 	private static ConfigManager instance = new ConfigManager();
@@ -60,14 +61,15 @@ public class ConfigManager {
 	
 	public void writeKeybindConfig()
 	{
-		DynamicLogger.instance().writeLog("[CM] Writting Keybinding Configuration File...", Level.INFO);
-		try{
+		DynamicLogger.instance().writeLogWithPrefix("CM", "Writing keybinding config file...", Level.INFO, 1);
+		try
+		{
 			FileWriter filewriter = new FileWriter(keybindConfig);
 			BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
 			for(AbstractModule module : ModuleManager.instance().avModules){
 				String s = Keyboard.getKeyName(module.getKeybind());
-			    bufferedwriter.write(/* 0 */"ce_key:" + /* 1 */module.getModuleName().toLowerCase().replaceAll(" ", "") + ":" + /* 2 */s +"\r\n");
-			}
+			    bufferedwriter.write(module.getModuleName().toLowerCase().replaceAll(" ", "") + ":" + s +"\r\n");
+		    }
 			bufferedwriter.close();
 		}
 		catch(Exception exception)
@@ -78,8 +80,9 @@ public class ConfigManager {
 	
 	public void readKeybindConfig()
 	{
-		try {
-			DynamicLogger.instance().writeLog("[CM] Reading Keybinding Configuration File...", Level.INFO);
+		try 
+		{
+			DynamicLogger.instance().writeLogWithPrefix("CM", "Reading Keybinding config file...", Level.INFO, 1);
 			FileInputStream imputstream = new FileInputStream(keybindConfig.getAbsolutePath());
 			DataInputStream datastream = new DataInputStream(imputstream);
 			@SuppressWarnings("resource")
@@ -88,8 +91,8 @@ public class ConfigManager {
 			while((key = bufferedreader.readLine()) != null){
 				String line = key.trim();
 				String[] string = line.split(":");
-				String module1 = string[1];
-				String keybinding = string[2].toUpperCase();
+				String module1 = string[0];
+				String keybinding = string[1].toUpperCase();
 				for(AbstractModule module : ModuleManager.instance().avModules){
 					//Add the modules to another List.
 					List<String> modules = Arrays.asList(module.getModuleName());
@@ -116,12 +119,14 @@ public class ConfigManager {
 	
 	public void writeFriendsConfig()
 	{
-		try{
+		DynamicLogger.instance().writeLogWithPrefix("CM", "Writing Friends config file...", Level.INFO, 1);
+		try
+		{
 			FileWriter filewriter = new FileWriter(friendConfig);
 			BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
 			for(String s : friends){
 				bufferedwriter.write(s+"\r\n");
-			}
+		    }
 			bufferedwriter.close();
 		}
 		catch(Exception e)
@@ -132,15 +137,16 @@ public class ConfigManager {
 	
 	public void readFriendsConfig()
 	{
-		DynamicLogger.instance().writeLog("[CM] Loading Friend Config File...", Level.INFO);
-		try{
+		DynamicLogger.instance().writeLogWithPrefix("CM", "Reading Friends config file...", Level.INFO, 1);
+		try
+		{
 			FileInputStream imputstream = new FileInputStream(friendConfig.getAbsolutePath());
 			DataInputStream datastream = new DataInputStream(imputstream);
 			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(datastream));
 			String s;
 			while((s = bufferedreader.readLine()) != null){
 				friends.add(s.toLowerCase().trim());
-			}
+		    }
 			bufferedreader.close();
 		}
 		catch(Exception e)
@@ -149,8 +155,10 @@ public class ConfigManager {
 	
 	public void writeEnemyConfig()
 	{
-		try{
-			FileWriter filewriter = new FileWriter(friendConfig);
+		DynamicLogger.instance().writeLogWithPrefix("CM", "Writing enemy config file...", Level.INFO, 1);
+		try
+		{
+			FileWriter filewriter = new FileWriter(enemyConfig);
 			BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
 			for(String s : enemies){
 				bufferedwriter.write(s+"\r\n");
@@ -165,9 +173,10 @@ public class ConfigManager {
 	
 	public void readEnemyConfig()
 	{
-		DynamicLogger.instance().writeLog("[CM] Loading Enemies Config File...", Level.INFO);
-		try{
-			FileInputStream imputstream = new FileInputStream(friendConfig.getAbsolutePath());
+		DynamicLogger.instance().writeLogWithPrefix("CM", "Reading Enemy config file...", Level.INFO, 1);
+		try
+		{
+			FileInputStream imputstream = new FileInputStream(enemyConfig.getAbsolutePath());
 			DataInputStream datastream = new DataInputStream(imputstream);
 			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(datastream));
 			String s;
@@ -182,11 +191,12 @@ public class ConfigManager {
 	
 	public void writeBooleanConfig()
 	{
-		try{
+		try
+		{
 			FileWriter filewriter = new FileWriter(debugConfig);
 			BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
 			String s = String.valueOf(universalDebug);
-			bufferedwriter.write("ce.config.enableDebug:" + s);
+			bufferedwriter.write("enableDebug:" + s);
 			bufferedwriter.close();
 		}
 		catch(Exception exception)
@@ -198,7 +208,8 @@ public class ConfigManager {
 	public void readBooleanConfig()
 	{
 		FileInputStream imputstream;
-		try {
+		try 
+		{
 			imputstream = new FileInputStream(debugConfig.getAbsolutePath());
 			DataInputStream datastream = new DataInputStream(imputstream);
 			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(datastream));
@@ -229,7 +240,7 @@ public class ConfigManager {
 	}
 	
 	public void writeXrayConfig(){
-		DynamicLogger.instance().writeLogWithPrefix("CECM", "Writing X-Ray config file..-", Level.INFO, 1);
+		DynamicLogger.instance().writeLogWithPrefix("CM", "Writing X-Ray config file...", Level.INFO, 1);
 		try
 		{
 			FileWriter filewriter = new FileWriter(xrayConfig);
@@ -247,8 +258,9 @@ public class ConfigManager {
 	}
 	
 	public void readXrayConfig(){
-		DynamicLogger.instance().writeLogWithPrefix("CECM", "Reading X-Ray config file..-", Level.INFO, 1);
-		try {
+		DynamicLogger.instance().writeLogWithPrefix("CM", "Reading X-Ray config file...", Level.INFO, 1);
+		try 
+		{
 			FileInputStream inputstream = new FileInputStream(xrayConfig.getAbsolutePath());
 			DataInputStream datastream = new DataInputStream(inputstream);
 			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(datastream));
@@ -257,7 +269,6 @@ public class ConfigManager {
 			{
 				Integer i1 = Integer.parseInt(value);
 				XRay.xrayList2.add(i1);
-				//System.out.println("Added: "+i1);
 			}
 			bufferedreader.close();
 		}
@@ -267,10 +278,10 @@ public class ConfigManager {
 	}
 	
 	public void writeBlockESPConfig(){
-		DynamicLogger.instance().writeLogWithPrefix("CECM", "Writing BlockESP config file..-", Level.INFO, 1);
+		DynamicLogger.instance().writeLogWithPrefix("CECM", "Writing BlockESP config file...", Level.INFO, 1);
 		try
 		{
-			FileWriter filewriter = new FileWriter(xrayConfig);
+			FileWriter filewriter = new FileWriter(blockESPConfig);
 			BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
 			for(Integer i : BlockFinder.espList)
 			{
@@ -285,9 +296,10 @@ public class ConfigManager {
 	}
 	
 	public void readBlockESPConfig(){
-		DynamicLogger.instance().writeLogWithPrefix("CECM", "Reading BlockESP config file..-", Level.INFO, 1);
-		try {
-			FileInputStream inputstream = new FileInputStream(xrayConfig.getAbsolutePath());
+		DynamicLogger.instance().writeLogWithPrefix("CM", "Reading BlockESP config file...", Level.INFO, 1);
+		try 
+		{
+			FileInputStream inputstream = new FileInputStream(blockESPConfig.getAbsolutePath());
 			DataInputStream datastream = new DataInputStream(inputstream);
 			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(datastream));
 			String value;

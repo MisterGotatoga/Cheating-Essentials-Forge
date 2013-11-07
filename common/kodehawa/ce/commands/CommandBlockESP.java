@@ -1,6 +1,7 @@
 package common.kodehawa.ce.commands;
 
 import common.kodehawa.ce.module.classes.BlockFinder;
+import common.kodehawa.ce.util.ConfigManager;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatMessageComponent;
@@ -24,10 +25,12 @@ public class CommandBlockESP extends CommandBase {
 	{
 		if(astring[0].equalsIgnoreCase("add")){
 			BlockFinder.espList.add(Integer.parseInt(astring[1]));
+			ConfigManager.instance().writeBlockESPConfig();
 		    icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Added to CE BlockESP list: "+astring[1]));
 		}
 		if(astring[0].equalsIgnoreCase("remove")){
 			BlockFinder.espList.remove((Integer)Integer.parseInt(astring[1]));
+			ConfigManager.instance().writeBlockESPConfig();
 		    icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed from CE BlockESP list: "+astring[1]));
 		}
 	}

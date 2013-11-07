@@ -11,18 +11,26 @@ public class Gui extends AbstractModule {
 	private int mode = 0;
 	private YouAlwaysWinClickGui click = new YouAlwaysWinClickGui();;
 	
-	public Gui() {
+	public Gui() 
+	{
 		super(Category.NONE);
 		this.setKeybinding(Keyboard.KEY_G);
 	}
 	
+	public String getModuleName()
+	{
+		return "Gui";
+	}
+	
 	@Override
-	public void enable(){
+	public void enable()
+	{
 		minecraft().displayGuiScreen(click);
 	}
 	
 	@Override
-	public void disable(){
+	public void disable()
+	{
 		minecraft().displayGuiScreen(click);
 	}
 }

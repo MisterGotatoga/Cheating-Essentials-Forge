@@ -6,12 +6,13 @@ import net.minecraft.util.ChatMessageComponent;
 import common.kodehawa.ce.module.classes.XRay;
 import common.kodehawa.ce.module.man.ModuleManager;
 import common.kodehawa.ce.util.ConfigManager;
+import common.kodehawa.ce.util.Utils;
 
 public class CommandXray extends CommandBase {
 
 	@Override
-	public String getCommandName() {
-		// TODO Auto-generated method stub
+	public String getCommandName() 
+	{
 		return "cexray";
 	}
 
@@ -29,7 +30,9 @@ public class CommandXray extends CommandBase {
 			XRay.xrayList2.add((Integer)id);
 			XRay.addDefaultList();
 			icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Added ID from X-Ray list: "+id));
+			Utils.instance().removeDupes(XRay.xrayList2);
 			ConfigManager.instance().writeXrayConfig();
+			Utils.instance().removeDupes(XRay.xrayList2);
 			ModuleManager.instance().getModuleClass(XRay.class).reset();
 		}
 		
