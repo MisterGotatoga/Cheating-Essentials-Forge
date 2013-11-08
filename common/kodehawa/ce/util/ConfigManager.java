@@ -49,14 +49,14 @@ public class ConfigManager {
 	
 	public ConfigManager() 
 	{
-		addDefaultFriends();
-		write();
-		readBooleanConfig();
-		readFriendsConfig();
-		readEnemyConfig();
-		readKeybindConfig();
-		readXrayConfig();
-		readBlockESPConfig();
+		this.addDefaultFriends();
+		this.write();
+		this.readBooleanConfig();
+		this.readFriendsConfig();
+		this.readEnemyConfig();
+		this.readKeybindConfig();
+		this.readXrayConfig();
+		this.readBlockESPConfig();
 	}
 	
 	public void writeKeybindConfig()
@@ -103,7 +103,7 @@ public class ConfigManager {
 							//If the module name in the list is the same than the declared in the file, set new keybinding
 							module.setKeybinding(Keyboard.getKeyIndex(keybinding));
 							if(universalDebug){
-								//Debug it, if in the debug configuration is enabled "debug".
+								//Debug it, if in the debug configuration is enabled debug mode.
 								DynamicLogger.instance().writeLog("[CM] Binded: "+module.getModuleName()+" | "+Keyboard.getKeyName(module.getKeybind()), Level.INFO); break;
 							}
 						}
