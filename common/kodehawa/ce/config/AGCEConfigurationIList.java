@@ -18,30 +18,23 @@ import common.kodehawa.ce.logger.DynamicLogger;
 import common.kodehawa.ce.util.Utils;
 
 /**
- * Auto Generated Config for Collection-extended values that uses String values.
+ * Auto Generated config file for Collection-extended (Integer) Lists.
  * @author Kodehawa
  */
-public class AGCEConfigurationSList {
+public class AGCEConfigurationIList {
 
-	public volatile static AGCEConfigurationSList instance = new AGCEConfigurationSList() ;
+	public volatile static AGCEConfigurationIList instance = new AGCEConfigurationIList() ;
+	private Collection list;
 	private String name;
 	private File file;
 	private String path;
-	private Collection list;
 	
-	private AGCEConfigurationSList(){}
-
-	/**
-	 * Set all the values
-	 * @param name
-	 * @param path
-	 * @param list
-	 */
-	public AGCEConfigurationSList(String name, String path, Collection list)
-	{
+	private AGCEConfigurationIList(){}
+	
+	public AGCEConfigurationIList(String name, String path, Collection list){
 		this.name = name;
-		this.list = list;
 		this.path = path;
+		this.list = list;
 		this.file = new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/"+path);
 		this.createFile();
 		this.read();
@@ -67,12 +60,12 @@ public class AGCEConfigurationSList {
 	}
 	
 	private void create(File file, Collection list){
-		DynamicLogger.instance().writeLogWithPrefix("CMLS", "Writing (String) List config file: "+name, Level.INFO, 1);
+		DynamicLogger.instance().writeLogWithPrefix("CMLI", "Writing (Integer) List config file: "+name, Level.INFO, 1);
 		try
 		{
 			FileWriter filewriter = new FileWriter(file);
 			BufferedWriter buffered = new BufferedWriter(filewriter);
-			for(String s : (CopyOnWriteArrayList<String>)list){
+			for(Integer s : (CopyOnWriteArrayList<Integer>)list){
 				Utils.instance().removeDupes(list);
 				buffered.write(s+"\r\n");
 			}
@@ -85,7 +78,7 @@ public class AGCEConfigurationSList {
 	}
 	
 	private void read(){
-		DynamicLogger.instance().writeLogWithPrefix("CMLS", "Reading (String) List config file: "+name, Level.INFO, 1);
+		DynamicLogger.instance().writeLogWithPrefix("CMLI", "Reading (Integer) List config file: "+name, Level.INFO, 1);
 		try
 		{
 			FileInputStream imputstream = new FileInputStream(file.getAbsolutePath());
@@ -93,7 +86,8 @@ public class AGCEConfigurationSList {
 			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(datastream));
 			String s;
 			while((s = bufferedreader.readLine()) != null){
-				list.add(s.toLowerCase().trim());
+				Integer i = Integer.parseInt(s);
+				list.add(i);
 			}
 			bufferedreader.close();
 		}

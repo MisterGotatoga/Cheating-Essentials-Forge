@@ -6,7 +6,8 @@ import net.minecraft.util.ChatMessageComponent;
 
 import org.lwjgl.input.Keyboard;
 
-import common.kodehawa.ce.config.ConfigManager;
+import common.kodehawa.ce.config.ConfigurationManager;
+import common.kodehawa.ce.config.KeybindConfiguration;
 import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.man.ModuleManager;
 
@@ -33,7 +34,7 @@ public class CommandSMKeybind extends CommandBase {
 							successful = true;
 							m.setKeybinding(i); 
 							icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Setted key: "+m.getKeybind()+"("+astring[2]+")"+" for module: "+m.getModuleName()));
-							ConfigManager.instance().writeKeybindConfig(); 
+							KeybindConfiguration.instance().writeKeybindConfig(); 
 							break;
 						}
 					}
@@ -46,7 +47,7 @@ public class CommandSMKeybind extends CommandBase {
 						successful = true;
 						m.setKeybinding(0);
 						icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed key for module: "+m.getModuleName()));
-						ConfigManager.instance().writeKeybindConfig();
+						KeybindConfiguration.instance().writeKeybindConfig();
 						break;
 					}
 				}

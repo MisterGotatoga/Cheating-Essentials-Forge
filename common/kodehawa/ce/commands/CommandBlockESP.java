@@ -1,10 +1,14 @@
 package common.kodehawa.ce.commands;
 
-import common.kodehawa.ce.config.ConfigManager;
-import common.kodehawa.ce.module.classes.BlockFinder;
+import java.io.File;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatMessageComponent;
+
+import common.kodehawa.ce.config.AGCEConfigurationIList;
+import common.kodehawa.ce.module.classes.BlockFinder;
 
 public class CommandBlockESP extends CommandBase {
 
@@ -25,12 +29,12 @@ public class CommandBlockESP extends CommandBase {
 	{
 		if(astring[0].equalsIgnoreCase("add")){
 			BlockFinder.espList.add(Integer.parseInt(astring[1]));
-			ConfigManager.instance().writeBlockESPConfig();
+			AGCEConfigurationIList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEBlockESPList.txt"), BlockFinder.espList);
 		    icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Added to CE BlockESP list: "+astring[1]));
 		}
 		if(astring[0].equalsIgnoreCase("remove")){
 			BlockFinder.espList.remove((Integer)Integer.parseInt(astring[1]));
-			ConfigManager.instance().writeBlockESPConfig();
+			AGCEConfigurationIList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEBlockESPList.txt"), BlockFinder.espList);
 		    icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed from CE BlockESP list: "+astring[1]));
 		}
 	}

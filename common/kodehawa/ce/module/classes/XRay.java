@@ -2,7 +2,7 @@ package common.kodehawa.ce.module.classes;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import net.minecraft.block.Block;
 
@@ -18,7 +18,7 @@ import common.kodehawa.ce.util.Utils;
 public class XRay extends AbstractModule
 {
 
-	public static ArrayList<Integer> xrayList2 = Lists.newArrayList();
+	public static CopyOnWriteArrayList<Integer> xrayList2 = new CopyOnWriteArrayList<Integer>();
 	
 	public XRay() 
 	{
@@ -99,7 +99,7 @@ public class XRay extends AbstractModule
 		{
 			Field field = Block.class.getDeclaredField("xrayList");
 			field.setAccessible(true);
-			ArrayList<Integer> xray = (ArrayList<Integer>) field.get(null);
+			CopyOnWriteArrayList<Integer> xray = (CopyOnWriteArrayList<Integer>) field.get(null);
 			addDefaultBlocks();
 			for(Integer i : xrayList2)
 			{
@@ -119,7 +119,7 @@ public class XRay extends AbstractModule
 		{
 			Field field = Block.class.getDeclaredField("xrayList");
 			field.setAccessible(true);
-			ArrayList<Integer> xray = (ArrayList<Integer>) field.get(null);
+			CopyOnWriteArrayList<Integer> xray = (CopyOnWriteArrayList<Integer>) field.get(null);
 			for(Integer i : xrayList2)
 			{
 				xray.remove(i);

@@ -1,9 +1,14 @@
 package common.kodehawa.ce.commands;
 
+import java.io.File;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatMessageComponent;
-import common.kodehawa.ce.config.ConfigManager;
+import common.kodehawa.ce.config.AGCEConfigurationIList;
+import common.kodehawa.ce.config.ConfigurationManager;
+import common.kodehawa.ce.module.classes.BlockFinder;
 import common.kodehawa.ce.module.classes.XRay;
 import common.kodehawa.ce.module.man.ModuleManager;
 import common.kodehawa.ce.util.Utils;
@@ -31,7 +36,7 @@ public class CommandXray extends CommandBase {
 			XRay.addDefaultList();
 			icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Added ID from X-Ray list: "+id));
 			Utils.instance().removeDupes(XRay.xrayList2);
-			ConfigManager.instance().writeXrayConfig();
+			AGCEConfigurationIList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEXrayBlocks.txt"), XRay.xrayList2);
 			Utils.instance().removeDupes(XRay.xrayList2);
 			ModuleManager.instance().getModuleClass(XRay.class).reset();
 		}
@@ -43,7 +48,7 @@ public class CommandXray extends CommandBase {
 			XRay.removeDefaultList();
 			Utils.instance().removeDupes(XRay.xrayList2);
 			icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed ID from X-Ray list: "+id));
-			ConfigManager.instance().writeXrayConfig();
+			AGCEConfigurationIList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEXrayBlocks.txt"), XRay.xrayList2);
 			ModuleManager.instance().getModuleClass(XRay.class).reset();
 		}
 	}

@@ -1,10 +1,9 @@
 package common.kodehawa.ce.module.classes;
 
-import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.lwjgl.input.Keyboard;
 
-import com.google.common.collect.Lists;
 import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.enums.Category;
 import common.kodehawa.ce.util.CEBlockCoord;
@@ -20,7 +19,7 @@ public class BlockFinder extends AbstractModule {
 	
 	private int size = 0, timer = 0;
 
-	public static List<Integer> espList = Lists.newArrayList();
+	public static CopyOnWriteArrayList<Integer> espList = new CopyOnWriteArrayList<Integer>();
 	public static CEBlockCoord[] espBlocks = new CEBlockCoord[10000000];
 	 
 	@Override
