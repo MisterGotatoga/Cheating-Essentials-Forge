@@ -3,9 +3,9 @@ package common.kodehawa.ce.commands;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatMessageComponent;
+import common.kodehawa.ce.config.ConfigManager;
 import common.kodehawa.ce.module.classes.XRay;
 import common.kodehawa.ce.module.man.ModuleManager;
-import common.kodehawa.ce.util.ConfigManager;
 import common.kodehawa.ce.util.Utils;
 
 public class CommandXray extends CommandBase {
@@ -38,12 +38,13 @@ public class CommandXray extends CommandBase {
 		
 		else if(astring[0].equalsIgnoreCase("delete")){
 			Integer id = Integer.parseInt(astring[1]);
-			XRay.xrayList2.remove(id);
+			XRay.xrayList2.remove((Integer)id);
+			Utils.instance().removeDupes(XRay.xrayList2);
 			XRay.removeDefaultList();
+			Utils.instance().removeDupes(XRay.xrayList2);
 			icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed ID from X-Ray list: "+id));
 			ConfigManager.instance().writeXrayConfig();
 			ModuleManager.instance().getModuleClass(XRay.class).reset();
-
 		}
 	}
 }

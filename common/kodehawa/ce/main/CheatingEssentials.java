@@ -11,16 +11,14 @@ import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
-
 import common.kodehawa.ce.commands.*;
+import common.kodehawa.ce.config.ConfigManager;
 import common.kodehawa.ce.logger.DynamicLogger;
 import common.kodehawa.ce.module.classes.Gui;
 import common.kodehawa.ce.module.man.ModuleManager;
 import common.kodehawa.ce.tick.TickHandler;
 import common.kodehawa.ce.util.CEConnectionHandler;
-import common.kodehawa.ce.util.ConfigManager;
 import common.kodehawa.ce.util.ForgeEvents;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;

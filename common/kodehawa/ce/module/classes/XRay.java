@@ -103,8 +103,8 @@ public class XRay extends AbstractModule
 			addDefaultBlocks();
 			for(Integer i : xrayList2)
 			{
-				xray.add(i);
 				Utils.instance().removeDupes(xray);
+				xray.add(i);
 			}
 		} 
 		catch (Exception e){

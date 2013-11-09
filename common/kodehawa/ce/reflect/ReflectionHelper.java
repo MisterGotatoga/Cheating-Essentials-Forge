@@ -19,6 +19,17 @@ public class ReflectionHelper {
         }
         DynamicLogger.instance().writeLog("Fix Reflection usage: No such field: \""+s+"\"!", Level.WARNING);
     }
+	
+	public static void setStringFieldWW(Class clazz, Object o, String s, Object val){
+        Field[] fields = clazz.getDeclaredFields();
+        for (int i = 0; i < fields.length; i++){
+            if (fields[i].getName().equals(s)){
+                setField(clazz, o, i, val);
+                return;
+            }
+        }
+        DynamicLogger.instance().writeLog("Fix Reflection usage: No such field: \""+s+"\"!", Level.WARNING);
+    }
 
     public static void setField(Class c, Object o, int n, Object val){
         try{

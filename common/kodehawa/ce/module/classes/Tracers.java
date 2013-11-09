@@ -6,9 +6,9 @@ import net.minecraft.entity.player.EntityPlayer;
 
 import org.lwjgl.opengl.GL11;
 
+import common.kodehawa.ce.config.ConfigManager;
 import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.enums.Category;
-import common.kodehawa.ce.util.ConfigManager;
 
 public class Tracers extends AbstractModule {
 

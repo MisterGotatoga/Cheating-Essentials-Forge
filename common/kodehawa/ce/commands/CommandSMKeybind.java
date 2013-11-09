@@ -6,9 +6,9 @@ import net.minecraft.util.ChatMessageComponent;
 
 import org.lwjgl.input.Keyboard;
 
+import common.kodehawa.ce.config.ConfigManager;
 import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.man.ModuleManager;
-import common.kodehawa.ce.util.ConfigManager;
 
 public class CommandSMKeybind extends CommandBase {
 

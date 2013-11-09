@@ -1,7 +1,10 @@
 package common.kodehawa.ce.commands;
 
-import common.kodehawa.ce.util.ConfigManager;
+import java.io.File;
 
+import common.kodehawa.ce.config.AGCEConfigurationSList;
+import common.kodehawa.ce.config.ConfigManager;
+import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatMessageComponent;
@@ -25,13 +28,15 @@ public class CommandAddEnemy extends CommandBase {
 		if(astring[0].equalsIgnoreCase("add")){
 			for(String s : ConfigManager.instance().enemies){
 				icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Added enemy: "+astring[1]));
-				ConfigManager.instance().enemies.add(astring[1]); break;
+				ConfigManager.instance().enemies.add(astring[1]); 
+				AGCEConfigurationSList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEEnemies.txt"), ConfigManager.instance().enemies); break;
 			}
 		}
 		if(astring[0].equalsIgnoreCase("delete")){
 			for(String s : ConfigManager.instance().enemies){
 				icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Remove enemy: "+astring[1]));
-				ConfigManager.instance().enemies.remove(astring[1]); break;
+				ConfigManager.instance().enemies.remove(astring[1]);
+				AGCEConfigurationSList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEEnemies.txt"), ConfigManager.instance().enemies); break;
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 package common.kodehawa.ce.commands;
 
+import common.kodehawa.ce.config.ConfigManager;
 import common.kodehawa.ce.module.classes.BlockFinder;
-import common.kodehawa.ce.util.ConfigManager;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatMessageComponent;
