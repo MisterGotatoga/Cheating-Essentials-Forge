@@ -122,7 +122,7 @@ public class XRay extends AbstractModule
 			CopyOnWriteArrayList<Integer> xray = (CopyOnWriteArrayList<Integer>) field.get(null);
 			for(Integer i : xrayList2)
 			{
-				xray.remove(i);
+				xray.remove(xrayList2.indexOf((Integer)i)); break;
 			}
 		} 
 		catch (Exception e){

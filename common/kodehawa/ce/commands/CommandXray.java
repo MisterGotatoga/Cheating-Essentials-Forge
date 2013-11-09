@@ -43,9 +43,10 @@ public class CommandXray extends CommandBase {
 		
 		else if(astring[0].equalsIgnoreCase("delete")){
 			Integer id = Integer.parseInt(astring[1]);
-			XRay.xrayList2.remove((Integer)id);
+			XRay.xrayList2.remove(XRay.xrayList2.indexOf((Integer)id));
 			Utils.instance().removeDupes(XRay.xrayList2);
 			XRay.removeDefaultList();
+			XRay.addDefaultList();
 			Utils.instance().removeDupes(XRay.xrayList2);
 			icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed ID from X-Ray list: "+id));
 			AGCEConfigurationIList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEXrayBlocks.txt"), XRay.xrayList2);
