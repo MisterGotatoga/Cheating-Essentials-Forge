@@ -33,16 +33,15 @@ public class WindowInfo extends YAWWindow{
 			
 			if(isExtended())
 			{
-				CEUtils.drawGradientBorderedRect(getX() + dragX, getY() + 14 + dragY, getX() + 90 + dragX, getY() + 94 + dragY, 0.5F, 0xFF000000, 0xFF999999, 0xFF777777);
+				CEUtils.drawGradientBorderedRect(getX() + dragX, getY() + 14 + dragY, getX() + 90 + dragX, getY() + 84 + dragY, 0.5F, 0xFF000000, 0xFF999999, 0xFF777777);
 				
 				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Counter: "+Minecraft.getMinecraft().debug.split(",")[0].toUpperCase(), getX() + 2 + dragX, getY() + 15 + dragY, 0x55FFFF);
-				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("PosX: " + (int)Minecraft.getMinecraft().thePlayer.posX, getX() + 2 + dragX, getY() + 35 + dragY, 0x55FFFF);
-				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("PosY: " + (int)Minecraft.getMinecraft().thePlayer.posY, getX() + 2 + dragX, getY() + 45 + dragY, 0x55FFFF);
-				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("PosZ: " + (int)Minecraft.getMinecraft().thePlayer.posZ, getX() + 2 + dragX, getY() + 55 + dragY, 0x55FFFF);
+				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("X: " + (int)Minecraft.getMinecraft().thePlayer.posX, getX() + 2 + dragX, getY() + 55 + dragY, 0x55FFFF);
+				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Y: " + (int)Minecraft.getMinecraft().thePlayer.posY, getX() + 2 + dragX, getY() + 65 + dragY, 0x55FFFF);
+				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Z: " + (int)Minecraft.getMinecraft().thePlayer.posZ, getX() + 2 + dragX, getY() + 75 + dragY, 0x55FFFF);
 				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("User: "+Minecraft.getMinecraft().thePlayer.username, getX() + 2 + dragX, getY() + 25 + dragY, 0x55FFFF);
-				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Modules: "+ModuleManager.instance().avModules.size(), getX() + 2 + dragX, getY() + 65 + dragY, 0x55FFFF);
-				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Gui: ReesZRB", getX() + 2 + dragX, getY() + 75 + dragY, 0x55FFFF);
-				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Version: "+CheatingEssentials.mainInstance().modVersion.replace("-", ""), getX() + 2 + dragX, getY() + 85 + dragY, 0x55FFFF);
+				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Modules: "+ModuleManager.instance().avModules.size(), getX() + 2 + dragX, getY() + 45 + dragY, 0x55FFFF);
+				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Version: "+CheatingEssentials.mainInstance().modVersion.replace("-", ""), getX() + 2 + dragX, getY() + 35 + dragY, 0x55FFFF);
 				
 				for(YAWButton button: buttons)
 				{

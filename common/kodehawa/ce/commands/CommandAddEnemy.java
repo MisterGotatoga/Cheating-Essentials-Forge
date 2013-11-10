@@ -26,13 +26,10 @@ public class CommandAddEnemy extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender icommandsender, String[] astring) 
 	{
-		System.out.println("test");
 		if(astring[0].equalsIgnoreCase("add"))
 		{
-			System.out.println("test");
 			for(String string: PlayerRelations.instance().enemies)
 			{
-				System.out.println("test");
 				icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Added enemy: "+astring[1]));
 				PlayerRelations.instance().enemies.add(astring[1]); 
 				AGCEConfigurationSList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEEnemies.txt"), PlayerRelations.instance().enemies);

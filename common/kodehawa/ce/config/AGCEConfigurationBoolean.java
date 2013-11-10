@@ -70,7 +70,7 @@ public class AGCEConfigurationBoolean {
 	
 	private void create(String n, boolean b, String p)
 	{
-		DynamicLogger.instance().writeLogWithPrefix("CMB", "Creating boolean file: "+name, Level.INFO, 1);
+		DynamicLogger.instance().writeLogWithPrefix("CMB", "Creating Boolean config file: "+name, Level.INFO, 1);
 		try
 		{
 			FileWriter filewriter = new FileWriter(file);

@@ -49,8 +49,8 @@ import cpw.mods.fml.relauncher.Side;
  */
 
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
-@Mod(modid="Cheating-Essentials", name="Cheating Essentials Reloaded", version="4.1.0-RC2")
-@NetworkMod(clientSideRequired = false)
+@Mod(modid="Cheating-Essentials", name="Cheating Essentials Reloaded", version="4.1.1")
+@NetworkMod(serverSideRequired = false)
 public class CheatingEssentials
 {
 
@@ -91,6 +91,7 @@ public class CheatingEssentials
 	{
 		ModuleManager.instance().addSpecialModules();
 		ConfigurationManager.instance();
+		DynamicLogger.instance().writeLog("A.G.C.E. Configuration System version: "+ConfigurationManager.instance().getConfigurationSystemVersion(), Level.INFO);
 		DynamicLogger.instance().writeLog("Cheating Essentials v4 succefully started in Minecraft 1.6.4", Level.INFO);
 		DynamicLogger.instance().writeSimple("Copyright (C) 2013-2014 Kodehawa. This mod comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute itunder certain conditions.");
 	}
@@ -113,6 +114,8 @@ public class CheatingEssentials
 		command.registerCommand(new CommandBlockESP());
 		command.registerCommand(new CommandModuleHelp());
 		command.registerCommand(new CommandSpeedValue());
+		command.registerCommand(new CommandBlockFinderRadius());
+		command.registerCommand(new CommandChestFinderRadius());
 		command.registerCommand(new CommandXray());
 	}
 	
@@ -121,6 +124,6 @@ public class CheatingEssentials
 		return main;
 	}
 	
-	private String majorVersion = "4", minorVersion = "1", revision = "0", status = "-RC2";
+	private String majorVersion = "4", minorVersion = "1", revision = "1", status = "";
 	public final String modVersion = majorVersion+"."+minorVersion+"."+revision+status;
 }

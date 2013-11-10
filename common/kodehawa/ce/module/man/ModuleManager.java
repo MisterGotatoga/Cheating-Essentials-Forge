@@ -17,6 +17,7 @@ public class ModuleManager {
 	public List<String> enabled = Lists.newArrayList();
 
 	public ModuleManager(){
+		DynamicLogger.instance().writeLog("Starting Module System on Cheating Essentials...", Level.INFO);
 		load("common.kodehawa.ce.module.classes.");
 		DynamicLogger.instance().writeLog("Added: "+avModules.size()+" modules to Cheating Essentials" , Level.INFO);
 	}

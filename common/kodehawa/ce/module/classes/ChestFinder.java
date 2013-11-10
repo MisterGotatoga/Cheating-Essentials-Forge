@@ -21,6 +21,7 @@ public class ChestFinder extends AbstractModule {
 
 	public static List<Integer> cList = Lists.newArrayList();
 	public static CEBlockCoord[] cBlocks = new CEBlockCoord[10000000];
+	public static int BLOCK_RADIUS = 128; 
 	
 	public ChestFinder() {
 		super(Category.RENDER);
@@ -60,7 +61,7 @@ public class ChestFinder extends AbstractModule {
 	
 	public void refresh(){
 		size = 0;
-		int radius = 128;
+		int radius = BLOCK_RADIUS;
 		for(int y = 0; y < 128; y++) {
 			for(int x = 0; x < radius; x++) {
 			for(int z = 0; z < radius; z++) {

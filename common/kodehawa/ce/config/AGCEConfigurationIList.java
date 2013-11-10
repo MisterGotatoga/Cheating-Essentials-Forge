@@ -60,7 +60,7 @@ public class AGCEConfigurationIList {
 	}
 	
 	private void create(File file, Collection list){
-		DynamicLogger.instance().writeLogWithPrefix("CMLI", "Writing (Integer) List config file: "+name, Level.INFO, 1);
+		DynamicLogger.instance().writeLogWithPrefix("CMLI", "Writing (Integer) List config file to "+path, Level.INFO, 1);
 		try
 		{
 			FileWriter filewriter = new FileWriter(file);

@@ -21,7 +21,7 @@ public class ForgeEvents {
 	public void onRenderScreen(RenderGameOverlayEvent evt){
 		for(YAWWindow windows : YouAlwaysWinClickGui.windows){
 			if(windows.isPinned()){
-				windows.draw(windows.getX(), windows.getY());
+				windows.draw(0, 0);
 			}
 		}
 	}
