@@ -6,15 +6,14 @@ import java.util.logging.Level;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
+import common.kodehawa.ce.apicommands.APICommandManager;
 import common.kodehawa.ce.commands.*;
 import common.kodehawa.ce.config.ConfigurationManager;
 import common.kodehawa.ce.logger.DynamicLogger;
-import common.kodehawa.ce.module.classes.Gui;
 import common.kodehawa.ce.module.man.ModuleManager;
 import common.kodehawa.ce.tick.TickHandler;
 import common.kodehawa.ce.util.CEConnectionHandler;
@@ -91,6 +90,7 @@ public class CheatingEssentials
 	{
 		ModuleManager.instance().addSpecialModules();
 		ConfigurationManager.instance();
+		APICommandManager.addCommands();
 		DynamicLogger.instance().writeLog("A.G.C.E. Configuration System version: "+ConfigurationManager.instance().getConfigurationSystemVersion(), Level.INFO);
 		DynamicLogger.instance().writeLog("Cheating Essentials v4 succefully started in Minecraft 1.6.4", Level.INFO);
 		DynamicLogger.instance().writeSimple("Copyright (C) 2013-2014 Kodehawa. This mod comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute itunder certain conditions.");

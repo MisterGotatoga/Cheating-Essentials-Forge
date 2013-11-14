@@ -4,6 +4,10 @@ import java.util.logging.Level;
 
 import common.kodehawa.ce.logger.DynamicLogger;
 import common.kodehawa.ce.module.classes.BlockFinder;
+import common.kodehawa.ce.module.classes.ChestFinder;
+import common.kodehawa.ce.module.classes.Fly;
+import common.kodehawa.ce.module.classes.Speed;
+import common.kodehawa.ce.module.classes.Step;
 import common.kodehawa.ce.module.classes.XRay;
 import common.kodehawa.ce.relations.PlayerRelations;
 
@@ -12,10 +16,11 @@ import common.kodehawa.ce.relations.PlayerRelations;
  * @author Kodehawa
  */
 
-public class ConfigurationManager {
-
+public class ConfigurationManager 
+{
+	
 	private volatile static ConfigurationManager instance = new ConfigurationManager();
-	public String version = "1.0.1";
+	public String version = "1.0.2";
 	public static boolean universalDebug;
 	
 	public ConfigurationManager() 
@@ -25,6 +30,11 @@ public class ConfigurationManager {
 		new AGCEConfigurationBoolean("Debug Config", this.getClass(), "universalDebug", universalDebug, "CEDebugConfig.txt");
 		new AGCEConfigurationSList("Friend List", "CEFriends.txt", PlayerRelations.instance().friends);
 		new AGCEConfigurationSList("Enemy List", "CEEnemies.txt", PlayerRelations.instance().enemies);
+		new AGCEConfigurationNG(BlockFinder.class, "Block Finder Radius", "BLOCK_RADIUS", "CEBFRadius.txt", BlockFinder.BLOCK_RADIUS);
+		new AGCEConfigurationNG(ChestFinder.class, "Chest Finder Radius", "BLOCK_RADIUS", "CECFRadius.txt", ChestFinder.BLOCK_RADIUS);
+		new AGCEConfigurationNG(Speed.class, "Speed Value", "SPEED_VALUE", "CESpeedValue.txt", Speed.SPEED_VALUE);
+		new AGCEConfigurationNG(Step.class, "Step Value", "DEFAULT_STEP_HEIGHT", "CEStepValue.txt", Step.DEFAULT_STEP_HEIGHT);
+		new AGCEConfigurationNG(Fly.class, "Fly Speed", "FLY_SPEED", "CEFlySpeed.txt", Fly.FLY_SPEED);
 		new AGCEConfigurationIList("BlockESP List", "CEBlockESPList.txt", BlockFinder.espList);
 		new AGCEConfigurationIList("X-Ray List", "CEXrayBlocks.txt", XRay.xrayList2);
 		KeybindConfiguration.instance();
@@ -35,7 +45,8 @@ public class ConfigurationManager {
 		return instance;
 	}
 	
-	public String getConfigurationSystemVersion(){
+	public String getConfigurationSystemVersion()
+	{
 		return version;
 	}
 }

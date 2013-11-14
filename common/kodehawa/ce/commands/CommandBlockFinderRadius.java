@@ -1,6 +1,8 @@
 package common.kodehawa.ce.commands;
 
+import common.kodehawa.ce.config.AGCEConfigurationNG;
 import common.kodehawa.ce.module.classes.BlockFinder;
+import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatMessageComponent;
@@ -22,6 +24,7 @@ public class CommandBlockFinderRadius extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender icommandsender, String[] astring) {
 		BlockFinder.BLOCK_RADIUS = Integer.parseInt(astring[0]);
+		AGCEConfigurationNG.instance.modify("CEBFRadius.txt", BlockFinder.BLOCK_RADIUS);
 		icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Block Finder radius set to: "+astring[0]+" blocks."));
 	}
 

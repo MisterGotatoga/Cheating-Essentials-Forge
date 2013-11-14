@@ -24,7 +24,15 @@ public class XRay extends AbstractModule
 	{
 		super(Category.RENDER);
 		this.setKeybinding(Keyboard.KEY_X);
-		addDefaultBlocks();
+		xrayList2.add(Block.oreCoal.blockID);
+		xrayList2.add(Block.oreIron.blockID);
+		xrayList2.add(Block.oreGold.blockID);
+		xrayList2.add(Block.oreEmerald.blockID);
+		xrayList2.add(Block.oreDiamond.blockID);
+		xrayList2.add(Block.oreLapis.blockID);
+		xrayList2.add(Block.oreRedstone.blockID);
+		xrayList2.add(Block.oreRedstoneGlowing.blockID);
+		xrayList2.add(Block.oreNetherQuartz.blockID);
 	}
 
 	@Override
@@ -80,18 +88,6 @@ public class XRay extends AbstractModule
 		}
 	}
 	
-	private static void addDefaultBlocks(){
-		xrayList2.add(Block.oreCoal.blockID);
-		xrayList2.add(Block.oreIron.blockID);
-		xrayList2.add(Block.oreGold.blockID);
-		xrayList2.add(Block.oreEmerald.blockID);
-		xrayList2.add(Block.oreDiamond.blockID);
-		xrayList2.add(Block.oreLapis.blockID);
-		xrayList2.add(Block.oreRedstone.blockID);
-		xrayList2.add(Block.oreRedstoneGlowing.blockID);
-		xrayList2.add(Block.oreNetherQuartz.blockID);
-	}
-	
 	public static void addDefaultList()
 	{
 		Utils.instance().removeDupes(xrayList2);
@@ -100,7 +96,6 @@ public class XRay extends AbstractModule
 			Field field = Block.class.getDeclaredField("xrayList");
 			field.setAccessible(true);
 			CopyOnWriteArrayList<Integer> xray = (CopyOnWriteArrayList<Integer>) field.get(null);
-			addDefaultBlocks();
 			for(Integer i : xrayList2)
 			{
 				Utils.instance().removeDupes(xray);

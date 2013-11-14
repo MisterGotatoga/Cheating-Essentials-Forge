@@ -29,12 +29,12 @@ public class CommandBlockESP extends CommandBase {
 	{
 		if(astring[0].equalsIgnoreCase("add")){
 			BlockFinder.espList.add(Integer.parseInt(astring[1]));
-			AGCEConfigurationIList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEBlockESPList.txt"), BlockFinder.espList);
+			AGCEConfigurationIList.instance.modify("CEBlockESPList.txt", BlockFinder.espList);
 		    icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Added to CE BlockESP list: "+astring[1]));
 		}
 		if(astring[0].equalsIgnoreCase("remove")){
 			BlockFinder.espList.remove((Integer)Integer.parseInt(astring[1]));
-			AGCEConfigurationIList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEBlockESPList.txt"), BlockFinder.espList);
+			AGCEConfigurationIList.instance.modify("CEBlockESPList.txt", BlockFinder.espList);
 		    icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed from CE BlockESP list: "+astring[1]));
 		}
 	}

@@ -1,5 +1,7 @@
 package common.kodehawa.ce.module.classes;
 
+import net.minecraft.client.Minecraft;
+
 import org.lwjgl.input.Keyboard;
 
 import common.kodehawa.ce.module.core.AbstractModule;
@@ -13,6 +15,8 @@ public class Fly extends AbstractModule {
 		this.setKeybinding(Keyboard.KEY_R);
 	}
 	
+	public static float FLY_SPEED = 0.05F;
+	
 	@Override
 	public String getModuleName(){
 		return "Fly";
@@ -24,6 +28,7 @@ public class Fly extends AbstractModule {
 	}
 
 	public void enable(){
+		Minecraft.getMinecraft().thePlayer.capabilities.setFlySpeed(FLY_SPEED);
 		player().capabilities.isFlying = true;
 	}
 	

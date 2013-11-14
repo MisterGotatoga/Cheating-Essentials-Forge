@@ -36,7 +36,7 @@ public class CommandXray extends CommandBase {
 			XRay.addDefaultList();
 			icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Added ID from X-Ray list: "+id));
 			Utils.instance().removeDupes(XRay.xrayList2);
-			AGCEConfigurationIList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEXrayBlocks.txt"), XRay.xrayList2);
+			AGCEConfigurationIList.instance.modify("CEXrayBlocks.txt", XRay.xrayList2);
 			Utils.instance().removeDupes(XRay.xrayList2);
 			ModuleManager.instance().getModuleClass(XRay.class).reset();
 		}
@@ -49,7 +49,7 @@ public class CommandXray extends CommandBase {
 			XRay.addDefaultList();
 			Utils.instance().removeDupes(XRay.xrayList2);
 			icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed ID from X-Ray list: "+id));
-			AGCEConfigurationIList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEXrayBlocks.txt"), XRay.xrayList2);
+			AGCEConfigurationIList.instance.modify("CEXrayBlocks.txt", XRay.xrayList2);
 			ModuleManager.instance().getModuleClass(XRay.class).reset();
 		}
 	}

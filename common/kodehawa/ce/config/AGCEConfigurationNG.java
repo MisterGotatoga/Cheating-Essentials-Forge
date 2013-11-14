@@ -7,37 +7,33 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
-import java.util.Collection;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Level;
 
 import net.minecraft.client.Minecraft;
 
 import common.kodehawa.ce.logger.DynamicLogger;
-import common.kodehawa.ce.util.Utils;
+import common.kodehawa.ce.reflect.ReflectionHelper;
 
-/**
- * Auto Generated config file for Collection-extended (Integer) Lists.
- * @author Kodehawa
- */
-public class AGCEConfigurationIList {
-
-	public volatile static AGCEConfigurationIList instance = new AGCEConfigurationIList() ;
-	private Collection list;
+public class AGCEConfigurationNG 
+{
+	
+	public volatile static AGCEConfigurationNG instance = new AGCEConfigurationNG() ;
+	private Object obj;
+	private Object newobj;
 	private String name;
 	private File file;
 	private String path;
 	
-	private AGCEConfigurationIList(){}
+	private AGCEConfigurationNG(){}
 	
-	public AGCEConfigurationIList(String name, String path, Collection list){
+	public AGCEConfigurationNG(Class clazz, String name, String fieldName, String path, Object object){
 		this.name = name;
 		this.path = path;
-		this.list = list;
+		this.obj = object;
 		this.file = new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/"+path);
 		this.createFile();
 		this.read();
+		ReflectionHelper.setStringFieldWW(clazz, null, fieldName, newobj);
 	}
 	
 	private void createFile()
@@ -48,29 +44,26 @@ public class AGCEConfigurationIList {
 			try
 			{
 				file.createNewFile();
-				create(file, list);
+				create(file, obj);
 			}
 			catch(Exception e)
 			{}
 		}
 	}
 	
-	public void modify(String path, List list){
+	public void modify(String path, Object o){
 		this.path = path;
 		this.file = new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/"+path);
-		create(file, list);
+		create(file, o);
 	}
 	
-	private void create(File file, Collection list){
-		DynamicLogger.instance().writeLogWithPrefix("CMLI", "Writing (Integer) List config file to "+path, Level.INFO, 1);
+	private void create(File file, Object obj){
+		DynamicLogger.instance().writeLogWithPrefix("CMLG", "Writing (Generic) ["+obj.getClass()+"] config file to "+path, Level.INFO, 1);
 		try
 		{
 			FileWriter filewriter = new FileWriter(file);
 			BufferedWriter buffered = new BufferedWriter(filewriter);
-			for(Integer s : (CopyOnWriteArrayList<Integer>)list){
-				Utils.instance().removeDupes(list);
-				buffered.write(s+"\r\n");
-			}
+			buffered.write(obj+"\r\n");
 			buffered.close();
 		}
 		catch(Exception e)
@@ -80,7 +73,7 @@ public class AGCEConfigurationIList {
 	}
 	
 	private void read(){
-		DynamicLogger.instance().writeLogWithPrefix("CMLI", "Reading (Integer) List config file: "+name, Level.INFO, 1);
+		DynamicLogger.instance().writeLogWithPrefix("CMLG", "Reading (Generic) ["+obj.getClass()+"] config file: "+name, Level.INFO, 1);
 		try
 		{
 			FileInputStream imputstream = new FileInputStream(file.getAbsolutePath());
@@ -88,8 +81,28 @@ public class AGCEConfigurationIList {
 			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(datastream));
 			String s;
 			while((s = bufferedreader.readLine()) != null){
-				Integer i = Integer.parseInt(s);
-				list.add(i);
+				if(obj instanceof Number)
+				{
+					if(obj instanceof Integer)
+					{
+						Integer i = Integer.parseInt(s);
+						newobj = i;
+					}
+					if(obj instanceof Double)
+					{
+						Double d = Double.parseDouble(s);
+						newobj = d;
+					}
+					if(obj instanceof Float)
+					{
+						Float f = Float.parseFloat(s);
+						newobj = f;
+					}
+				}
+				else
+				{
+					DynamicLogger.instance().writeLogWithPrefix("CMLG", "Unable to read non-numeric value on Numeric Configuration!", Level.WARNING, 1);
+				}
 			}
 			bufferedreader.close();
 		}
@@ -98,4 +111,5 @@ public class AGCEConfigurationIList {
 			e.printStackTrace();
 		}
 	}
+
 }

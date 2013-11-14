@@ -7,12 +7,14 @@ import java.util.logging.Level;
 import com.google.common.collect.Lists;
 
 import common.kodehawa.ce.logger.DynamicLogger;
+import common.kodehawa.ce.module.classes.Console;
 import common.kodehawa.ce.module.classes.Gui;
 import common.kodehawa.ce.module.core.AbstractModule;
 
 public class ModuleManager {
 
 	private static volatile ModuleManager instance = new ModuleManager();
+	private String version = "4.1";
 	public List<AbstractModule> avModules = Lists.newArrayList();
 	public List<String> enabled = Lists.newArrayList();
 
@@ -47,7 +49,8 @@ public class ModuleManager {
 		}
 	}
 	
-    public AbstractModule getModuleClass(Class class1){
+    public AbstractModule getModuleClass(Class class1)
+    {
     	for(AbstractModule m1 : avModules){
 			if(m1.getClass().equals(class1)){
 				return m1;
@@ -56,8 +59,14 @@ public class ModuleManager {
 		return null;
     }
     
+    public String getModuleManagerVersion()
+    {
+    	return version;
+    }
+    
     public void addSpecialModules(){
 		avModules.add(new Gui());
+		avModules.add(new Console());
     }
     
     public List getModules(){
