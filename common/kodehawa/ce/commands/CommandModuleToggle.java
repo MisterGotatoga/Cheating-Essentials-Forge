@@ -3,7 +3,7 @@ package common.kodehawa.ce.commands;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatMessageComponent;
-
+import common.kodehawa.ce.config.ModuleStateConfiguration;
 import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.man.ModuleManager;
 

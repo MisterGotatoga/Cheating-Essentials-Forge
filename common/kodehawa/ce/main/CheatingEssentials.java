@@ -50,7 +50,7 @@ import cpw.mods.fml.relauncher.Side;
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
 @Mod(modid="Cheating-Essentials", name="Cheating Essentials Reloaded", version="4.1.1")
 @NetworkMod(serverSideRequired = false)
-public class CheatingEssentials
+public final class CheatingEssentials
 {
 
 	@Instance("Cheating-Essentials")

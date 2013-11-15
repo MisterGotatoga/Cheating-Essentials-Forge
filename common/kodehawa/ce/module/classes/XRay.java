@@ -88,6 +88,10 @@ public class XRay extends AbstractModule
 		}
 	}
 	
+	public String showHelp(){
+		return "Shows the hidden ores :D";
+	}
+	
 	public static void addDefaultList()
 	{
 		Utils.instance().removeDupes(xrayList2);

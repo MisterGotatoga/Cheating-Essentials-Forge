@@ -3,18 +3,21 @@ package common.kodehawa.ce.apicommands;
 import net.minecraft.client.Minecraft;
 
 import common.kodehawa.api.console.BaseCommand;
+import common.kodehawa.ce.config.ModuleStateConfiguration;
 import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.man.ModuleManager;
 
-public class ACommandModuleToggle extends BaseCommand {
+public class ACommandModuleToggle extends BaseCommand
+{
 
-	public ACommandModuleToggle() {
+	public ACommandModuleToggle() 
+	{
 		super("module");
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void runCommand(String s, String[] subcommands) {
+	public void runCommand(String s, String[] subcommands)
+	{
 		for(AbstractModule module : ModuleManager.instance().avModules){
 			if(module.getModuleName().replace(" ", "").equalsIgnoreCase(subcommands[0])){
 				module.toggle(); 
@@ -25,14 +28,14 @@ public class ACommandModuleToggle extends BaseCommand {
 	}
 
 	@Override
-	public String getDescription() {
-		// TODO Auto-generated method stub
+	public String getDescription()
+	{
 		return "Toggles a module";
 	}
 
 	@Override
-	public String getSyntax() {
-		// TODO Auto-generated method stub
+	public String getSyntax() 
+	{
 		return this.getCommand()+" <module name>";
 	}
 

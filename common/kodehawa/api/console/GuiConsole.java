@@ -31,6 +31,7 @@ public class GuiConsole extends GuiScreen
     {
     	this.mc = mc;
     }
+    
     public void addChatMessage(String s)
     {
     	mc.thePlayer.addChatMessage(s);

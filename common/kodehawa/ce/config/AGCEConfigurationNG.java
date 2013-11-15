@@ -58,7 +58,7 @@ public class AGCEConfigurationNG
 	}
 	
 	private void create(File file, Object obj){
-		DynamicLogger.instance().writeLogWithPrefix("CMLG", "Writing (Generic) ["+obj.getClass()+"] config file to "+path, Level.INFO, 1);
+		DynamicLogger.instance().writeLogWithPrefix("CMLG", "Writing (Generic) ["+obj.getClass().toString().replaceAll("class java.lang.", "")+"] config file to "+path, Level.INFO, 1);
 		try
 		{
 			FileWriter filewriter = new FileWriter(file);
@@ -73,7 +73,7 @@ public class AGCEConfigurationNG
 	}
 	
 	private void read(){
-		DynamicLogger.instance().writeLogWithPrefix("CMLG", "Reading (Generic) ["+obj.getClass()+"] config file: "+name, Level.INFO, 1);
+		DynamicLogger.instance().writeLogWithPrefix("CMLG", "Reading (Generic) ["+obj.getClass().toString().replaceAll("class java.lang.", "")+"] config file: "+name, Level.INFO, 1);
 		try
 		{
 			FileInputStream imputstream = new FileInputStream(file.getAbsolutePath());

@@ -9,6 +9,7 @@ import net.minecraftforge.common.MinecraftForge;
 import org.apache.commons.lang3.StringUtils;
 import org.lwjgl.input.Keyboard;
 
+import common.kodehawa.ce.config.ModuleStateConfiguration;
 import common.kodehawa.ce.event.Event;
 import common.kodehawa.ce.event.EventHandler;
 import common.kodehawa.ce.event.Listener;
@@ -18,70 +19,86 @@ import common.kodehawa.ce.main.CheatingEssentials;
 import common.kodehawa.ce.module.enums.Category;
 import common.kodehawa.ce.module.man.ModuleManager;
 
-public abstract class AbstractModule implements Listener {
+public abstract class AbstractModule implements Listener 
+{
 
 	public String moduleName, moduleVersion, moduleAuthor, help = "NULL_HELP_REACHED";
 	public int keybinding = Keyboard.KEY_NONE;
 	public Category cat;
 	private boolean state, forgeEvt, tick, render;
 
-	public AbstractModule(Category category){
+	public AbstractModule(Category category)
+	{
 		cat = category;
 	}
 	
-	public String getModuleName(){
+	public String getModuleName()
+	{
 		return (moduleName == null ? this.getClass().toString() : moduleName); //As a placeholder
 	}
 	
-	public int getKeybind(){
+	public int getKeybind()
+	{
 		return keybinding;
 	}
 	
-	public String getModuleVersion(){
+	public String getModuleVersion()
+	{
 		return StringUtils.defaultString(moduleVersion);
 	}
 	
-	public String getModuleAuth(){
+	public String getModuleAuth()
+	{
 		return StringUtils.defaultString(moduleAuthor);
 	}
 	
-	public void setForgeEvent(boolean state){
+	public void setForgeEvent(boolean state)
+	{
 		forgeEvt = state;
 	}
 	
-	public void setKeybinding(int key){
+	public void setKeybinding(int key)
+	{
 		keybinding = key;
 	}
 	
-	public void setTick(boolean state){
+	public void setTick(boolean state)
+	{
 		tick = state;
 	}
 	
-	public void setRender(boolean state){
+	public void setRender(boolean state)
+	{
 		render = state;
 	}
 	
-	public boolean getForgeEvent(){
+	public boolean getForgeEvent()
+	{
 		return forgeEvt;
 	}
 	
-	public boolean getRender(){
+	public boolean getRender()
+	{
 		return render;
 	}
 	
-	public boolean getTick(){
+	public boolean getTick()
+	{
 		return tick;
 	}
 	
-	public boolean isActive(){
+	public boolean isActive()
+	{
 		return state;
 	}
 
-	public Category getCategory(){
+	public Category getCategory()
+	{
 		return cat;
 	}
 	
-	public void reset(){
+	public void reset()
+	{
 		this.toggle();
 		this.toggle();
 	}
@@ -106,7 +123,8 @@ public abstract class AbstractModule implements Listener {
 		if(getForgeEvent()){ MinecraftForge.EVENT_BUS.unregister(this); }
 	}
 	
-	public void toggle(){
+	public void toggle()
+	{
 		//Register, register, call and REGISTER :)
 		state = !state;
 		if(state){
@@ -123,6 +141,7 @@ public abstract class AbstractModule implements Listener {
 			if(getRender()){ EventHandler.getInstance().unRegisterListener(EventRender.class, this); }
 			if(getForgeEvent()){ MinecraftForge.EVENT_BUS.unregister(this); }
 		}
+		ModuleStateConfiguration.instance().writeToFile();
 	}
 	
 	public String showHelp()
@@ -150,7 +169,8 @@ public abstract class AbstractModule implements Listener {
 	}
 	
 	@Override
-	public void onEvent(Event evt){
+	public void onEvent(Event evt)
+	{
 		if(evt instanceof EventTick){
 			this.tick();
 		}
