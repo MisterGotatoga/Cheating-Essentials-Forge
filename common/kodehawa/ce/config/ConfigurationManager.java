@@ -27,6 +27,7 @@ public class ConfigurationManager
 	{
 		DynamicLogger.instance().writeLog("Starting A.G.C.E Configuration System on Cheating Essentials...", Level.INFO);
 		PlayerRelations.instance();
+		ModuleStateConfiguration.instance();
 		new AGCEConfigurationBoolean("Debug Config", this.getClass(), "universalDebug", universalDebug, "CEDebugConfig.txt");
 		new AGCEConfigurationSList("Friend List", "CEFriends.txt", PlayerRelations.instance().friends);
 		new AGCEConfigurationSList("Enemy List", "CEEnemies.txt", PlayerRelations.instance().enemies);

@@ -3,8 +3,11 @@ package common.kodehawa.reeszrbteam.ce.gui.click;
 import java.util.ArrayList;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.util.EnumChatFormatting;
+import common.kodehawa.ce.config.ModuleStateConfiguration;
 import common.kodehawa.ce.main.CheatingEssentials;
 import common.kodehawa.ce.module.man.ModuleManager;
 import common.kodehawa.reeszrbteam.ce.gui.click.elements.YAWWindow;
@@ -35,10 +38,14 @@ public class YouAlwaysWinClickGui extends GuiScreen
 	public void initGui()
 	{
 		guiHub.setOpen(true);
+		buttonList.clear();
 	}
 	
-	public void onGuiClosed(){}
-
+	public void onGuiClosed()
+	{
+		ModuleStateConfiguration.instance().writeToFile();
+	}
+	
 	public static void sendPanelToFront(YAWWindow window)
 	{
 		if(windows.contains(window))

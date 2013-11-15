@@ -86,6 +86,26 @@ public abstract class AbstractModule implements Listener {
 		this.toggle();
 	}
 	
+	public void forceEnable()
+	{
+		state = true;
+		enable();
+		if(!(getCategory() == Category.NONE)){ ModuleManager.instance().enabled.add(this.getModuleName()); }
+		if(getTick()){ EventHandler.getInstance().registerListener(EventTick.class, this); }
+		if(getRender()){ EventHandler.getInstance().registerListener(EventRender.class, this); }
+		if(getForgeEvent()){ MinecraftForge.EVENT_BUS.register(this); }
+	}
+	
+	public void forceDisable()
+	{
+		state = false;
+		disable();
+		if(!(getCategory() == Category.NONE)){ ModuleManager.instance().enabled.remove(this.getModuleName()); }
+		if(getTick()){ EventHandler.getInstance().unRegisterListener(EventTick.class, this); }
+		if(getRender()){ EventHandler.getInstance().unRegisterListener(EventRender.class, this); }
+		if(getForgeEvent()){ MinecraftForge.EVENT_BUS.unregister(this); }
+	}
+	
 	public void toggle(){
 		//Register, register, call and REGISTER :)
 		state = !state;
