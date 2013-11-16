@@ -115,7 +115,6 @@ public final class CheatingEssentials
 		command.registerCommand(new CommandModuleHelp());
 		command.registerCommand(new CommandSpeedValue());
 		command.registerCommand(new CommandBlockFinderRadius());
-		command.registerCommand(new CommandChestFinderRadius());
 		command.registerCommand(new CommandXray());
 	}
 	

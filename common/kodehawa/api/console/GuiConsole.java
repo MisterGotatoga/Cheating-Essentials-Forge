@@ -27,6 +27,7 @@ public class GuiConsole extends GuiScreen
         	this.cmds.add(c.getCommand() + " - " + c.getDescription());
         }
     }
+    
     public GuiConsole(Minecraft mc)
     {
     	this.mc = mc;
@@ -89,7 +90,20 @@ public class GuiConsole extends GuiScreen
             String[] var4;
             String var5;
             
-            CommandManager.instance().runCommands("." + var3);
+            try
+            {
+                CommandManager.instance().runCommands("." + var3);
+            }
+            catch(Exception e)
+            {
+            	for(BaseCommand command : CommandManager.commands)
+            	{
+            		if(message.contains(command.getCommand()))
+            		{
+                		command.getSyntax();
+            		}
+            	}
+            }
             
             this.mc.displayGuiScreen((GuiScreen)null);
         }

@@ -1,14 +1,11 @@
 package common.kodehawa.ce.module.classes;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import net.minecraft.block.Block;
 
 import org.lwjgl.input.Keyboard;
-
-import com.google.common.collect.Lists;
 
 import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.enums.Category;

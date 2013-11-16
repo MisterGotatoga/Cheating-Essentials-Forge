@@ -9,7 +9,6 @@ public class APICommandManager {
 		CommandManager.instance().addCommand(new ACommandBFRadius());
 		CommandManager.instance().addCommand(new ACommandBlockESP());
 		CommandManager.instance().addCommand(new ACommandCBreadcrumb());
-		CommandManager.instance().addCommand(new ACommandCFRadius());
 		CommandManager.instance().addCommand(new ACommandEnemy());
 		CommandManager.instance().addCommand(new ACommandFlySpeed());
 		CommandManager.instance().addCommand(new ACommandFriend());

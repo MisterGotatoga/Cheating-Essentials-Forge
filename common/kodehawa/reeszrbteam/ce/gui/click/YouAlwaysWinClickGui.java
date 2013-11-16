@@ -2,14 +2,15 @@ package common.kodehawa.reeszrbteam.ce.gui.click;
 
 import java.util.ArrayList;
 
+import org.lwjgl.input.Keyboard;
+
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.client.multiplayer.NetClientHandler;
+import net.minecraft.util.ChatAllowedCharacters;
+import common.kodehawa.api.console.BaseCommand;
+import common.kodehawa.api.console.CommandManager;
 import common.kodehawa.ce.config.ModuleStateConfiguration;
-import common.kodehawa.ce.main.CheatingEssentials;
-import common.kodehawa.ce.module.man.ModuleManager;
 import common.kodehawa.reeszrbteam.ce.gui.click.elements.YAWWindow;
 import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowActives;
 import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowHub;
@@ -19,12 +20,20 @@ import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowRadar;
 import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowRender;
 import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowUtils;
 import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowWorld;
+import common.kodehawa.reeszrbteam.ce.util.CEUtils;
 
 public class YouAlwaysWinClickGui extends GuiScreen
 {
 	public static ArrayList<YAWWindow> windows = new ArrayList<YAWWindow>();
 	public static ArrayList<YAWWindow> unFocusedWindows = new ArrayList<YAWWindow>();
 	public static boolean isDark = false;
+	ArrayList cmds = new ArrayList();
+	public static ArrayList OrgName = new ArrayList();
+	public static ArrayList NameP = new ArrayList();
+	protected String message = "";
+	private int updateCounter = 0;
+	public NetClientHandler sendQueue;
+	private static final String allowedCharacters = ChatAllowedCharacters.allowedCharacters;
 	
 	public YAWWindow guiHub = new WindowHub();
 	public YAWWindow player = new WindowPlayer().init();
@@ -35,14 +44,27 @@ public class YouAlwaysWinClickGui extends GuiScreen
     public YAWWindow utils = new WindowUtils().init();
     public YAWWindow actives = new WindowActives();
 	
+    public YouAlwaysWinClickGui()
+    {
+    	this.cmds.clear();
+	    for(BaseCommand c : CommandManager.commands)
+	    {
+	    	this.cmds.add(c.getCommand() + " - " + c.getDescription());
+	    }
+    }
+    
 	public void initGui()
 	{
+		super.initGui();
+        Keyboard.enableRepeatEvents(true);
 		guiHub.setOpen(true);
-		buttonList.clear();
 	}
 	
 	public void onGuiClosed()
 	{
+		super.onGuiClosed();
+    	this.message = "";
+        Keyboard.enableRepeatEvents(false);
 		ModuleStateConfiguration.instance().writeToFile();
 	}
 	
@@ -61,14 +83,102 @@ public class YouAlwaysWinClickGui extends GuiScreen
 		return windows.get(windows.size() - 1);
 	}
 	
+	/**
+     * Fired when a key is typed. This is the equivalent of KeyListener.keyTyped(KeyEvent e).
+     */
+    protected void keyTyped(char var1, int var2)
+    {
+        String var3;
+ 
+        if (var1 == 22)
+        {
+            var3 = GuiScreen.getClipboardString();
+ 
+            if (var3 != null)
+            {
+            	this.message = this.message + var3;
+            }
+        }
+ 
+        if (var2 == 1)
+        {
+            this.mc.displayGuiScreen((GuiScreen)null);
+        }
+        else if (var2 == 28)
+        {
+            var3 = this.message.trim();
+            String[] var4;
+            String var5;
+            
+            try
+            {
+                CommandManager.instance().runCommands("." + var3);
+            }
+            catch(Exception e)
+            {
+            	for(BaseCommand command : CommandManager.commands)
+            	{
+            		if(message.contains(command.getCommand()))
+            		{
+                		command.getSyntax();
+            		}
+            	}
+            }
+            message = "";
+        }
+        else
+        {
+            if (var2 == 14 && this.message.length() > 0)
+            {
+                this.message = this.message.substring(0, this.message.length() - 1);
+            }
+ 
+            if (allowedCharacters.indexOf(var1) >= 0 && this.message.length() < 100)
+            {
+                this.message = this.message + var1;
+            }
+        }
+    }
+
+	
 	public void drawScreen(int x, int y, float f)
 	{
+		super.drawScreen(x, y, f);
+        int var4 = 24;
+        
+        for (int var5 = 0; var5 < this.cmds.size(); ++var5)
+        {
+            String var6 = (String)this.cmds.get(var5);
+ 
+            if (var6.startsWith(this.message) && this.message.length() > 0)
+            {
+                CEUtils.drawBorderedRect(83 + 4, var4 - 6,83 + this.fontRenderer.getStringWidth(var6) + 8, var4 + 6, 1, -15066598, -14145496);
+                
+                this.drawString(this.fontRenderer, var6,83 + 6, var4 - 4, 16777215);
+                var4 += 14;
+            }
+        }
+ 
+        CEUtils.drawBorderedRect(83 + 4, 0, this.width - 60, 12, 1, -15066598, -14145496);
+        Minecraft.getMinecraft().fontRenderer.drawString("CE Console ",  83 + 10, 2, 0x55FFFF);
+        
+        this.drawString(this.fontRenderer, "" + (this.updateCounter / 12 % 2 != 0 ? "\u00a7b>\u00a77 " : "\u00a73>\u00a77 ") + this.message + (this.updateCounter / 12 % 2 != 0 ? " \u00a7b_" : " \u00a73_"), this.fontRenderer.getStringWidth("CE Console ") + 83 + 10, 2, 14737632);
 		for(YAWWindow window: windows)
 		{
 			window.draw(x, y);
 		}
+		//CEUtils.drawRect(0, 150, this.width, 160, 0x000000);
 	}
-	
+		
+    /**
+     * Called from the main game loop to update the screen.
+     */
+    public void updateScreen()
+    {
+        ++this.updateCounter;
+        super.updateScreen();
+    }
+    
 	public void mouseClicked(int x, int y, int button)
 	{
 		try

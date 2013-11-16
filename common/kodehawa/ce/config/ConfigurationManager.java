@@ -4,7 +4,6 @@ import java.util.logging.Level;
 
 import common.kodehawa.ce.logger.DynamicLogger;
 import common.kodehawa.ce.module.classes.BlockFinder;
-import common.kodehawa.ce.module.classes.ChestFinder;
 import common.kodehawa.ce.module.classes.Fly;
 import common.kodehawa.ce.module.classes.Speed;
 import common.kodehawa.ce.module.classes.Step;
@@ -32,7 +31,6 @@ public class ConfigurationManager
 		new AGCEConfigurationSList("Friend List", "CEFriends.txt", PlayerRelations.instance().friends);
 		new AGCEConfigurationSList("Enemy List", "CEEnemies.txt", PlayerRelations.instance().enemies);
 		new AGCEConfigurationNG(BlockFinder.class, "Block Finder Radius", "BLOCK_RADIUS", "CEBFRadius.txt", BlockFinder.BLOCK_RADIUS);
-		new AGCEConfigurationNG(ChestFinder.class, "Chest Finder Radius", "BLOCK_RADIUS", "CECFRadius.txt", ChestFinder.BLOCK_RADIUS);
 		new AGCEConfigurationNG(Speed.class, "Speed Value", "SPEED_VALUE", "CESpeedValue.txt", Speed.SPEED_VALUE);
 		new AGCEConfigurationNG(Step.class, "Step Value", "DEFAULT_STEP_HEIGHT", "CEStepValue.txt", Step.DEFAULT_STEP_HEIGHT);
 		new AGCEConfigurationNG(Fly.class, "Fly Speed", "FLY_SPEED", "CEFlySpeed.txt", Fly.FLY_SPEED);

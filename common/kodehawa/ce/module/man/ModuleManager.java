@@ -21,7 +21,6 @@ public class ModuleManager {
 	public ModuleManager(){
 		DynamicLogger.instance().writeLog("Starting Module System on Cheating Essentials...", Level.INFO);
 		load("common.kodehawa.ce.module.classes.");
-		DynamicLogger.instance().writeLog("Added: "+avModules.size()+" modules to Cheating Essentials" , Level.INFO);
 	}
 
 	private void load(String packageName){
@@ -37,7 +36,7 @@ public class ModuleManager {
 				Class clazz = Class.forName(packageName+moduleClasses[i]);
 				if(clazz.getSuperclass() == AbstractModule.class){
 					AbstractModule instance = (AbstractModule) clazz.newInstance();
-					avModules.add(instance);
+					addModule(instance);
 				}
 				else{
 					DynamicLogger.instance().writeLog("Not recognized module", Level.INFO);
@@ -47,6 +46,12 @@ public class ModuleManager {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private void addModule(AbstractModule module)
+	{
+		DynamicLogger.instance().writeLogWithPrefix("CE-CM", "Loaded module data: "+module+" [Catched Module Info{"+moduleInfo(module)+"}]", Level.INFO, 1);
+		avModules.add(module);
 	}
 	
     public AbstractModule getModuleClass(Class class1)
@@ -66,13 +71,18 @@ public class ModuleManager {
     
     public void addSpecialModules(){
 		avModules.add(new Gui());
-		avModules.add(new Console());
+		//avModules.add(new Console());
     }
     
     public List getModules(){
     	return Collections.unmodifiableList(avModules);
     }
 	
+    private String moduleInfo(AbstractModule module)
+    {
+    	return "name:"+module.getModuleName()+(" isForgeEvent:"+module.getForgeEvent()+" isTickable:"+module.getTick()+" isRenderable:"+module.getRender()+" isActive:"+module.isActive()).replaceAll(" ", ",");
+    }
+    
 	public static ModuleManager instance(){
 		return instance;
 	}

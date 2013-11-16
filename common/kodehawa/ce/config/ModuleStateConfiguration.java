@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.logging.Level;
 
 import net.minecraft.client.Minecraft;
-
 import common.kodehawa.ce.logger.DynamicLogger;
 import common.kodehawa.ce.module.core.AbstractModule;
+import common.kodehawa.ce.module.enums.Category;
 import common.kodehawa.ce.module.man.ModuleManager;
 
 public class ModuleStateConfiguration {
@@ -30,14 +30,16 @@ public class ModuleStateConfiguration {
 	
 	public void writeToFile()
 	{
-		DynamicLogger.instance().writeLogWithPrefix("CM-M", "Writing module config file...", Level.INFO, 1);
+		//DynamicLogger.instance().writeLogWithPrefix("CM-M", "Writing module config file...", Level.INFO, 1);
 		try
 		{
 			FileWriter filewriter = new FileWriter(moduleConfig);
 			BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
 			for(AbstractModule module : ModuleManager.instance().avModules){
 				Boolean s = module.isActive();
-			    bufferedwriter.write(module.getModuleName().toLowerCase().replaceAll(" ", "") + ":" + s +"\r\n");
+				if(module.cat != Category.NONE){
+				    bufferedwriter.write(module.getModuleName().toLowerCase().replaceAll(" ", "") + ":" + s +"\r\n");
+				}
 		    }
 			bufferedwriter.close();
 		}
@@ -65,22 +67,25 @@ public class ModuleStateConfiguration {
 				String booleanState = string2[1];
 				for(AbstractModule module : ModuleManager.instance().avModules)
 				{
-					List<String> modules = Arrays.asList(module.getModuleName());
-					for(int i = 0; i < modules.size(); ++i){
-						if(moduleName.equalsIgnoreCase(modules.get(i).toLowerCase().replaceAll(" ", "")))
-						{
-							if(ConfigurationManager.universalDebug){
-								System.out.println("Module: ".concat(module.getModuleName()).concat(" state: ")+booleanState);
-							}
-							if(booleanState.equalsIgnoreCase("true"))
+					if(module.cat != Category.NONE)
+					{
+						List<String> modules = Arrays.asList(module.getModuleName());
+						for(int i = 0; i < modules.size(); ++i){
+							if(moduleName.equalsIgnoreCase(modules.get(i).toLowerCase().replaceAll(" ", "")))
 							{
-								try
-								{
-									module.forceEnable();
+								if(ConfigurationManager.universalDebug){
+									System.out.println("Module: ".concat(module.getModuleName()).concat(" state: ")+booleanState);
 								}
-								catch(Exception e)
+								if(booleanState.equalsIgnoreCase("true"))
 								{
-									e.printStackTrace();
+									try
+									{
+										module.forceEnable();
+									}
+									catch(Exception e)
+									{
+										e.printStackTrace();
+									}
 								}
 							}
 						}
