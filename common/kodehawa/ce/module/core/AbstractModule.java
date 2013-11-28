@@ -1,5 +1,7 @@
 package common.kodehawa.ce.module.core;
 
+import java.util.logging.Level;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.multiplayer.WorldClient;
@@ -15,6 +17,7 @@ import common.kodehawa.ce.event.EventHandler;
 import common.kodehawa.ce.event.Listener;
 import common.kodehawa.ce.event.events.EventRender;
 import common.kodehawa.ce.event.events.EventTick;
+import common.kodehawa.ce.logger.DynamicLogger;
 import common.kodehawa.ce.main.CheatingEssentials;
 import common.kodehawa.ce.module.enums.Category;
 import common.kodehawa.ce.module.man.ModuleManager;
@@ -22,13 +25,14 @@ import common.kodehawa.ce.module.man.ModuleManager;
 public abstract class AbstractModule implements Listener 
 {
 
-	public String moduleName, moduleVersion, moduleAuthor, help = "NULL_HELP_REACHED";
+	public String moduleName, moduleVersion, moduleAuthor, help;
 	public int keybinding = Keyboard.KEY_NONE;
 	public Category cat;
 	private boolean state, forgeEvt, tick, render;
 
 	public AbstractModule(Category category)
 	{
+
 		cat = category;
 	}
 	
@@ -105,48 +109,94 @@ public abstract class AbstractModule implements Listener
 	
 	public void forceEnable()
 	{
-		state = true;
-		enable();
-		if(!(getCategory() == Category.NONE)){ ModuleManager.instance().enabled.add(this.getModuleName()); }
-		if(getTick()){ EventHandler.getInstance().registerListener(EventTick.class, this); }
-		if(getRender()){ EventHandler.getInstance().registerListener(EventRender.class, this); }
-		if(getForgeEvent()){ MinecraftForge.EVENT_BUS.register(this); }
+		this.state = true;
+		this.enable();
+		this.callRegister();
 	}
 	
 	public void forceDisable()
 	{
-		state = false;
-		disable();
-		if(!(getCategory() == Category.NONE)){ ModuleManager.instance().enabled.remove(this.getModuleName()); }
-		if(getTick()){ EventHandler.getInstance().unRegisterListener(EventTick.class, this); }
-		if(getRender()){ EventHandler.getInstance().unRegisterListener(EventRender.class, this); }
-		if(getForgeEvent()){ MinecraftForge.EVENT_BUS.unregister(this); }
+		this.state = false;
+		this.disable();
+		this.uncallUnregister();
 	}
 	
 	public void toggle()
 	{
-		//Register, register, call and REGISTER :)
 		state = !state;
-		if(state){
-			enable();
-			if(!(getCategory() == Category.NONE)){ ModuleManager.instance().enabled.add(this.getModuleName()); }
-			if(getTick()){ EventHandler.getInstance().registerListener(EventTick.class, this); }
-			if(getRender()){ EventHandler.getInstance().registerListener(EventRender.class, this); }
-			if(getForgeEvent()){ MinecraftForge.EVENT_BUS.register(this); }
+		if(state)
+		{
+			this.enable();
+			this.callRegister();
 		}
-		else{
-			disable();
-			if(!(getCategory() == Category.NONE)){ ModuleManager.instance().enabled.remove(this.getModuleName()); }
-			if(getTick()){ EventHandler.getInstance().unRegisterListener(EventTick.class, this); }
-			if(getRender()){ EventHandler.getInstance().unRegisterListener(EventRender.class, this); }
-			if(getForgeEvent()){ MinecraftForge.EVENT_BUS.unregister(this); }
+		else
+		{
+			this.disable();	
+			this.uncallUnregister();
 		}
+		
+		
 		ModuleStateConfiguration.instance().writeToFile();
+	}
+	
+	
+	private void uncallUnregister()
+	{
+		if(!(getCategory() == Category.NONE))
+		{
+			ModuleManager.instance().enabled.remove(this.getModuleName());
+		}
+		
+		if(getTick())
+		{ 
+			EventHandler.getInstance().unRegisterListener(EventTick.class, this);
+		}
+		
+		if(getRender())
+		{
+			EventHandler.getInstance().unRegisterListener(EventRender.class, this);
+		}
+		
+		if(getForgeEvent())
+		{ 
+			MinecraftForge.EVENT_BUS.unregister(this);
+		}
+	}
+	
+	private void callRegister()
+	{
+		//Start registering things
+		if(!(getCategory() == Category.NONE))
+		{ 
+			ModuleManager.instance().enabled.add(this.getModuleName()); 
+		}
+		
+		if(getTick())
+		{
+			EventHandler.getInstance().registerListener(EventTick.class, this);
+		}
+		
+		if(getRender())
+		{ 
+			EventHandler.getInstance().registerListener(EventRender.class, this);
+		}
+		
+		if(getForgeEvent())
+		{ 
+			MinecraftForge.EVENT_BUS.register(this);
+		}
 	}
 	
 	public String showHelp()
 	{
-		return help;
+		if(help != null)
+		{
+			return help;
+		}
+		else
+		{
+			return "[CE - Console Message] I was unable to find the module help for the specified module :/";
+		}
 	}
 	
 	public Minecraft minecraft()

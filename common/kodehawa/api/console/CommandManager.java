@@ -1,7 +1,10 @@
 package common.kodehawa.api.console;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
 
+import common.kodehawa.ce.logger.DynamicLogger;
+import common.kodehawa.ce.main.CheatingEssentials;
 import net.minecraft.client.Minecraft;
 
 public class CommandManager
@@ -13,6 +16,7 @@ public class CommandManager
 
 	public CommandManager()
 	{
+		DynamicLogger.instance().writeLogWithPrefix("RZCA", "ReesZRB Console API ["+this+"] starting on Cheating Essentials "+CheatingEssentials.mainInstance().modVersion, Level.INFO, 1);
 		addCommand(new CommandHelp());
 	}
 	

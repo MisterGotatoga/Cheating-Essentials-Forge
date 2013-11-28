@@ -5,7 +5,7 @@ import java.util.logging.Level;
 import cpw.mods.fml.common.FMLLog;
 
 /**
- * Logger for print things in console used by a lot of classes, specially {@link CheatingEssentials}
+ * Logger for print things in console used by a lot of classes, specially {@link CheatingEssentials} and modules.
  * This logger provides to the mod a basic funcionality for describe the warning level and the string to print.
  * @author Kodehawa
  */
@@ -24,14 +24,25 @@ public class DynamicLogger {
 		FMLLog.log("Cheating-Essentials", level, p+data);
 	}
 	
+	/**
+	 * Write a information log in FML Logger.
+	 */
 	public void writeInfo(String data){
 		FMLLog.info(p+data, "");
 	}
 	
+	/**
+	 * Write a raw java log with the "[CE Default]" prefix.
+	 * @param data
+	 */
 	public void writeSimple(String data){
 		System.out.println(p+data);
 	}
 	
+	/**
+	 * Write a raw java log without prefix.
+	 * @param data
+	 */
 	public void writeRaw(String data){
 		System.out.println(data);
 	}
@@ -48,7 +59,7 @@ public class DynamicLogger {
 			FMLLog.log(p1+prefix, level , data);
 		}
 		if(mode == 2){
-			System.out.println("["+prefix+"]"+ " " + level + " " + data);
+			System.out.println("["+prefix+"]"+ " [" + level + "] " + data);
 		}
 	}
 	

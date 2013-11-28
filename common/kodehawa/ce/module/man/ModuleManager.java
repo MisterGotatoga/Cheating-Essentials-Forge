@@ -18,21 +18,24 @@ public class ModuleManager {
 	public List<AbstractModule> avModules = Lists.newArrayList();
 	public List<String> enabled = Lists.newArrayList();
 
-	public ModuleManager(){
-		DynamicLogger.instance().writeLog("Starting Module System on Cheating Essentials...", Level.INFO);
-		load("common.kodehawa.ce.module.classes.");
+	public ModuleManager()
+	{
+		DynamicLogger.instance().writeLogWithPrefix("KMS", "Starting Kodehawa's Module System (KMS) ["+this+"] System on Cheating Essentials...", Level.INFO, 1);
+		load("common.kodehawa.ce.module.classes."); //Package to load from.
 	}
 
-	private void load(String packageName){
+	private void load(String packageName)
+	{
 		String[] moduleClasses = new String[]{
 				"Fly", "Speed", "DynamicFly", "FastPlace", "Fullbright", "HighJump", "Sprint", "FastBreak", "Step", "WaterWalk",
 				"MCUtil_ReloadChunks", "AutoRespawn", "Event_NoFall", "NoFall", "CreativeFly", "ChestFinder", "InvisiblePlayer", 
-				"NoWeb", "BlockFinder", /*"AnimalESP", "PlayerESP",*/ "MCUtil_AdvancedTooltips", "Spectate", "Sneak", "AutoSprint", "Walk", 
-				"Unpushable", "Day", "MCUtil_MobHitbox", "XRay", "MobAura", "Breadcrumb", "Tracers", "FreezeCam" 
+				"NoWeb", "BlockFinder", "MCUtil_AdvancedTooltips", "Spectate", "Sneak", "AutoSprint", "Walk", 
+				"Unpushable", "Day", "MCUtil_MobHitbox", "XRay", "MobAura", "Breadcrumb", "Tracers", "FreezeCam", "PlayerESP", "AnimalESP" 
 		};
 		
 		for(int i = 0; i < moduleClasses.length; ++i){
-			try {
+			try 
+			{
 				Class clazz = Class.forName(packageName+moduleClasses[i]);
 				if(clazz.getSuperclass() == AbstractModule.class){
 					AbstractModule instance = (AbstractModule) clazz.newInstance();
@@ -50,7 +53,6 @@ public class ModuleManager {
 	
 	private void addModule(AbstractModule module)
 	{
-		DynamicLogger.instance().writeLogWithPrefix("CE-CM", "Loaded module data: "+module+" [Catched Module Info{"+moduleInfo(module)+"}]", Level.INFO, 1);
 		avModules.add(module);
 	}
 	
@@ -69,21 +71,23 @@ public class ModuleManager {
     	return version;
     }
     
-    public void addSpecialModules(){
+    public void addSpecialModules()
+    {
 		avModules.add(new Gui());
-		//avModules.add(new Console());
     }
     
-    public List getModules(){
+    public List getModules()
+    {
     	return Collections.unmodifiableList(avModules);
     }
 	
-    private String moduleInfo(AbstractModule module)
+    public String moduleInfo(AbstractModule module)
     {
     	return "name:"+module.getModuleName()+(" isForgeEvent:"+module.getForgeEvent()+" isTickable:"+module.getTick()+" isRenderable:"+module.getRender()+" isActive:"+module.isActive()).replaceAll(" ", ",");
     }
     
-	public static ModuleManager instance(){
+	public static ModuleManager instance()
+	{
 		return instance;
 	}
 }

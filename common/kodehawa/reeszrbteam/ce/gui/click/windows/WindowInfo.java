@@ -40,8 +40,7 @@ public class WindowInfo extends YAWWindow{
 				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Y: " + (int)Minecraft.getMinecraft().thePlayer.posY, getX() + 2 + dragX, getY() + 65 + dragY, 0x55FFFF);
 				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Z: " + (int)Minecraft.getMinecraft().thePlayer.posZ, getX() + 2 + dragX, getY() + 75 + dragY, 0x55FFFF);
 				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("User: "+Minecraft.getMinecraft().thePlayer.username, getX() + 2 + dragX, getY() + 25 + dragY, 0x55FFFF);
-				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Modules: "+ModuleManager.instance().avModules.size(), getX() + 2 + dragX, getY() + 45 + dragY, 0x55FFFF);
-				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Version: "+CheatingEssentials.mainInstance().modVersion.replace("-", ""), getX() + 2 + dragX, getY() + 35 + dragY, 0x55FFFF);
+				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Ver.: "+CheatingEssentials.mainInstance().modVersion.replace("-", ""), getX() + 2 + dragX, getY() + 35 + dragY, 0x55FFFF);
 				
 				for(YAWButton button: buttons)
 				{

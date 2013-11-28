@@ -123,6 +123,6 @@ public final class CheatingEssentials
 		return main;
 	}
 	
-	private String majorVersion = "4", minorVersion = "1", revision = "1", status = "";
+	private String majorVersion = "4", minorVersion = "1.19", revision = "399", status = "";
 	public final String modVersion = majorVersion+"."+minorVersion+"."+revision+status;
 }

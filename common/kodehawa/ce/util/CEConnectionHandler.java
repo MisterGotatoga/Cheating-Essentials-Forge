@@ -15,12 +15,15 @@ public class CEConnectionHandler implements IConnectionHandler {
 
 	public void clientLoggedIn(NetHandler clientHandler, INetworkManager manager, Packet1Login login) 
 	{
-		DynamicLogger.instance().writeInfo("Client / Server logged in - Cheating Essentials is handling it... (username: "+Minecraft.getMinecraft().thePlayer.username+")");
+		DynamicLogger.instance().writeInfo("Logged in Minecraft Server - Cheating Essentials is handling it... (Player username: "+Minecraft.getMinecraft().thePlayer.username+")");
 	}
 	
 	public void playerLoggedIn(Player player, NetHandler netHandler, INetworkManager manager) 
 	{
+		DynamicLogger.instance().writeSimple("Handling Module State Configuration for CE on player login...");
+		DynamicLogger.instance().writeRaw("IF THERE IS ANY ERROR IN THIS PHASE PLEASE REPORT IT TO david.alejandro.rubio@gmail.com OR CE MINECRAFT FORUM POST.");
 		ModuleStateConfiguration.instance().read();
+		DynamicLogger.instance().writeSimple("Handled and loaded MSCE.");
 	}
 	
 	public String connectionReceived(NetLoginHandler netHandler, INetworkManager manager) { return null; }
