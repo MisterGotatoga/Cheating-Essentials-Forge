@@ -5,7 +5,7 @@ Package declaration:
 
 com.kodehawa.ce.* = Kodehawa code.
 
-com.kodehawa.reeszrbteam.ce = ReesZRB code.
+com.reeszrbteam.ce = ReesZRB code.
 
 
 Modular loading system used for load modules to a array for be able to use them
@@ -14,6 +14,8 @@ Credits:
 - Kodehawa: Code.
 - ReesZRB: Code
 - Exalm: Some help.
+- Halalaboos: Chest ESP code.
+- Godshawk: 3.4.0-previous code.
 
 The downloads are located on the "Releases" tab.
 
