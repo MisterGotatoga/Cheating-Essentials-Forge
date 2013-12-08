@@ -4,7 +4,7 @@ import org.lwjgl.input.Keyboard;
 
 import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.enums.Category;
-import common.kodehawa.reeszrbteam.ce.gui.click.YouAlwaysWinClickGui;
+import common.reeszrbteam.ce.gui.click.YouAlwaysWinClickGui;
 
 public class Gui extends AbstractModule {
 

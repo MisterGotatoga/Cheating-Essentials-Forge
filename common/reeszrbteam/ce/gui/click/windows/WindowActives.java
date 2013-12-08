@@ -1,12 +1,11 @@
-package common.kodehawa.reeszrbteam.ce.gui.click.windows;
+package common.reeszrbteam.ce.gui.click.windows;
 
 import net.minecraft.client.Minecraft;
 
-import common.kodehawa.ce.module.core.AbstractModule;
 import common.kodehawa.ce.module.man.ModuleManager;
-import common.kodehawa.reeszrbteam.ce.gui.click.elements.YAWButton;
-import common.kodehawa.reeszrbteam.ce.gui.click.elements.YAWWindow;
-import common.kodehawa.reeszrbteam.ce.util.CEUtils;
+import common.reeszrbteam.ce.gui.click.elements.YAWButton;
+import common.reeszrbteam.ce.gui.click.elements.YAWWindow;
+import common.reeszrbteam.ce.util.CEUtils;
 
 public class WindowActives extends YAWWindow {
 

@@ -1,26 +1,27 @@
-package common.kodehawa.reeszrbteam.ce.gui.click;
+package common.reeszrbteam.ce.gui.click;
 
 import java.util.ArrayList;
-
-import org.lwjgl.input.Keyboard;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.multiplayer.NetClientHandler;
 import net.minecraft.util.ChatAllowedCharacters;
+
+import org.lwjgl.input.Keyboard;
+
 import common.kodehawa.api.console.BaseCommand;
 import common.kodehawa.api.console.CommandManager;
 import common.kodehawa.ce.config.ModuleStateConfiguration;
-import common.kodehawa.reeszrbteam.ce.gui.click.elements.YAWWindow;
-import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowActives;
-import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowHub;
-import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowInfo;
-import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowPlayer;
-import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowRadar;
-import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowRender;
-import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowUtils;
-import common.kodehawa.reeszrbteam.ce.gui.click.windows.WindowWorld;
-import common.kodehawa.reeszrbteam.ce.util.CEUtils;
+import common.reeszrbteam.ce.gui.click.elements.YAWWindow;
+import common.reeszrbteam.ce.gui.click.windows.WindowActives;
+import common.reeszrbteam.ce.gui.click.windows.WindowHub;
+import common.reeszrbteam.ce.gui.click.windows.WindowInfo;
+import common.reeszrbteam.ce.gui.click.windows.WindowPlayer;
+import common.reeszrbteam.ce.gui.click.windows.WindowRadar;
+import common.reeszrbteam.ce.gui.click.windows.WindowRender;
+import common.reeszrbteam.ce.gui.click.windows.WindowUtils;
+import common.reeszrbteam.ce.gui.click.windows.WindowWorld;
+import common.reeszrbteam.ce.util.CEUtils;
 
 public class YouAlwaysWinClickGui extends GuiScreen
 {

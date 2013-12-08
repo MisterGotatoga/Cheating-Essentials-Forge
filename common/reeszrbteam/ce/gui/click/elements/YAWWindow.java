@@ -1,13 +1,13 @@
-package common.kodehawa.reeszrbteam.ce.gui.click.elements;
+package common.reeszrbteam.ce.gui.click.elements;
 
 import java.util.ArrayList;
 
 import net.minecraft.client.Minecraft;
 
 import common.kodehawa.ce.module.core.AbstractModule;
-import common.kodehawa.reeszrbteam.ce.gui.click.YouAlwaysWinClickGui;
-import common.kodehawa.reeszrbteam.ce.util.CEUtils;
-import common.kodehawa.reeszrbteam.ce.util.Value;
+import common.reeszrbteam.ce.gui.click.YouAlwaysWinClickGui;
+import common.reeszrbteam.ce.util.CEUtils;
+import common.reeszrbteam.ce.util.Value;
 
 public class YAWWindow
 {

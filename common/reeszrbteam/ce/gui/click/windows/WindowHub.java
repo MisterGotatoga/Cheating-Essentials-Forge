@@ -1,10 +1,10 @@
-package common.kodehawa.reeszrbteam.ce.gui.click.windows;
+package common.reeszrbteam.ce.gui.click.windows;
 
 import net.minecraft.client.Minecraft;
 
-import common.kodehawa.reeszrbteam.ce.gui.click.YouAlwaysWinClickGui;
-import common.kodehawa.reeszrbteam.ce.gui.click.elements.YAWWindow;
-import common.kodehawa.reeszrbteam.ce.util.CEUtils;
+import common.reeszrbteam.ce.gui.click.YouAlwaysWinClickGui;
+import common.reeszrbteam.ce.gui.click.elements.YAWWindow;
+import common.reeszrbteam.ce.util.CEUtils;
 
 public class WindowHub extends YAWWindow
 {

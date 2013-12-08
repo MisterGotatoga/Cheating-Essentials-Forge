@@ -30,7 +30,8 @@ public class ModuleManager {
 				"Fly", "Speed", "DynamicFly", "FastPlace", "Fullbright", "HighJump", "Sprint", "FastBreak", "Step", "WaterWalk",
 				"MCUtil_ReloadChunks", "AutoRespawn", "Event_NoFall", "NoFall", "CreativeFly", "ChestFinder", "InvisiblePlayer", 
 				"NoWeb", "BlockFinder", "MCUtil_AdvancedTooltips", "Spectate", "Sneak", "AutoSprint", "Walk", 
-				"Unpushable", "Day", "MCUtil_MobHitbox", "XRay", "MobAura", "Breadcrumb", "Tracers", "FreezeCam", "PlayerESP", "AnimalESP" 
+				"Unpushable", "Day", "MCUtil_MobHitbox", "XRay", "MobAura", "Breadcrumb", "Tracers", "FreezeCam", "PlayerESP",
+				"AnimalESP", "DieCoordinates" 
 		};
 		
 		for(int i = 0; i < moduleClasses.length; ++i){

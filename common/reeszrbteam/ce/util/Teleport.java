@@ -1,4 +1,4 @@
-package common.kodehawa.reeszrbteam.ce.util;
+package common.reeszrbteam.ce.util;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;

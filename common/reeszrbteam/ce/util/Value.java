@@ -1,4 +1,4 @@
-package common.kodehawa.reeszrbteam.ce.util;
+package common.reeszrbteam.ce.util;
 
 public class Value {
 	private String name;

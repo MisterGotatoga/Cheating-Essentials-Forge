@@ -8,6 +8,13 @@ import common.kodehawa.ce.logger.DynamicLogger;
 
 public class ReflectionHelper {
 
+	/**}
+	 * Exalm code.
+	 * @param clazz
+	 * @param o
+	 * @param s
+	 * @param val
+	 */
 	public static void setField(Class clazz, Object o, String s, Object val){
         Field[] fields = clazz.getDeclaredFields();
         for (int i = 0; i < fields.length; i++){

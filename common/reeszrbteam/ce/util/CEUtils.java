@@ -1,4 +1,4 @@
-package common.kodehawa.reeszrbteam.ce.util;
+package common.reeszrbteam.ce.util;
 
 import java.util.List;
 

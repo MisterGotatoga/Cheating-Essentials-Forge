@@ -1,10 +1,10 @@
-package common.kodehawa.reeszrbteam.ce.gui.click.elements;
+package common.reeszrbteam.ce.gui.click.elements;
 
 import net.minecraft.client.Minecraft;
 
 import common.kodehawa.ce.module.core.AbstractModule;
-import common.kodehawa.reeszrbteam.ce.gui.click.YouAlwaysWinClickGui;
-import common.kodehawa.reeszrbteam.ce.util.CEUtils;
+import common.reeszrbteam.ce.gui.click.YouAlwaysWinClickGui;
+import common.reeszrbteam.ce.util.CEUtils;
 
 public class YAWButton {
 	private YAWWindow window;

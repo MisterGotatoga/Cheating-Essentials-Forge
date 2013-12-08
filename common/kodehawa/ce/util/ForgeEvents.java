@@ -7,8 +7,8 @@ import net.minecraftforge.event.ForgeSubscribe;
 
 import common.kodehawa.ce.event.EventHandler;
 import common.kodehawa.ce.event.events.EventRender;
-import common.kodehawa.reeszrbteam.ce.gui.click.YouAlwaysWinClickGui;
-import common.kodehawa.reeszrbteam.ce.gui.click.elements.YAWWindow;
+import common.reeszrbteam.ce.gui.click.YouAlwaysWinClickGui;
+import common.reeszrbteam.ce.gui.click.elements.YAWWindow;
 
 public class ForgeEvents {
 

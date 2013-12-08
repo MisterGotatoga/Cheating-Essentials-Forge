@@ -1,11 +1,11 @@
-package common.kodehawa.reeszrbteam.ce.gui.click.elements;
+package common.reeszrbteam.ce.gui.click.elements;
 
 import java.text.DecimalFormat;
 
 import net.minecraft.client.Minecraft;
 
-import common.kodehawa.reeszrbteam.ce.util.CEUtils;
-import common.kodehawa.reeszrbteam.ce.util.Value;
+import common.reeszrbteam.ce.util.CEUtils;
+import common.reeszrbteam.ce.util.Value;
 
 public class YAWSlider {
 	private YAWWindow window;
