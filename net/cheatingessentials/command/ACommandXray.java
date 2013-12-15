@@ -1,5 +1,6 @@
 package net.cheatingessentials.command;
 
+import net.cheatingessentials.api.APIModule;
 import net.cheatingessentials.api.Command;
 import net.cheatingessentials.client.modules.classes.XRay;
 import net.cheatingessentials.client.modules.general.ModuleManager;
@@ -12,7 +13,6 @@ public class ACommandXray extends Command {
 
 	public ACommandXray() {
 		super("cexray");
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class ACommandXray extends Command {
 			Utils.instance().removeDupes(XRay.xrayList2);
 			AGCEConfigurationIList.instance.modify("CEXrayBlocks.txt", XRay.xrayList2);
 			Utils.instance().removeDupes(XRay.xrayList2);
-			ModuleManager.instance().getModuleClass(XRay.class).reset();
+			APIModule.instance().getModuleClass(XRay.class).reset();
 		}
 		
 		else if(subcommands[0].equalsIgnoreCase("delete")){
@@ -38,7 +38,7 @@ public class ACommandXray extends Command {
 			Utils.instance().removeDupes(XRay.xrayList2);
 			Minecraft.getMinecraft().thePlayer.addChatMessage("Removed ID from X-Ray list: "+id);
 			AGCEConfigurationIList.instance.modify("CEXrayBlocks.txt", XRay.xrayList2);
-			ModuleManager.instance().getModuleClass(XRay.class).reset();
+			APIModule.instance().getModuleClass(XRay.class).reset();
 		}
 	}
 

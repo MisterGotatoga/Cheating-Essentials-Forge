@@ -3,6 +3,7 @@ package net.cheatingessentials.client.modules.classes;
 import java.lang.reflect.Field;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import net.cheatingessentials.api.APIModule;
 import net.cheatingessentials.api.Module;
 import net.cheatingessentials.client.modules.general.Category;
 import net.cheatingessentials.client.modules.general.ModuleManager;
@@ -40,7 +41,7 @@ public class XRay extends Module
 	@Override
 	public void enable()
 	{
-		if(!ModuleManager.instance().getModuleClass(Fullbright.class).isActive())
+		if(!APIModule.instance().getModuleClass(Fullbright.class).isActive())
 		{
 			float[] bright = world().provider.lightBrightnessTable;
 			for(int i = 0; i < bright.length; i++){
@@ -66,7 +67,7 @@ public class XRay extends Module
 	@Override
 	public void disable()
 	{
-		if(!ModuleManager.instance().getModuleClass(Fullbright.class).isActive())
+		if(!APIModule.instance().getModuleClass(Fullbright.class).isActive())
 		{
 			world().provider.registerWorld(world());
 		}

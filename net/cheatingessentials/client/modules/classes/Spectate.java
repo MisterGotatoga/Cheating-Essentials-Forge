@@ -1,5 +1,6 @@
 package net.cheatingessentials.client.modules.classes;
 
+import net.cheatingessentials.api.APIModule;
 import net.cheatingessentials.api.Module;
 import net.cheatingessentials.client.modules.general.Category;
 import net.cheatingessentials.client.modules.general.ModuleManager;
@@ -25,12 +26,12 @@ public class Spectate extends Module {
 	}
 
 	public void enable(){
-		ModuleManager.instance().getModuleClass(DynamicFly.class).toggle();
+		APIModule.instance().getModuleClass(DynamicFly.class).toggle();
 		doSpectate();
 	}
 	
 	public void disable(){
-		ModuleManager.instance().getModuleClass(DynamicFly.class).toggle();
+		APIModule.instance().getModuleClass(DynamicFly.class).toggle();
 		undoSpectate();
 	}
 	

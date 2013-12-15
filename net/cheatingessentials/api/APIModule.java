@@ -27,6 +27,16 @@ public class APIModule
 		return Collections.unmodifiableList(modules);
 	}
 	
+	public Module getModuleClass(Class class1)
+    {
+    	for(Module m1 : APIModule.instance().modules){
+			if(m1.getClass().equals(class1)){
+				return m1;
+			}
+		}
+		return null;
+    }
+	
 	public static APIModule instance()
 	{
 		return instance;

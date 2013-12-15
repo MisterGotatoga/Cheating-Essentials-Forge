@@ -2,6 +2,7 @@ package net.cheatingessentials.client.command;
 
 import java.io.File;
 
+import net.cheatingessentials.api.APIModule;
 import net.cheatingessentials.client.modules.classes.BlockFinder;
 import net.cheatingessentials.client.modules.classes.XRay;
 import net.cheatingessentials.client.modules.general.ModuleManager;
@@ -38,7 +39,7 @@ public class CommandXray extends CommandBase {
 			Utils.instance().removeDupes(XRay.xrayList2);
 			AGCEConfigurationIList.instance.modify("CEXrayBlocks.txt", XRay.xrayList2);
 			Utils.instance().removeDupes(XRay.xrayList2);
-			ModuleManager.instance().getModuleClass(XRay.class).reset();
+			APIModule.instance().getModuleClass(XRay.class).reset();
 		}
 		
 		else if(astring[0].equalsIgnoreCase("delete")){
@@ -50,7 +51,7 @@ public class CommandXray extends CommandBase {
 			Utils.instance().removeDupes(XRay.xrayList2);
 			icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed ID from X-Ray list: "+id));
 			AGCEConfigurationIList.instance.modify("CEXrayBlocks.txt", XRay.xrayList2);
-			ModuleManager.instance().getModuleClass(XRay.class).reset();
+			APIModule.instance().getModuleClass(XRay.class).reset();
 		}
 	}
 }
