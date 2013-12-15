@@ -3,9 +3,7 @@ Cheating Essentials Mod
 
 Package declaration:
 
-common.kodehawa.ce.* = Kodehawa code.
-
-common.reeszrbteam.ce = ReesZRB code.
+net.cheatingessentials.* = Code.
 
 
 Modular loading system used for load modules to a array for be able to use them
