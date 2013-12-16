@@ -2,8 +2,9 @@ package net.cheatingessentials.client.modules.classes;
 
 import net.cheatingessentials.api.Module;
 import net.cheatingessentials.client.modules.general.Category;
-import net.minecraft.client.gui.GuiIngameMenu;
-import net.minecraft.client.gui.achievement.GuiAchievement;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeInstance;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 
 public class Speed extends Module {
 
@@ -12,6 +13,8 @@ public class Speed extends Module {
 		super(Category.PLAYER);
 		setTick(true);
 	}
+	
+	private static AttributeModifier cespeedmodifier = new AttributeModifier("Cheating Essentials Speed Attribute", 0.79500008D, 2).setSaved(false);
 	
 	public String getModuleName()
 	{
@@ -28,11 +31,19 @@ public class Speed extends Module {
 	
 	public void tick()
 	{
-		if(player().onGround && !minecraft().gameSettings.keyBindJump.pressed && minecraft().gameSettings.keyBindForward.pressed 
+		/*if(player().onGround && !minecraft().gameSettings.keyBindJump.pressed && minecraft().gameSettings.keyBindForward.pressed 
 				&& !(minecraft().currentScreen instanceof GuiIngameMenu))
 		{
 			player().motionX *= SPEED_VALUE;
 			player().motionZ *= SPEED_VALUE;
-		}
+		}*/
+		AttributeInstance attributeinstance = player().getEntityAttribute(SharedMonsterAttributes.movementSpeed);
+		attributeinstance.applyModifier(cespeedmodifier);
+	}
+	
+	public void disable()
+	{
+		AttributeInstance attributeinstance = player().getEntityAttribute(SharedMonsterAttributes.movementSpeed);
+		attributeinstance.removeModifier(cespeedmodifier);
 	}
 }
