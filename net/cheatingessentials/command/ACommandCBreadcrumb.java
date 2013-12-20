@@ -1,7 +1,7 @@
 package net.cheatingessentials.command;
 
 import net.cheatingessentials.api.Command;
-import net.cheatingessentials.client.modules.classes.Breadcrumb;
+import net.cheatingessentials.client.modules.render.Breadcrumb;
 import net.minecraft.client.Minecraft;
 
 public class ACommandCBreadcrumb extends Command {

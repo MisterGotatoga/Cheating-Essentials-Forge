@@ -14,21 +14,27 @@ public class GlobalModuleUtils extends GlobalModule {
 	{
 		super("Utils", "Utilities", 5.61, true, true);
 	}
+	
+	private String utilPackageName;
+	private String[] utilModuleClasses;
 
+	@Override
+	public void onGMInit()
+	{
+		preLoadUtilModules("net.cheatingessentials.client.modules.util");
+	}
+	
 	@Override
 	public void loadSubModules() 
 	{
-		for(int i = 0; i < ModuleManager.instance().moduleClasses.length; ++i){
+		for(int i = 0; i < utilModuleClasses.length; ++i){
 			try 
 			{
-				Class clazz = Class.forName(ModuleManager.instance().packageName+ModuleManager.instance().moduleClasses[i]);
+				Class clazz = Class.forName(utilPackageName+"."+utilModuleClasses[i]);
 				if(clazz.getSuperclass() == Module.class)
 				{
 					Module instance = (Module) clazz.newInstance();
-					if(instance.cat == Category.UTILS)
-					{
-						APIModule.instance().addModuleToCE(instance);
-					}
+					APIModule.instance().addModuleToCE(instance);
 				}
 			} 
 			catch (Exception e)
@@ -37,6 +43,17 @@ public class GlobalModuleUtils extends GlobalModule {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private void preLoadUtilModules(String packageName)
+	{
+		utilPackageName = packageName;
+		String[] moduleClasses = new String[]
+		{
+				"ReloadChunks", "AdvancedTooltips", "MobHitbox"
+		};
+		
+		utilModuleClasses = moduleClasses;
 	}
 
 }

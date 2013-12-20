@@ -15,21 +15,27 @@ public class GlobalModuleRender extends GlobalModule
 	{
 		super("Render", "Renderizable", 5.61, true, true);
 	}
+	
+	private String renderPackageName;
+	private String[] renderModuleClasses;
+	
+	@Override
+	public void onGMInit()
+	{
+		preLoadRenderModules("net.cheatingessentials.client.modules.render");
+	}
 
 	@Override
 	public void loadSubModules() 
 	{
-		for(int i = 0; i < ModuleManager.instance().moduleClasses.length; ++i){
+		for(int i = 0; i < renderModuleClasses.length; ++i){
 			try 
 			{
-				Class clazz = Class.forName(ModuleManager.instance().packageName+ModuleManager.instance().moduleClasses[i]);
+				Class clazz = Class.forName(renderPackageName+"."+renderModuleClasses[i]);
 				if(clazz.getSuperclass() == Module.class)
 				{
 					Module instance = (Module) clazz.newInstance();
-					if(instance.cat == Category.RENDER)
-					{
-						APIModule.instance().addModuleToCE(instance);
-					}
+				    APIModule.instance().addModuleToCE(instance);
 				}
 			} 
 			catch (Exception e)
@@ -38,6 +44,18 @@ public class GlobalModuleRender extends GlobalModule
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private void preLoadRenderModules(String packageName)
+	{
+		renderPackageName = packageName;
+		String[] moduleClasses = new String[]
+		{
+				"ChestFinder", "BlockFinder", "Breadcrumb", "Tracers", "FreezeCam", "PlayerESP",
+				/*"AnimalESP"*/
+		};
+		
+		renderModuleClasses = moduleClasses;
 	}
 
 }

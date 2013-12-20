@@ -3,9 +3,9 @@ package net.cheatingessentials.client.command;
 import java.io.File;
 
 import net.cheatingessentials.api.APIModule;
-import net.cheatingessentials.client.modules.classes.BlockFinder;
-import net.cheatingessentials.client.modules.classes.XRay;
 import net.cheatingessentials.client.modules.general.ModuleManager;
+import net.cheatingessentials.client.modules.render.BlockFinder;
+import net.cheatingessentials.client.modules.world.XRay;
 import net.cheatingessentials.config.ConfigurationManager;
 import net.cheatingessentials.config.agce.AGCEConfigurationIList;
 import net.cheatingessentials.util.Utils;

@@ -2,11 +2,11 @@ package net.cheatingessentials.config;
 
 import java.util.logging.Level;
 
-import net.cheatingessentials.client.modules.classes.BlockFinder;
-import net.cheatingessentials.client.modules.classes.Fly;
-import net.cheatingessentials.client.modules.classes.Speed;
-import net.cheatingessentials.client.modules.classes.Step;
-import net.cheatingessentials.client.modules.classes.XRay;
+import net.cheatingessentials.client.modules.player.Fly;
+import net.cheatingessentials.client.modules.player.Speed;
+import net.cheatingessentials.client.modules.player.Step;
+import net.cheatingessentials.client.modules.render.BlockFinder;
+import net.cheatingessentials.client.modules.world.XRay;
 import net.cheatingessentials.config.agce.AGCEConfigurationBoolean;
 import net.cheatingessentials.config.agce.AGCEConfigurationIList;
 import net.cheatingessentials.config.agce.AGCEConfigurationNG;

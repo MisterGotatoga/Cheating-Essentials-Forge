@@ -14,29 +14,43 @@ public class GlobalModulePlayer extends GlobalModule {
 	{
 		super("Player", "Pure Cheating", 5.61, true, true);
 	}
+	
+	private String[] playerModuleClasses;
+	private String playerPackageName;
 
+	@Override
+	public void onGMInit()
+	{
+		preLoadPlayerModules("net.cheatingessentials.client.modules.player");
+	}
+	
 	@Override
 	public void loadSubModules() 
 	{
-		for(int i = 0; i < ModuleManager.instance().moduleClasses.length; ++i){
+		for(int i = 0; i < playerModuleClasses.length; ++i){
 			try 
 			{
-				Class clazz = Class.forName(ModuleManager.instance().packageName+ModuleManager.instance().moduleClasses[i]);
+				Class clazz = Class.forName(playerPackageName+"."+playerModuleClasses[i]);
 				if(clazz.getSuperclass() == Module.class)
 				{
 					Module instance = (Module) clazz.newInstance();
-					if(instance.cat == Category.PLAYER)
-					{
-						APIModule.instance().addModuleToCE(instance);
-					}
+					APIModule.instance().addModuleToCE(instance);
 				}
-			} 
-			catch (Exception e)
-			{
-				DynamicLogger.instance().writeLog("Unable to load player module: "+e, Level.WARNING);
-				e.printStackTrace();
 			}
+			catch(Exception e){}
 		}
 	}
 
+	private void preLoadPlayerModules(String packageName)
+	{
+		playerPackageName = packageName;
+		String[] moduleClasses = new String[]
+		{
+				"Fly", "Speed", "DynamicFly", "HighJump", "Sprint", "Step", "WaterWalk", "Event_NoFall", "NoFall",
+				"CreativeFly", "InvisiblePlayer", "Sneak", "AutoSprint", "Walk", "Unpushable", "DieCoordinates",
+				"AutoRespawn"
+		};
+		
+		playerModuleClasses = moduleClasses;
+	}
 }

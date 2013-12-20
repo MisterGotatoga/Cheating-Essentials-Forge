@@ -15,21 +15,27 @@ public class GlobalModuleWorld extends GlobalModule
 	{
 		super("World", "Pure Cheating", 5.61, true, true);
 	}
+	
+	private String worldPackageName;
+	private String[] worldModuleClasses;
 
+	@Override
+	public void onGMInit()
+	{
+		preLoadWorldModules("net.cheatingessentials.client.modules.world");
+	}
+	
 	@Override
 	public void loadSubModules() 
 	{
-		for(int i = 0; i < ModuleManager.instance().moduleClasses.length; ++i){
+		for(int i = 0; i < worldModuleClasses.length; ++i){
 			try 
 			{
-				Class clazz = Class.forName(ModuleManager.instance().packageName+ModuleManager.instance().moduleClasses[i]);
+				Class clazz = Class.forName(worldPackageName+"."+worldModuleClasses[i]);
 				if(clazz.getSuperclass() == Module.class)
 				{
 					Module instance = (Module) clazz.newInstance();
-					if(instance.cat == Category.WORLD)
-					{
-						APIModule.instance().addModuleToCE(instance);
-					}
+					APIModule.instance().addModuleToCE(instance);
 				}
 				else
 				{
@@ -44,4 +50,14 @@ public class GlobalModuleWorld extends GlobalModule
 		}
 	}
 
+	private void preLoadWorldModules(String packageName)
+	{
+		worldPackageName = packageName;
+		String[] moduleClasses = new String[]
+		{
+				"FastPlace", "Fullbright", "FastBreak", "NoWeb", "Day", "XRay", "MobAura"
+		};
+		
+		worldModuleClasses = moduleClasses;
+	}
 }

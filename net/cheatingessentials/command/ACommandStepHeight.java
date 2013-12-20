@@ -1,7 +1,7 @@
 package net.cheatingessentials.command;
 
 import net.cheatingessentials.api.Command;
-import net.cheatingessentials.client.modules.classes.Step;
+import net.cheatingessentials.client.modules.player.Step;
 import net.cheatingessentials.config.agce.AGCEConfigurationNG;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatMessageComponent;

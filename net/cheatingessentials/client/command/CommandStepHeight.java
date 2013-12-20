@@ -1,6 +1,6 @@
 package net.cheatingessentials.client.command;
 
-import net.cheatingessentials.client.modules.classes.Step;
+import net.cheatingessentials.client.modules.player.Step;
 import net.cheatingessentials.config.agce.AGCEConfigurationNG;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;

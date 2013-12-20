@@ -1,7 +1,7 @@
 package net.cheatingessentials.command;
 
 import net.cheatingessentials.api.Command;
-import net.cheatingessentials.client.modules.classes.BlockFinder;
+import net.cheatingessentials.client.modules.render.BlockFinder;
 import net.cheatingessentials.config.agce.AGCEConfigurationNG;
 import net.minecraft.client.Minecraft;
 

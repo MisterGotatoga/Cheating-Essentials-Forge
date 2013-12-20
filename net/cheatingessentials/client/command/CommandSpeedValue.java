@@ -1,7 +1,7 @@
 package net.cheatingessentials.client.command;
 
-import net.cheatingessentials.client.modules.classes.BlockFinder;
-import net.cheatingessentials.client.modules.classes.Speed;
+import net.cheatingessentials.client.modules.player.Speed;
+import net.cheatingessentials.client.modules.render.BlockFinder;
 import net.cheatingessentials.config.agce.AGCEConfigurationNG;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;

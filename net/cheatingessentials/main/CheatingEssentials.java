@@ -1,5 +1,6 @@
 package net.cheatingessentials.main;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.logging.Level;
 
@@ -33,6 +34,7 @@ import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -136,6 +138,6 @@ public final class CheatingEssentials
 		return main;
 	}
 	
-	private String majorVersion = "4", minorVersion = "1.19", revision = "399", status = "";
+	private String majorVersion = "4", minorVersion = "2", revision = "0", status = "";
 	public final String modVersion = majorVersion+"."+minorVersion+"."+revision+status;
 }

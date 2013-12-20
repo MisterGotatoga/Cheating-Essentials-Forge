@@ -1,6 +1,6 @@
 package net.cheatingessentials.client.command;
 
-import net.cheatingessentials.client.modules.classes.Breadcrumb;
+import net.cheatingessentials.client.modules.render.Breadcrumb;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatMessageComponent;

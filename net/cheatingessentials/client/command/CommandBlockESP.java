@@ -2,7 +2,7 @@ package net.cheatingessentials.client.command;
 
 import java.io.File;
 
-import net.cheatingessentials.client.modules.classes.BlockFinder;
+import net.cheatingessentials.client.modules.render.BlockFinder;
 import net.cheatingessentials.config.agce.AGCEConfigurationIList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;

@@ -18,7 +18,6 @@ import net.minecraft.client.Minecraft;
  * "Decomplied" name: "Auto Generated Cheating Essentials Configuration for Boolean values".
  * Generates a generic configuration file for boolean fields that needs configuration.
  * Configurable name, path and boolean value.
- * This class is for made 
  * @author Kodehawa
  */
 public class AGCEConfigurationBoolean {

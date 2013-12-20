@@ -29,8 +29,10 @@ public class APIModule
 	
 	public Module getModuleClass(Class class1)
     {
-    	for(Module m1 : APIModule.instance().modules){
-			if(m1.getClass().equals(class1)){
+    	for(Module m1 : APIModule.instance().modules)
+    	{
+			if(m1.getClass().equals(class1))
+			{
 				return m1;
 			}
 		}

@@ -31,7 +31,7 @@ public abstract class Module implements Listener
 
 	public Module(Category category)
 	{
-		DynamicLogger.instance().writeLog("Started module: "+this.getModuleName()+" ((Catched Module info[tick:"+getTick()+" render:"+getRender()+" forgeEvent:"+getForgeEvent()+"]))", Level.INFO);
+		//DynamicLogger.instance().writeLog("Started module: "+this.getModuleName()+" ((Catched Module info[tick:"+getTick()+" render:"+getRender()+" forgeEvent:"+getForgeEvent()+"]))", Level.INFO);
 		cat = category;
 	}
 	

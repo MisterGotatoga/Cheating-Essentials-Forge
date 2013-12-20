@@ -1,6 +1,6 @@
 package net.cheatingessentials.client.command;
 
-import net.cheatingessentials.client.modules.classes.Fly;
+import net.cheatingessentials.client.modules.player.Fly;
 import net.cheatingessentials.config.agce.AGCEConfigurationNG;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;

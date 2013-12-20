@@ -2,8 +2,8 @@ package net.cheatingessentials.command;
 
 import net.cheatingessentials.api.APIModule;
 import net.cheatingessentials.api.Command;
-import net.cheatingessentials.client.modules.classes.XRay;
 import net.cheatingessentials.client.modules.general.ModuleManager;
+import net.cheatingessentials.client.modules.world.XRay;
 import net.cheatingessentials.config.agce.AGCEConfigurationIList;
 import net.cheatingessentials.util.Utils;
 import net.minecraft.client.Minecraft;
