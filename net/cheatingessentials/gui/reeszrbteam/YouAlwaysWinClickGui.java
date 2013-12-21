@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import net.cheatingessentials.api.Command;
 import net.cheatingessentials.command.CommandManager;
 import net.cheatingessentials.config.ModuleStateConfiguration;
+import net.cheatingessentials.config.SaveableGuiState;
 import net.cheatingessentials.gui.reeszrbteam.element.YAWWindow;
 import net.cheatingessentials.gui.reeszrbteam.window.WindowActives;
 import net.cheatingessentials.gui.reeszrbteam.window.WindowHub;
@@ -56,6 +57,7 @@ public class YouAlwaysWinClickGui extends GuiScreen
 	public void initGui()
 	{
 		super.initGui();
+		SaveableGuiState.instance().read();
         Keyboard.enableRepeatEvents(true);
 		guiHub.setOpen(true);
 	}
@@ -66,6 +68,7 @@ public class YouAlwaysWinClickGui extends GuiScreen
     	this.message = "";
         Keyboard.enableRepeatEvents(false);
 		ModuleStateConfiguration.instance().writeToFile();
+		SaveableGuiState.instance().writeToFile();
 	}
 	
 	public static void sendPanelToFront(YAWWindow window)

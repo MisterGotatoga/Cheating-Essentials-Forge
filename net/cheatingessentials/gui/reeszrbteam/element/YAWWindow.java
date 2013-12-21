@@ -192,4 +192,14 @@ public class YAWWindow
 	{
 		this.isPinned = flag;
 	}
+	
+	public void setX(int xPos)
+	{
+		this.dragX = xPos;
+	}
+	
+	public void setY(int yPos)
+	{
+		this.dragY = yPos;
+	}
 }

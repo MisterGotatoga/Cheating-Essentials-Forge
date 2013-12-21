@@ -9,7 +9,7 @@ import net.minecraft.client.Minecraft;
 public class WindowActives extends YAWWindow {
 
 	public WindowActives() {
-		super("Enabled", 186, 33);
+		super("Enabled", 212, 36);
 	}
 	
 	public void draw(int x, int y){

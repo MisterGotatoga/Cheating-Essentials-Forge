@@ -9,7 +9,7 @@ import net.cheatingessentials.gui.reeszrbteam.element.YAWWindow;
 public class WindowUtils extends YAWWindow {
 
 	public WindowUtils() {
-		super("Utils", 94, 200);
+		super("Utils", 113, 206);
 	}
 	
 	public YAWWindow init()
