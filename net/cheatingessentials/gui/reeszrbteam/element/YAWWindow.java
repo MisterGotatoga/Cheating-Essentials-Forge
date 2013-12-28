@@ -11,8 +11,8 @@ import net.minecraft.client.Minecraft;
 public class YAWWindow
 {
 	private String title;
-	private int xPos;
-	private int yPos;
+	public int xPos;
+	public int yPos;
 	
 	private boolean isOpen;
 	private boolean isExtended;

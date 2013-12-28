@@ -17,7 +17,7 @@ import net.minecraft.client.Minecraft;
 
 public class SaveableGuiState {
 
-	private File guiConfig = new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEYAWGuiPosition.txt");
+	private File guiConfig = new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/TGC.txt");
 	private volatile static SaveableGuiState inst = new SaveableGuiState();
 	
 	public SaveableGuiState()
@@ -33,12 +33,12 @@ public class SaveableGuiState {
 			BufferedWriter buffered = new BufferedWriter(filewriter);
 			for(YAWWindow window : YouAlwaysWinClickGui.unFocusedWindows)
 			{
-				int x = window.dragX;
-				int y = window.dragY;
+				int x = window.lastDragX;
+				int y = window.lastDragY;
 				boolean open = window.isOpen();
 				boolean extended = window.isExtended();
 				
-				buffered.write(window.getTitle().toLowerCase().replaceAll(" ", "")+":"+"x:"+x+":"+"y:"+y+":"+open+":"+extended+"\r\n");
+				buffered.write(window.getTitle().toLowerCase().replaceAll(" ", "")+":"+x+":"+y+":"+open+":"+extended+"\r\n");
 			}
 			
 			buffered.close();
@@ -65,10 +65,10 @@ public class SaveableGuiState {
 				String[] array = x.split(":");
 				//List them all!
 				String window = array[0];
-				String xPos = array[2];
-				String yPos = array[4];
-				String open = array[5];
-				String extended = array[6];
+				String xPos = array[1];
+				String yPos = array[2];
+				String open = array[3];
+				String extended = array[4];
 				
 				for(YAWWindow windows : YouAlwaysWinClickGui.unFocusedWindows)
 				{
@@ -79,8 +79,8 @@ public class SaveableGuiState {
 					{
 						if(window.equalsIgnoreCase(windowsN.get(i).toLowerCase().replaceAll(" ", "")))
 						{
-							//windows.setX(Integer.parseInt(xPos));
-							//windows.setY(Integer.parseInt(yPos));
+							//windows.xPos = Integer.parseInt(xPos);
+							//windows.yPos = Integer.parseInt(yPos);
 							windows.setOpen(Boolean.parseBoolean(open));
 							windows.setExtended(Boolean.parseBoolean(extended));
 						}
