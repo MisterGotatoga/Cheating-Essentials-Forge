@@ -2,7 +2,6 @@ package net.cheatingessentials.util;
 
 import net.cheatingessentials.api.APIModule;
 import net.cheatingessentials.api.Module;
-import net.cheatingessentials.client.modules.general.ModuleManager;
 import net.minecraft.client.Minecraft;
 
 import org.lwjgl.input.Keyboard;

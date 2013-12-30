@@ -1,12 +1,13 @@
 package net.cheatingessentials.command;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
 
 import net.cheatingessentials.api.Command;
 import net.cheatingessentials.main.CheatingEssentials;
 import net.cheatingessentials.main.DynamicLogger;
 import net.minecraft.client.Minecraft;
+
+import org.apache.logging.log4j.Level;
 
 public class CommandManager
 {
@@ -41,7 +42,7 @@ public class CommandManager
 
 		if(!commandResolved)
 		{
-			Minecraft.getMinecraft().thePlayer.addChatMessage("[Console API] Invalid command. Type help in Console for a list of commands.");
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("[Console API] Invalid command. Type help in Console for a list of commands.");
 		}
 	}
 	

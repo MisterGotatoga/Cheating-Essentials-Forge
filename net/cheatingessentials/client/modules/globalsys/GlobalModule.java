@@ -1,9 +1,8 @@
 package net.cheatingessentials.client.modules.globalsys;
 
-import java.util.logging.Level;
-
-import net.cheatingessentials.api.Module;
 import net.cheatingessentials.main.DynamicLogger;
+
+import org.apache.logging.log4j.Level;
 
 public class GlobalModule
 {

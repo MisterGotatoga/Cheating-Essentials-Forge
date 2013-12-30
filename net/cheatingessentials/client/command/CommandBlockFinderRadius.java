@@ -5,7 +5,6 @@ import net.cheatingessentials.config.agce.AGCEConfigurationNG;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatMessageComponent;
 
 public class CommandBlockFinderRadius extends CommandBase {
 
@@ -25,7 +24,13 @@ public class CommandBlockFinderRadius extends CommandBase {
 	public void processCommand(ICommandSender icommandsender, String[] astring) {
 		BlockFinder.BLOCK_RADIUS = Integer.parseInt(astring[0]);
 		AGCEConfigurationNG.instance.modify("CEBFRadius.txt", BlockFinder.BLOCK_RADIUS);
-		icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Block Finder radius set to: "+astring[0]+" blocks."));
+		Minecraft.getMinecraft().thePlayer.sendChatMessage("Block Finder radius set to: "+astring[0]+" blocks.");
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

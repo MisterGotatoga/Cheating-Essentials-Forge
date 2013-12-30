@@ -10,14 +10,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
 
 import net.cheatingessentials.api.APIModule;
 import net.cheatingessentials.api.Module;
-import net.cheatingessentials.client.modules.general.ModuleManager;
 import net.cheatingessentials.main.DynamicLogger;
 import net.minecraft.client.Minecraft;
 
+import org.apache.logging.log4j.Level;
 import org.lwjgl.input.Keyboard;
 
 public class KeybindConfiguration {

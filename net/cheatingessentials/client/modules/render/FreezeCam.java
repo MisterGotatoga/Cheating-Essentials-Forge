@@ -41,11 +41,11 @@ public class FreezeCam extends Module {
 	public void doFreezeCam(){
 		if(world() instanceof WorldClient){
 			location = new LocationHelper(player());
-			EntitySpectator spectator = new EntitySpectator(world(), player().username);
+			/*EntitySpectator spectator = new EntitySpectator(world(), null);
 			spectator.setPositionAndRotation(location.posX, location.posY - 1.5, location.posZ, location.rotationYaw, location.rotationPitch);
 			spectator.inventory.copyInventory(player().inventory);
 			world().addEntityToWorld(-1, spectator);
-			minecraft().renderViewEntity = spectator;
+			minecraft().renderViewEntity = spectator;*/
 		}
 	}
 	

@@ -29,7 +29,7 @@ public class DieCoordinates extends Module {
 		if(player().isDead && countdown == 1)
 		{
 			countdown = (int) (8 * Math.random());
-			player().addChatMessage("[CE] Coordinates on player dead:"+" x:"+(int)player().posX+" y:"+(int)player().posY+" z:"+(int)player().posZ);
+			player().sendChatMessage("[CE] Coordinates on player dead:"+" x:"+(int)player().posX+" y:"+(int)player().posY+" z:"+(int)player().posZ);
 		}
 		if(!player().isDead)
 		{

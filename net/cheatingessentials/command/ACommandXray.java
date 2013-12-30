@@ -2,12 +2,10 @@ package net.cheatingessentials.command;
 
 import net.cheatingessentials.api.APIModule;
 import net.cheatingessentials.api.Command;
-import net.cheatingessentials.client.modules.general.ModuleManager;
 import net.cheatingessentials.client.modules.world.XRay;
 import net.cheatingessentials.config.agce.AGCEConfigurationIList;
 import net.cheatingessentials.util.Utils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.ChatMessageComponent;
 
 public class ACommandXray extends Command {
 
@@ -22,7 +20,7 @@ public class ACommandXray extends Command {
 			Integer id = Integer.parseInt(subcommands[1]);
 			XRay.xrayList2.add((Integer)id);
 			XRay.addDefaultList();
-			Minecraft.getMinecraft().thePlayer.addChatMessage("Added ID from X-Ray list: "+id);
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("Added ID from X-Ray list: "+id);
 			Utils.instance().removeDupes(XRay.xrayList2);
 			AGCEConfigurationIList.instance.modify("CEXrayBlocks.txt", XRay.xrayList2);
 			Utils.instance().removeDupes(XRay.xrayList2);
@@ -36,7 +34,7 @@ public class ACommandXray extends Command {
 			XRay.removeDefaultList();
 			XRay.addDefaultList();
 			Utils.instance().removeDupes(XRay.xrayList2);
-			Minecraft.getMinecraft().thePlayer.addChatMessage("Removed ID from X-Ray list: "+id);
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("Removed ID from X-Ray list: "+id);
 			AGCEConfigurationIList.instance.modify("CEXrayBlocks.txt", XRay.xrayList2);
 			APIModule.instance().getModuleClass(XRay.class).reset();
 		}

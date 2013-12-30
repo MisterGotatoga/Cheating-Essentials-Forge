@@ -10,11 +10,12 @@ import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.logging.Level;
 
 import net.cheatingessentials.main.DynamicLogger;
 import net.cheatingessentials.util.Utils;
 import net.minecraft.client.Minecraft;
+
+import org.apache.logging.log4j.Level;
 
 /**
  * Auto Generated Config for Collection-extended values that uses String values.

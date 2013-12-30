@@ -14,7 +14,7 @@ public class CommandHelp extends Command {
 	public void runCommand(String s, String[] subcommands) {
 		// TODO Auto-generated method stub
 		for(Command commands : CommandManager.commands){
-			Minecraft.getMinecraft().thePlayer.addChatMessage("Command: "+commands.getCommand()+" - "+commands.getDescription());
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("Command: "+commands.getCommand()+" - "+commands.getDescription());
 		}
 	}
 

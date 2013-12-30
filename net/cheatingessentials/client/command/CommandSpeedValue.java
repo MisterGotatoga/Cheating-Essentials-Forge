@@ -1,11 +1,10 @@
 package net.cheatingessentials.client.command;
 
 import net.cheatingessentials.client.modules.player.Speed;
-import net.cheatingessentials.client.modules.render.BlockFinder;
 import net.cheatingessentials.config.agce.AGCEConfigurationNG;
+import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatMessageComponent;
 
 public class CommandSpeedValue extends CommandBase {
 
@@ -24,7 +23,13 @@ public class CommandSpeedValue extends CommandBase {
 		Double speedvalue = Double.parseDouble(astring[0]);
 		Speed.SPEED_VALUE = speedvalue;
 		AGCEConfigurationNG.instance.modify("CESpeedValue.txt", speedvalue);
-		icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Set speed to: "+speedvalue));
+		Minecraft.getMinecraft().thePlayer.sendChatMessage("Set speed to: "+speedvalue);
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

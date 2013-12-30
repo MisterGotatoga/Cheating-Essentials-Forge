@@ -1,6 +1,6 @@
 package net.cheatingessentials.main;
 
-import java.util.logging.Level;
+import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.FMLLog;
 
@@ -21,7 +21,7 @@ public class DynamicLogger {
 	 * @param level = Level mode
 	 */
 	public void writeLog(String data, Level level){
-		FMLLog.log("Cheating-Essentials", level, p+data);
+		FMLLog.log(level, "Cheating Essentials", data);
 	}
 	
 	/**

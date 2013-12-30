@@ -13,9 +13,9 @@ public class Watcher
 
     public boolean matches(Entity other, long now)
     {
-        return (other.entityId == entity.entityId)
+        return (other.getUniqueID() == entity.getUniqueID()
                 && (time > (now - delay))
-                && (other.getClass() == entity.getClass());
+                && (other.getClass() == entity.getClass()));
     }
 
     private final Entity entity;

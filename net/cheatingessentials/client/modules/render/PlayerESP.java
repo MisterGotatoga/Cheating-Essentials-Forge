@@ -28,7 +28,7 @@ public class PlayerESP extends Module
 
 	public void enable()
 	{
-		player().addChatMessage("CE PlayerESP. Now with added bugs for extra game experience!");
+		player().sendChatMessage("CE PlayerESP. Now with added bugs for extra game experience!");
 	}
 	
 	public void doRender()

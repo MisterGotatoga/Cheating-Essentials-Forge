@@ -14,7 +14,6 @@ public class EventHandler
     {
         eventMap = new HashMap < Class < ? extends Event > , CopyOnWriteArrayList< Listener >> ();
         eventMap.put(EventRender.class, new CopyOnWriteArrayList< Listener >());
-        eventMap.put(EventBlockRender.class, new CopyOnWriteArrayList< Listener >());
         eventMap.put(EventTick.class, new CopyOnWriteArrayList<Listener>());
     }
 

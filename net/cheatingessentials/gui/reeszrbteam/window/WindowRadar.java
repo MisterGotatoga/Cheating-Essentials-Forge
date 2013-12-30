@@ -4,6 +4,7 @@ import net.cheatingessentials.gui.reeszrbteam.element.YAWButton;
 import net.cheatingessentials.gui.reeszrbteam.element.YAWWindow;
 import net.cheatingessentials.util.RZUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class WindowRadar extends YAWWindow {
@@ -42,22 +43,22 @@ public class WindowRadar extends YAWWindow {
 				int count = 0;
 				for(Object o: Minecraft.getMinecraft().theWorld.playerEntities)
 				{
-					EntityPlayer e = (EntityPlayer) o;
+					EntityClientPlayerMP e = (EntityClientPlayerMP) o;
 					if(e != Minecraft.getMinecraft().thePlayer && !e.isDead)
 					{
 						int distance = (int)Minecraft.getMinecraft().thePlayer.getDistanceToEntity(e);
 						String text = "";
 						if(distance <= 20)
 						{
-							text = "\247c" + e.username + "\247f: " + (int)distance;
+							text = "\247c" + e.func_142021_k() + "\247f: " + (int)distance;
 						}else
 						if(distance <= 50 && distance > 20)
 						{
-							text = "\2476" + e.username + "\247f: " + (int)distance;
+							text = "\2476" + e.func_142021_k() + "\247f: " + (int)distance;
 						}else
 						if(distance > 50)
 						{
-							text = "\247a" + e.username + "\247f: " + (int)distance;
+							text = "\247a" + e.func_142021_k() + "\247f: " + (int)distance;
 						}
 						int xPosition = getX() + 2 + dragX;
 						int yPosition = getY() + (10 * count) + 13 + dragY;

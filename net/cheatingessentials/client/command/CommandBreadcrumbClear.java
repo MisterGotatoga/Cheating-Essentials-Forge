@@ -1,9 +1,9 @@
 package net.cheatingessentials.client.command;
 
 import net.cheatingessentials.client.modules.render.Breadcrumb;
+import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatMessageComponent;
 
 public class CommandBreadcrumbClear extends CommandBase {
 
@@ -20,11 +20,17 @@ public class CommandBreadcrumbClear extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender icommandsender, String[] astring) {
 		Breadcrumb.positionsList.clear();
-		icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Deleted breadcrumbs"));
+		Minecraft.getMinecraft().thePlayer.sendChatMessage("Deleted breadcrumbs");
 	}
 	
 	@Override
 	public boolean canCommandSenderUseCommand(ICommandSender icommandsender) {
 		return true;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

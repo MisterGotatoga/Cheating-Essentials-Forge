@@ -37,25 +37,25 @@ public class ChestFinder extends Module {
 		/**
 		 * @author Halalaboos / Huzuni Client
 		 */
-		for (Object o : world().loadedTileEntityList) {
+		for (Object o : world().field_147482_g) {
             if (o instanceof TileEntityChest) {
                 final TileEntityChest chest = (TileEntityChest) o;
-                final double renderX = chest.xCoord - RenderManager.renderPosX;
-                final double renderY = chest.yCoord - RenderManager.renderPosY;
-                final double renderZ = chest.zCoord - RenderManager.renderPosZ;
+                final double renderX = chest.field_145851_c - RenderManager.renderPosX;
+                final double renderY = chest.field_145848_d - RenderManager.renderPosY;
+                final double renderZ = chest.field_145849_e - RenderManager.renderPosZ;
                 GL11.glPushMatrix();
                 GL11.glTranslated(renderX, renderY, renderZ);
                 GL11.glColor3f(1, 1, 0);
 
-                if (chest.adjacentChestXPos != null) {
+                if (chest.field_145988_l != null) {
                 	AltAxisAlignedBB boundingBox = AltAxisAlignedBB.getBoundingBox(0, 0, 0, 2, 1, 1);
                     GL11.glColor4f(1, 1, 0, 0.1F);
                 	GLHelper.startDrawingESPs(boundingBox, 0.3F, 0.8F, 1.0F);
-                } else if (chest.adjacentChestZPosition != null) {
+                } else if (chest.field_145990_j != null) {
                     AltAxisAlignedBB boundingBox = AltAxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 2);
                 	GL11.glColor4f(1, 1, 0, 0.1F);
                 	GLHelper.startDrawingESPs(boundingBox, 0.3F, 0.8F, 1.0F);
-                } else if (chest.adjacentChestXPos == null && chest.adjacentChestZPosition == null && chest.adjacentChestXNeg == null && chest.adjacentChestZNeg == null) {
+                } else if (chest.field_145988_l == null && chest.field_145990_j == null && chest.field_145991_k == null && chest.field_145992_i == null) {
                     AltAxisAlignedBB boundingBox = AltAxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 1);
                 	GL11.glColor4f(1, 1, 0, 0.1F);
                 	GLHelper.startDrawingESPs(boundingBox, 0.3F, 0.8F, 1.0F);

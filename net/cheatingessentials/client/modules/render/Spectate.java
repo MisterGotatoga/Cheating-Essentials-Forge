@@ -37,13 +37,13 @@ public class Spectate extends Module {
 	}
 	
 	public void doSpectate(){
-		if(world() instanceof WorldClient){
+		/*if(world() instanceof WorldClient){
 			loc = new LocationHelper(player());
-			EntitySpectator spectator = new EntitySpectator(world(), player().username);
+			EntitySpectator spectator = new EntitySpectator(world(), player().func_142021_k());
 			spectator.setPositionAndRotation(loc.posX, loc.posY - 1.5, loc.posZ, loc.rotationYaw, loc.rotationPitch);
 			spectator.inventory.copyInventory(player().inventory);
 			world().addEntityToWorld(-1, spectator);
-		}
+		}*/
 	}
 	
 	public void undoSpectate(){

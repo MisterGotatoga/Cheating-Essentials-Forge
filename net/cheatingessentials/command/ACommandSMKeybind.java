@@ -1,12 +1,10 @@
 package net.cheatingessentials.command;
 
 import net.cheatingessentials.api.APIModule;
-import net.cheatingessentials.api.Module;
 import net.cheatingessentials.api.Command;
-import net.cheatingessentials.client.modules.general.ModuleManager;
+import net.cheatingessentials.api.Module;
 import net.cheatingessentials.config.KeybindConfiguration;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.ChatMessageComponent;
 
 import org.lwjgl.input.Keyboard;
 
@@ -27,7 +25,7 @@ public class ACommandSMKeybind extends Command {
 					if(i != Keyboard.KEY_NONE){
 						successful = true;
 						m.setKeybinding(i); 
-						Minecraft.getMinecraft().thePlayer.addChatMessage("Setted key: "+m.getKeybind()+"("+subcommands[2]+")"+" for module: "+m.getModuleName());
+						Minecraft.getMinecraft().thePlayer.sendChatMessage("Setted key: "+m.getKeybind()+"("+subcommands[2]+")"+" for module: "+m.getModuleName());
 						KeybindConfiguration.instance().writeKeybindConfig(); 
 						break;
 					}
@@ -40,14 +38,14 @@ public class ACommandSMKeybind extends Command {
 				if(subcommands[1].equalsIgnoreCase(m.getModuleName().replaceAll(" ", ""))){
 					successful = true;
 					m.setKeybinding(0);
-					Minecraft.getMinecraft().thePlayer.addChatMessage("Removed key for module: "+m.getModuleName());
+					Minecraft.getMinecraft().thePlayer.sendChatMessage("Removed key for module: "+m.getModuleName());
 					KeybindConfiguration.instance().writeKeybindConfig();
 					break;
 				}
 			}
 		}
 		if(!successful){
-			Minecraft.getMinecraft().thePlayer.addChatMessage("Can't recognize module: "+subcommands[1]+" or subcommand: "+subcommands[0]);
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("Can't recognize module: "+subcommands[1]+" or subcommand: "+subcommands[0]);
 		}
 	}
 

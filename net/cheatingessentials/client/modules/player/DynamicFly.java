@@ -23,8 +23,9 @@ public class DynamicFly extends Module {
 	}
 	
 	@Override 
-	public void tick(){
-		Object o = player();
+	public void tick()
+	{
+		/*Object o = player();
 		player().jumpMovementFactor = 0.4F;
 		ReflectionHelper.setField(EntityLivingBase.class, o, 56, 0.4F);
 		player().motionX = 0;
@@ -32,11 +33,13 @@ public class DynamicFly extends Module {
 		player().motionZ = 0;
 		player().jumpMovementFactor *= 3;
 		
-		if(minecraft().gameSettings.keyBindJump.pressed){
+		if(minecraft().gameSettings.keyBindJump.pressed)
+		{
 			player().motionY += 1;
 		}
-		if(minecraft().gameSettings.keyBindSneak.pressed){
+		if(minecraft().gameSettings.keyBindSneak.pressed)
+		{
 			player().motionY -= 1;
-		}
+		}*/
 	}
 }

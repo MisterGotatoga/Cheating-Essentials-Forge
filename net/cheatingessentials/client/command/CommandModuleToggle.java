@@ -2,9 +2,9 @@ package net.cheatingessentials.client.command;
 
 import net.cheatingessentials.api.APIModule;
 import net.cheatingessentials.api.Module;
+import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatMessageComponent;
 
 public class CommandModuleToggle extends CommandBase {
 
@@ -23,7 +23,7 @@ public class CommandModuleToggle extends CommandBase {
 		for(Module module : APIModule.instance().modules){
 			if(module.getModuleName().replace(" ", "").equalsIgnoreCase(astring[0])){
 				module.toggle(); 
-				icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Toggled Module: "+module.getModuleName()+" -- Module State: "+ (module.isActive() ? ("Active") : ("Disabled") )));
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Toggled Module: "+module.getModuleName()+" -- Module State: "+ (module.isActive() ? ("Active") : ("Disabled")));
 				break;
 			}
 		}
@@ -32,5 +32,11 @@ public class CommandModuleToggle extends CommandBase {
 	@Override
 	public boolean canCommandSenderUseCommand(ICommandSender icommandsender) {
 		return true;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

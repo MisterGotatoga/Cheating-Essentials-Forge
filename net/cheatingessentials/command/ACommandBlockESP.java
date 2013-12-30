@@ -4,7 +4,6 @@ import net.cheatingessentials.api.Command;
 import net.cheatingessentials.client.modules.render.BlockFinder;
 import net.cheatingessentials.config.agce.AGCEConfigurationIList;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.ChatMessageComponent;
 
 public class ACommandBlockESP extends Command {
 
@@ -68,7 +67,7 @@ public class ACommandBlockESP extends Command {
 		if(modify)
 			AGCEConfigurationIList.instance.modify("CEBlockESPList.txt", BlockFinder.instance.idEspList);
 		if(answer != null)
-			Minecraft.getMinecraft().thePlayer.addChatMessage(answer);
+			Minecraft.getMinecraft().thePlayer.sendChatMessage(answer);
 	}
 
 	@Override

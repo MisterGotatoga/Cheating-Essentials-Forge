@@ -1,8 +1,6 @@
 package net.cheatingessentials.main;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.logging.Level;
 
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
@@ -24,26 +22,22 @@ import net.cheatingessentials.client.modules.general.ModuleManager;
 import net.cheatingessentials.client.modules.globalsys.GlobalModule;
 import net.cheatingessentials.command.APICommandManager;
 import net.cheatingessentials.config.ConfigurationManager;
-import net.cheatingessentials.util.forge.CEConnectionHandler;
 import net.cheatingessentials.util.forge.ForgeEvents;
-import net.cheatingessentials.util.forge.TickHandler;
 import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
+
+import org.apache.logging.log4j.Level;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.TickRegistry;
-import cpw.mods.fml.relauncher.Side;
 
 /**
  * Note from author:
@@ -63,13 +57,11 @@ import cpw.mods.fml.relauncher.Side;
 
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
 @Mod(modid="Cheating-Essentials", name="Cheating Essentials Reloaded", version="4.2.1")
-@NetworkMod(serverSideRequired = false)
 public final class CheatingEssentials
 {
 
 	@Instance("Cheating-Essentials")
 	public static CheatingEssentials main;
-	TickHandler tickhandler = new TickHandler();
 	
 	@EventHandler
 	public void preInitialization(FMLPreInitializationEvent e)
@@ -94,8 +86,8 @@ public final class CheatingEssentials
 	@EventHandler
 	public void initialization(FMLInitializationEvent e)
 	{
-		TickRegistry.registerScheduledTickHandler(tickhandler, Side.CLIENT);
-		NetworkRegistry.instance().registerConnectionHandler(new CEConnectionHandler());
+		//TickRegistry.registerScheduledTickHandler(tickhandler, Side.CLIENT);
+		//NetworkRegistry.INSTANCE.registerConnectionHandler(new CEConnectionHandler());
 		ModuleManager.instance();
 		GlobalModule.initKGMS();
 	}

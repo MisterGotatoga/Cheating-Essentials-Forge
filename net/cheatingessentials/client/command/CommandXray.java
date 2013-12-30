@@ -1,18 +1,11 @@
 package net.cheatingessentials.client.command;
 
-import java.io.File;
-
 import net.cheatingessentials.api.APIModule;
-import net.cheatingessentials.client.modules.general.ModuleManager;
-import net.cheatingessentials.client.modules.render.BlockFinder;
 import net.cheatingessentials.client.modules.world.XRay;
-import net.cheatingessentials.config.ConfigurationManager;
 import net.cheatingessentials.config.agce.AGCEConfigurationIList;
 import net.cheatingessentials.util.Utils;
-import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatMessageComponent;
 
 public class CommandXray extends CommandBase {
 
@@ -31,7 +24,7 @@ public class CommandXray extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender icommandsender, String[] astring) 
 	{
-		if(astring[0].equalsIgnoreCase("add")){
+		/*if(astring[0].equalsIgnoreCase("add")){
 			Integer id = Integer.parseInt(astring[1]);
 			XRay.xrayList2.add((Integer)id);
 			XRay.addDefaultList();
@@ -52,6 +45,12 @@ public class CommandXray extends CommandBase {
 			icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed ID from X-Ray list: "+id));
 			AGCEConfigurationIList.instance.modify("CEXrayBlocks.txt", XRay.xrayList2);
 			APIModule.instance().getModuleClass(XRay.class).reset();
-		}
+		}*/
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

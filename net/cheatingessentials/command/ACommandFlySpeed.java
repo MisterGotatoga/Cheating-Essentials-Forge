@@ -4,7 +4,6 @@ import net.cheatingessentials.api.Command;
 import net.cheatingessentials.client.modules.player.Fly;
 import net.cheatingessentials.config.agce.AGCEConfigurationNG;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.ChatMessageComponent;
 
 public class ACommandFlySpeed extends Command {
 
@@ -22,10 +21,10 @@ public class ACommandFlySpeed extends Command {
 			if(string < 0.7F){
 				Minecraft.getMinecraft().thePlayer.capabilities.setFlySpeed(Fly.FLY_SPEED);
 				AGCEConfigurationNG.instance.modify("CEFlySpeed.txt", Fly.FLY_SPEED);
-				Minecraft.getMinecraft().thePlayer.addChatMessage("Set Fly Speed to: "+Fly.FLY_SPEED);
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Set Fly Speed to: "+Fly.FLY_SPEED);
 			}
 			else{
-				Minecraft.getMinecraft().thePlayer.addChatMessage("Can't set values higher than 0.7");
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Can't set values higher than 0.7");
 			}
 		}
 		catch(Exception e){}

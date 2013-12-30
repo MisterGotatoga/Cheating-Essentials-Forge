@@ -1,12 +1,11 @@
 package net.cheatingessentials.client.modules.globalsys;
 
-import java.util.logging.Level;
-
 import net.cheatingessentials.api.APIModule;
 import net.cheatingessentials.api.Module;
-import net.cheatingessentials.client.modules.general.Category;
-import net.cheatingessentials.client.modules.general.ModuleManager;
 import net.cheatingessentials.main.DynamicLogger;
+
+import org.apache.logging.log4j.Level;
+
 
 public class GlobalModuleWorld extends GlobalModule
 {
@@ -44,7 +43,7 @@ public class GlobalModuleWorld extends GlobalModule
 			} 
 			catch (Exception e)
 			{
-				DynamicLogger.instance().writeLog("Unable to load world module: "+e, Level.WARNING);
+				DynamicLogger.instance().writeLog("Unable to load world module: "+e, Level.WARN);
 				e.printStackTrace();
 			}
 		}

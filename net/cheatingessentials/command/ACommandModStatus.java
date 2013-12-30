@@ -19,14 +19,14 @@ public class ACommandModStatus extends Command {
 	@Override
 	public void runCommand(String s, String[] subcommands) {
 		// TODO Auto-generated method stub
-		mc.thePlayer.addChatMessage("Cheating Essentials mod for Minecraft, information: ");
-		mc.thePlayer.addChatMessage("--------------------------");
-		mc.thePlayer.addChatMessage("Version: "+CheatingEssentials.mainInstance().modVersion);
-		mc.thePlayer.addChatMessage("A.G.C.E version: "+ConfigurationManager.instance().getConfigurationSystemVersion());
-		mc.thePlayer.addChatMessage("Module Manager version: "+ModuleManager.instance().getModuleManagerVersion());
-		mc.thePlayer.addChatMessage("Development date: November 14th, 2013");
-		mc.thePlayer.addChatMessage("Credits: Kodehawa, ReesZRB");
-		mc.thePlayer.addChatMessage("Modules Loaded: "+APIModule.instance().modules.size());
+		mc.thePlayer.sendChatMessage("Cheating Essentials mod for Minecraft, information: ");
+		mc.thePlayer.sendChatMessage("--------------------------");
+		mc.thePlayer.sendChatMessage("Version: "+CheatingEssentials.mainInstance().modVersion);
+		mc.thePlayer.sendChatMessage("A.G.C.E version: "+ConfigurationManager.instance().getConfigurationSystemVersion());
+		mc.thePlayer.sendChatMessage("Module Manager version: "+ModuleManager.instance().getModuleManagerVersion());
+		mc.thePlayer.sendChatMessage("Development date: November 14th, 2013");
+		mc.thePlayer.sendChatMessage("Credits: Kodehawa, ReesZRB");
+		mc.thePlayer.sendChatMessage("Modules Loaded: "+APIModule.instance().modules.size());
 
 	}
 

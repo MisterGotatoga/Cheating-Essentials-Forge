@@ -21,7 +21,7 @@ public class XRay extends Module
 	{
 		super(Category.WORLD);
 		this.setKeybinding(Keyboard.KEY_X);
-		xrayList2.add(Block.oreCoal.blockID);
+		/*xrayList2.add(Block.oreCoal.blockID);
 		xrayList2.add(Block.oreIron.blockID);
 		xrayList2.add(Block.oreGold.blockID);
 		xrayList2.add(Block.oreEmerald.blockID);
@@ -29,7 +29,7 @@ public class XRay extends Module
 		xrayList2.add(Block.oreLapis.blockID);
 		xrayList2.add(Block.oreRedstone.blockID);
 		xrayList2.add(Block.oreRedstoneGlowing.blockID);
-		xrayList2.add(Block.oreNetherQuartz.blockID);
+		xrayList2.add(Block.oreNetherQuartz.blockID);*/
 	}
 
 	@Override
@@ -128,9 +128,6 @@ public class XRay extends Module
 
 	private void rerender()
 	{
-		int x = (int) player().posX;
-		int y = (int) player().posY;
-		int z = (int) player().posZ;
-		minecraft().renderGlobal.markBlockRangeForRenderUpdate(x - 200, y - 200, z - 200, x + 200, y + 200, z + 200);
+		minecraft().renderGlobal.loadRenderers();
 	}
 }

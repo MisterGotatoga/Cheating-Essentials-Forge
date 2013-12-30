@@ -16,7 +16,7 @@ public class ACommandSpeedValue extends Command {
 		Double speedvalue = Double.parseDouble(subcommands[0]);
 		Speed.SPEED_VALUE = speedvalue;
 		AGCEConfigurationNG.instance.modify("CESpeedValue.txt", speedvalue);
-		Minecraft.getMinecraft().thePlayer.addChatMessage("Set speed to: "+speedvalue);
+		Minecraft.getMinecraft().thePlayer.sendChatMessage("Set speed to: "+speedvalue);
 	}
 
 	@Override

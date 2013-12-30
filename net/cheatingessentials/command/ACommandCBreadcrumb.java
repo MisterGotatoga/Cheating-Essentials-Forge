@@ -14,7 +14,7 @@ public class ACommandCBreadcrumb extends Command {
 	public void runCommand(String s, String[] subcommands) {
 		// TODO Auto-generated method stub
 		Breadcrumb.positionsList.clear();
-		Minecraft.getMinecraft().thePlayer.addChatMessage("Cleared Breadcrumbs");
+		Minecraft.getMinecraft().thePlayer.sendChatMessage("Cleared Breadcrumbs");
 	}
 
 	@Override

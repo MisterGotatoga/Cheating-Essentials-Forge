@@ -1,12 +1,13 @@
 package net.cheatingessentials.util;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 import net.minecraft.entity.Entity;
 
 public class EntityUtils
 {
-    public static Watcher getLastAffected(Integer id)
+    public static Watcher getLastAffected(UUID id)
     {
         Watcher entity = events.get(id);
 
@@ -18,12 +19,12 @@ public class EntityUtils
         return null;
     }
 
-    public static void setLastAffected(Integer id, Entity entity)
+    public static void setLastAffected(UUID id, Entity entity)
     {
         long now = System.currentTimeMillis();
         Watcher eventWatcher = new Watcher(entity, now);
         events.put(id, eventWatcher);
     }
 
-    private static HashMap<Integer, Watcher> events = new HashMap<Integer, Watcher>();
+    private static HashMap<UUID, Watcher> events = new HashMap<UUID, Watcher>();
 }

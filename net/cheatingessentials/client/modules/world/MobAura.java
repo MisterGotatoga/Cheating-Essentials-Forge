@@ -1,5 +1,7 @@
 package net.cheatingessentials.client.modules.world;
 
+import java.util.UUID;
+
 import net.cheatingessentials.api.Module;
 import net.cheatingessentials.client.modules.general.Category;
 import net.cheatingessentials.util.EntityUtils;
@@ -27,7 +29,7 @@ public class MobAura extends Module {
 		for (int i = 0; i < minecraft().theWorld.loadedEntityList.size(); i++)
         {
             Entity ent = (Entity) minecraft().theWorld.loadedEntityList.get(i);
-            int id = ent.entityId;
+            UUID id = ent.getUniqueID();
             long now = System.currentTimeMillis();
             Watcher tracked = EntityUtils.getLastAffected(id);
 

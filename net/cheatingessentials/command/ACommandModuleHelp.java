@@ -18,7 +18,7 @@ public class ACommandModuleHelp extends Command {
 		// TODO Auto-generated method stub
 		for(Module module : APIModule.instance().modules){
 			if(subcommands[0].equalsIgnoreCase(module.getModuleName().replaceAll(" ", ""))){
-				Minecraft.getMinecraft().thePlayer.addChatMessage("Help for module "+module.getModuleName()+": "+module.showHelp());
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Help for module "+module.getModuleName()+": "+module.showHelp());
 			}
 		}
 	}

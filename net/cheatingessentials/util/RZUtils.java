@@ -7,7 +7,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.network.packet.Packet;
+import net.minecraft.network.Packet;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
@@ -55,11 +55,6 @@ public class RZUtils {
 		drawHLine(x, x1 - 2, y1 -1, borderC);
 		drawRect(x + 1, y + 1, x1 - 1, y1 - 1, insideC);
 		GL11.glScalef(2.0F, 2.0F, 2.0F);
-	}
-
-	public static void sendPacket(Packet p)
-	{
-		mc.thePlayer.sendQueue.addToSendQueue(p);
 	}
 	
 	public static boolean stringListContains(List<String> list, String needle) {

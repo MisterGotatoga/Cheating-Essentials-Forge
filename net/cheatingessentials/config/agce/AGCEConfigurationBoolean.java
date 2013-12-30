@@ -7,12 +7,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.logging.Level;
 
 import net.cheatingessentials.main.DynamicLogger;
 import net.cheatingessentials.util.ReflectionHelper;
 import net.minecraft.client.Minecraft;
+
+import org.apache.logging.log4j.Level;
 
 /**
  * "Decomplied" name: "Auto Generated Cheating Essentials Configuration for Boolean values".
@@ -102,7 +102,7 @@ public class AGCEConfigurationBoolean {
 						newbool = Boolean.parseBoolean(value1);
 					}
 					else{
-						DynamicLogger.instance().writeLogWithPrefix("CMB", "Unable to recognize boolean value from file: "+bool, Level.WARNING, 1);
+						DynamicLogger.instance().writeLogWithPrefix("CMB", "Unable to recognize boolean value from file: "+bool, Level.WARN, 1);
 					}
 				}
 				catch(Exception e)

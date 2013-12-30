@@ -28,7 +28,7 @@ public class YAWButton {
 	public void mouseClicked(int x, int y, int button) {
 		if(x >= getX() + window.dragX && y >= getY() + window.dragY && x <= getX() + 85.5 + window.dragX && y <= getY() + 9 + window.dragY && button == 0 && window.isOpen() && window.isExtended()) {
 			YouAlwaysWinClickGui.sendPanelToFront(window);
-			Minecraft.getMinecraft().sndManager.playSoundFX("random.click", 1.0F, 1.0F);
+			//Minecraft.getMinecraft().sndManager.playSoundFX("random.click", 1.0F, 1.0F);
 			mod.toggle();
 		}
 	}

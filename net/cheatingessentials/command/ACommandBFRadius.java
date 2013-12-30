@@ -17,7 +17,7 @@ public class ACommandBFRadius extends Command {
 		// TODO Auto-generated method stub
 		BlockFinder.BLOCK_RADIUS = Integer.parseInt(subcommands[0]);
 		AGCEConfigurationNG.instance.modify("CEBFRadius.txt", BlockFinder.BLOCK_RADIUS);
-		Minecraft.getMinecraft().thePlayer.addChatMessage("Block Finder radius set to: "+subcommands[0]+" blocks.");
+		Minecraft.getMinecraft().thePlayer.sendChatMessage("Block Finder radius set to: "+subcommands[0]+" blocks.");
 	}
 
 	@Override

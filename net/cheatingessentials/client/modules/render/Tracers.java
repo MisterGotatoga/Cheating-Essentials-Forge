@@ -46,9 +46,9 @@ public class Tracers extends Module {
                         double posX = ((entity.lastTickPosX + (entity.posX - entity.lastTickPosX) - RenderManager.instance.renderPosX));
                         double posY = ((entity.lastTickPosY + 1.4 + (entity.posY - entity.lastTickPosY) - RenderManager.instance.renderPosY));
                         double posZ = ((entity.lastTickPosZ + (entity.posZ - entity.lastTickPosZ) - RenderManager.instance.renderPosZ));
-                        if(PlayerRelations.instance().friends.contains(entity.username)){
+                        if(PlayerRelations.instance().friends.contains(entity.getDisplayName())){
                         	GL11.glColor3f(0.0F, 1.0F, 0.0F);
-                        if(PlayerRelations.instance().enemies.contains(entity.username)){
+                        if(PlayerRelations.instance().enemies.contains(entity.getDisplayName())){
                         	GL11.glColor3f(1.0F, 0.0F, 0.0F);
                         	}
                         }

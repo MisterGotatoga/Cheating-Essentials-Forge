@@ -2,13 +2,11 @@ package net.cheatingessentials.client.command;
 
 import java.io.File;
 
-import net.cheatingessentials.config.ConfigurationManager;
 import net.cheatingessentials.config.agce.AGCEConfigurationSList;
 import net.cheatingessentials.relation.PlayerRelations;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatMessageComponent;
 
 public class CommandAddEnemy extends CommandBase {
 
@@ -30,7 +28,7 @@ public class CommandAddEnemy extends CommandBase {
 		{
 			for(String string: PlayerRelations.instance().enemies)
 			{
-				icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Added enemy: "+astring[1]));
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Added enemy: "+astring[1]);
 				PlayerRelations.instance().enemies.add(astring[1]); 
 				AGCEConfigurationSList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEEnemies.txt"), PlayerRelations.instance().enemies);
 				break;
@@ -40,7 +38,7 @@ public class CommandAddEnemy extends CommandBase {
 		{
 			for(String string: PlayerRelations.instance().enemies)
 			{
-				icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Added enemy: "+astring[1]));
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Added enemy: "+astring[1]);
 				PlayerRelations.instance().enemies.remove(astring[1]); 
 				AGCEConfigurationSList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEEnemies.txt"), PlayerRelations.instance().enemies);
 				break;
@@ -52,5 +50,11 @@ public class CommandAddEnemy extends CommandBase {
 	public boolean canCommandSenderUseCommand(ICommandSender icommandsender) 
 	{
 		return true;
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

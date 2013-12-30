@@ -2,7 +2,6 @@ package net.cheatingessentials.util;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.network.packet.Packet13PlayerLookMove;
 
 public class Teleport
 {
@@ -43,7 +42,7 @@ public class Teleport
 		for(int i = 0; i < 2; i++)
 		{
 			entityplayersp.setPosition(d, d1, d2);
-			mc.thePlayer.sendQueue.addToSendQueue(new Packet13PlayerLookMove(entityplayersp.posX, entityplayersp.boundingBox.minY, entityplayersp.posY, entityplayersp.posZ, entityplayersp.rotationYaw, entityplayersp.rotationPitch, true));
+			//mc.thePlayer.sendQueue.addToSendQueue(new Packet13PlayerLookMove(entityplayersp.posX, entityplayersp.boundingBox.minY, entityplayersp.posY, entityplayersp.posZ, entityplayersp.rotationYaw, entityplayersp.rotationPitch, true));
 		}
 
 		try

@@ -21,7 +21,7 @@ public class ACommandModuleToggle extends Command
 		for(Module module : APIModule.instance().modules){
 			if(module.getModuleName().replace(" ", "").equalsIgnoreCase(subcommands[0])){
 				module.toggle(); 
-				Minecraft.getMinecraft().thePlayer.addChatMessage("Toggled Module: "+module.getModuleName()+" -- Module State: "+ (module.isActive() ? ("Active") : ("Disabled") ));
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Toggled Module: "+module.getModuleName()+" -- Module State: "+ (module.isActive() ? ("Active") : ("Disabled") ));
 				break;
 			}
 		}

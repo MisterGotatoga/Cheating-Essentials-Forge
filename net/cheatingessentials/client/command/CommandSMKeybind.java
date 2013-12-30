@@ -2,11 +2,10 @@ package net.cheatingessentials.client.command;
 
 import net.cheatingessentials.api.APIModule;
 import net.cheatingessentials.api.Module;
-import net.cheatingessentials.client.modules.general.ModuleManager;
 import net.cheatingessentials.config.KeybindConfiguration;
+import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatMessageComponent;
 
 import org.lwjgl.input.Keyboard;
 
@@ -32,7 +31,7 @@ public class CommandSMKeybind extends CommandBase {
 						if(i != Keyboard.KEY_NONE){
 							successful = true;
 							m.setKeybinding(i); 
-							icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Setted key: "+m.getKeybind()+"("+astring[2]+")"+" for module: "+m.getModuleName()));
+							Minecraft.getMinecraft().thePlayer.sendChatMessage("Setted key: "+m.getKeybind()+"("+astring[2]+")"+" for module: "+m.getModuleName());
 							KeybindConfiguration.instance().writeKeybindConfig(); 
 							break;
 						}
@@ -45,19 +44,25 @@ public class CommandSMKeybind extends CommandBase {
 					if(astring[1].equalsIgnoreCase(m.getModuleName().replaceAll(" ", ""))){
 						successful = true;
 						m.setKeybinding(0);
-						icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed key for module: "+m.getModuleName()));
+						Minecraft.getMinecraft().thePlayer.sendChatMessage("Removed key for module: "+m.getModuleName());
 						KeybindConfiguration.instance().writeKeybindConfig();
 						break;
 					}
 				}
 			}
 			if(!successful){
-				icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Can't recognize module: "+astring[1]+" or subcommand: "+astring[0]));
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Can't recognize module: "+astring[1]+" or subcommand: "+astring[0]);
 			}
 		}
 	
 	@Override
 	public boolean canCommandSenderUseCommand(ICommandSender icommandsender) {
 		return true;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

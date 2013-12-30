@@ -110,7 +110,7 @@ public class BlockFinder extends Module {
 				int cX = (int)minecraft().thePlayer.posX - (int)radius/2+x;
 				int cY = y;
 				int cZ = (int)minecraft().thePlayer.posZ - (int)radius/2+z;
-				int ids = world().getBlockId(cX, cY, cZ);
+				/*int ids = world().getBlockIds(cX, cY, cZ);
 				if (idEspList.contains(ids)) {
 					espBlocks[size++] = new CEBlockCoord(cX, cY, cZ);
 				}else{
@@ -119,7 +119,7 @@ public class BlockFinder extends Module {
 					if(metaEspList.contains(block)){
 						espBlocks[size++] = new CEBlockCoord(cX, cY, cZ);
 					}
-				}
+				}*/
 			}
 		}
 	}

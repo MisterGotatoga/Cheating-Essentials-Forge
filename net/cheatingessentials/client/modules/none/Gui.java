@@ -25,12 +25,12 @@ public class Gui extends Module {
 	@Override
 	public void enable()
 	{
-		minecraft().displayGuiScreen(click);
+		minecraft().func_147108_a(click);
 	}
 	
 	@Override
 	public void disable()
 	{
-		minecraft().displayGuiScreen(click);
+		minecraft().func_147108_a(click);
 	}
 }

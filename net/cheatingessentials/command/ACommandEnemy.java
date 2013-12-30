@@ -6,7 +6,6 @@ import net.cheatingessentials.api.Command;
 import net.cheatingessentials.config.agce.AGCEConfigurationSList;
 import net.cheatingessentials.relation.PlayerRelations;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.ChatMessageComponent;
 
 public class ACommandEnemy extends Command {
 
@@ -20,7 +19,7 @@ public class ACommandEnemy extends Command {
 		{
 			for(String string: PlayerRelations.instance().enemies)
 			{
-				Minecraft.getMinecraft().thePlayer.addChatMessage("Added enemy: "+subcommands[1]);
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Added enemy: "+subcommands[1]);
 				PlayerRelations.instance().enemies.add(subcommands[1]); 
 				AGCEConfigurationSList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEEnemies.txt"), PlayerRelations.instance().enemies);
 				break;
@@ -30,7 +29,7 @@ public class ACommandEnemy extends Command {
 		{
 			for(String string: PlayerRelations.instance().enemies)
 			{
-				Minecraft.getMinecraft().thePlayer.addChatMessage("Added enemy: "+subcommands[1]);
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Added enemy: "+subcommands[1]);
 				PlayerRelations.instance().enemies.remove(subcommands[1]); 
 				AGCEConfigurationSList.instance.modify(new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/CEEnemies.txt"), PlayerRelations.instance().enemies);
 				break;

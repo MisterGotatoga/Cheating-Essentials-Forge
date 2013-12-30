@@ -1,13 +1,10 @@
 package net.cheatingessentials.client.command;
 
-import java.io.File;
-
 import net.cheatingessentials.client.modules.render.BlockFinder;
 import net.cheatingessentials.config.agce.AGCEConfigurationIList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatMessageComponent;
 
 public class CommandBlockESP extends CommandBase {
 
@@ -79,13 +76,19 @@ public class CommandBlockESP extends CommandBase {
 		if(modify)
 			AGCEConfigurationIList.instance.modify("CEBlockESPList.txt", BlockFinder.instance.idEspList);
 		if(answer != null)
-			icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText(answer));
+			Minecraft.getMinecraft().thePlayer.sendChatMessage(answer);
 	}
 	
 	@Override
 	public boolean canCommandSenderUseCommand(ICommandSender icommandsender) 
 	{
 		return true;
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

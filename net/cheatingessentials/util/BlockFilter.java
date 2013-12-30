@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 
 public class BlockFilter {
 
-	public static String idToBlockName(int id){
+	/*public static String idToBlockName(int id){
 		 for (Block block : Block.blocksList) {
 			   if (block == null) {
 				   continue;
@@ -30,5 +30,5 @@ public class BlockFilter {
 		 }
 		 
 		 return 90000;
-	}
+	}*/
 }

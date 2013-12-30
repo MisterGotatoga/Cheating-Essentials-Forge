@@ -7,11 +7,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
-import java.util.logging.Level;
 
 import net.cheatingessentials.main.DynamicLogger;
 import net.cheatingessentials.util.ReflectionHelper;
 import net.minecraft.client.Minecraft;
+
+import org.apache.logging.log4j.Level;
 
 public class AGCEConfigurationNG 
 {
@@ -100,7 +101,7 @@ public class AGCEConfigurationNG
 				}
 				else
 				{
-					DynamicLogger.instance().writeLogWithPrefix("CMLG", "Unable to read non-numeric value on Numeric Configuration!", Level.WARNING, 1);
+					DynamicLogger.instance().writeLogWithPrefix("CMLG", "Unable to read non-numeric value on Numeric Configuration!", Level.WARN, 1);
 				}
 			}
 			bufferedreader.close();

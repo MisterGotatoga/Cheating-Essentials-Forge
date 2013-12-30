@@ -4,7 +4,6 @@ import net.cheatingessentials.api.Command;
 import net.cheatingessentials.client.modules.player.Step;
 import net.cheatingessentials.config.agce.AGCEConfigurationNG;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.ChatMessageComponent;
 
 public class ACommandStepHeight extends Command {
 
@@ -20,11 +19,11 @@ public class ACommandStepHeight extends Command {
 			float string = Float.parseFloat(subcommands[0]);
 			if(string < 100F){
 				Step.DEFAULT_STEP_HEIGHT = string;
-				Minecraft.getMinecraft().thePlayer.addChatMessage("Set step height to: "+string);
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Set step height to: "+string);
 				AGCEConfigurationNG.instance.modify("CEStepValue.txt", Step.DEFAULT_STEP_HEIGHT);
 			}
 			else{
-				Minecraft.getMinecraft().thePlayer.addChatMessage("Can't set step height more than 100 blocks!");
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Can't set step height more than 100 blocks!");
 			}
 		}
 		catch(Exception e){}

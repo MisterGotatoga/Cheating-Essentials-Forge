@@ -19,7 +19,7 @@ public class ACommandModuleList extends Command {
 	public void runCommand(String s, String[] subcommands) {
 		// TODO Auto-generated method stub
 		for(Module module : APIModule.instance().modules){
-			Minecraft.getMinecraft().thePlayer.addChatMessage("Module: "+module.getModuleName() + " - Key: ["+Keyboard.getKeyName(module.getKeybind())+"]");
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("Module: "+module.getModuleName() + " - Key: ["+Keyboard.getKeyName(module.getKeybind())+"]");
 		}
 	}
 

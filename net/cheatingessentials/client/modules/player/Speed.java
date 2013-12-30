@@ -2,8 +2,6 @@ package net.cheatingessentials.client.modules.player;
 
 import net.cheatingessentials.api.Module;
 import net.cheatingessentials.client.modules.general.Category;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeInstance;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 
 public class Speed extends Module {
@@ -40,13 +38,13 @@ public class Speed extends Module {
 		player().motionX *= SPEED_VALUE;
 		player().motionZ *= SPEED_VALUE;
 	}*/
-		AttributeInstance attributeinstance = player().getEntityAttribute(SharedMonsterAttributes.movementSpeed);
-		attributeinstance.applyModifier(cespeedmodifier);
+	/*	AttributeInstance attributeinstance = player().getEntityAttribute(SharedMonsterAttributes.movementSpeed);
+		attributeinstance.applyModifier(cespeedmodifier);*/
 	}
 	
 	public void disable()
 	{
-		AttributeInstance attributeinstance = player().getEntityAttribute(SharedMonsterAttributes.movementSpeed);
-		attributeinstance.removeModifier(cespeedmodifier);
+		/*AttributeInstance attributeinstance = player().getEntityAttribute(SharedMonsterAttributes.movementSpeed);
+		attributeinstance.removeModifier(cespeedmodifier);*/
 	}
 }

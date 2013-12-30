@@ -120,12 +120,12 @@ public class YAWWindow
 		
 		if(x >= xPos + 80 + dragX && y >= yPos + 2 + dragY && x <= xPos + 88 + dragX && y <= yPos + 10 + dragY)
 		{
-			Minecraft.getMinecraft().sndManager.playSoundFX("random.click", 1.0F, 1.0F);
+			//Minecraft.getMinecraft().sndManager.playSoundFX("random.click", 1.0F, 1.0F);
 			isExtended = !isExtended;
 		}
 		if(x >= xPos + 70 + dragX && y >= yPos + 2 + dragY && x <= xPos + 78 + dragX && y <= yPos + 10 + dragY)
 		{
-			Minecraft.getMinecraft().sndManager.playSoundFX("random.click", 1.0F, 1.0F);
+			//Minecraft.getMinecraft().sndManager.playSoundFX("random.click", 1.0F, 1.0F);
 			isPinned = !isPinned;
 		}
 		if(x >= xPos + dragX && y >= yPos + dragY && x <= xPos + 69 + dragX && y <= yPos + 12 + dragY)

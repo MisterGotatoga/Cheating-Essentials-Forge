@@ -1,7 +1,5 @@
 package net.cheatingessentials.config;
 
-import java.util.logging.Level;
-
 import net.cheatingessentials.client.modules.player.Fly;
 import net.cheatingessentials.client.modules.player.Speed;
 import net.cheatingessentials.client.modules.player.Step;
@@ -13,6 +11,8 @@ import net.cheatingessentials.config.agce.AGCEConfigurationNG;
 import net.cheatingessentials.config.agce.AGCEConfigurationSList;
 import net.cheatingessentials.main.DynamicLogger;
 import net.cheatingessentials.relation.PlayerRelations;
+
+import org.apache.logging.log4j.Level;
 
 /**
  * Class that loads / writes all the configurations in Cheating Essentials.

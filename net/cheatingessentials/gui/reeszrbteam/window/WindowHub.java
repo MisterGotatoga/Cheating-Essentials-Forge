@@ -49,7 +49,7 @@ public class WindowHub extends YAWWindow
 				int i = (12 * size) + 18;
 				if(x >= 4 + dragX && y >= i + 12 + dragY && x <= getX() + 88 + dragX && y <= i + 24 + dragY)
 				{
-					Minecraft.getMinecraft().sndManager.playSoundFX("random.click", 1.0F, 1.0F);
+					//Minecraft.getMinecraft().func_147118_V().shit("random.click", 1.0F, 1.0F);
 					window.setOpen(!window.isOpen());
 				}
 				size++;

@@ -20,11 +20,13 @@ public class Sneak extends Module {
 		return "Makes the player to sneak automatically";
 	}
 
-	public void tick(){
-		minecraft().gameSettings.keyBindSneak.pressed = true;
+	public void tick()
+	{
+		player().setSneaking(true);
 	}
 	
-	public void disable(){
-		minecraft().gameSettings.keyBindSneak.pressed = false;
+	public void disable()
+	{
+		player().setSneaking(false);
 	}
 }

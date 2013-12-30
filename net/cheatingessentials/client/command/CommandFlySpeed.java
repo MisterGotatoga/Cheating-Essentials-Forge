@@ -5,7 +5,6 @@ import net.cheatingessentials.config.agce.AGCEConfigurationNG;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatMessageComponent;
 
 public class CommandFlySpeed extends CommandBase {
 
@@ -27,10 +26,10 @@ public class CommandFlySpeed extends CommandBase {
 			if(string < 0.7F){
 				Minecraft.getMinecraft().thePlayer.capabilities.setFlySpeed(Fly.FLY_SPEED);
 				AGCEConfigurationNG.instance.modify("CEFlySpeed.txt", Fly.FLY_SPEED);
-				icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Set Fly Speed to: "+Fly.FLY_SPEED));
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Set Fly Speed to: "+Fly.FLY_SPEED);
 			}
 			else{
-				icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Can't set values higher than 0.7"));
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Can't set values higher than 0.7");
 			}
 		}
 		catch(Exception e){}
@@ -39,5 +38,11 @@ public class CommandFlySpeed extends CommandBase {
 	@Override
 	public boolean canCommandSenderUseCommand(ICommandSender icommandsender) {
 		return true;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
