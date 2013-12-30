@@ -26,16 +26,60 @@ public class CommandBlockESP extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender icommandsender, String[] astring) 
 	{
-		if(astring[0].equalsIgnoreCase("add")){
-			BlockFinder.espList.add(Integer.parseInt(astring[1]));
-			AGCEConfigurationIList.instance.modify("CEBlockESPList.txt", BlockFinder.espList);
-		    icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Added to CE BlockESP list: "+astring[1]));
+		String answer = null;
+		boolean modify = false;
+		String[] split;
+		switch (astring[0].toLowerCase()) {
+		case "add":
+			split = astring[1].split(":");
+			if(split.length == 1){
+				int id = Integer.parseInt(astring[1]);
+				BlockFinder.instance.addBlock(id);
+				answer = "Added to CE BlockESP list: "+astring[1];
+				modify = true;
+			}else if(split.length == 2){
+				int id = Integer.parseInt(split[0]);
+				int meta = Integer.parseInt(split[1]);
+				BlockFinder.instance.addBlock(id, meta);
+				answer = "Added to CE BlockESP list: "+astring[1];
+				modify = true;
+			}
+			break;
+			
+		case "remove":
+			split = astring[1].split(":");
+			if(split.length == 1){
+				int id = Integer.parseInt(astring[1]);
+				BlockFinder.instance.removeBlock(id);
+				answer = "Removed from CE BlockESP list: "+astring[1];
+				modify = true;
+			}else if(split.length == 2){
+				int id = Integer.parseInt(split[0]);
+				int meta = Integer.parseInt(split[1]);
+				BlockFinder.instance.removeBlock(id, meta);
+				answer = "Removed from CE BlockESP list: "+astring[1];
+				modify = true;
+			}
+			break;
+			
+		case "removeall":
+			BlockFinder.instance.removeAll();
+			answer = "CE BlockESP list cleared";
+			modify = true;
+			break;
+			
+		case "list":
+			answer = BlockFinder.instance.list();
+			break;
+			
+		default:
+			answer = "Incorrect command usage!";
+			break;
 		}
-		if(astring[0].equalsIgnoreCase("remove")){
-			BlockFinder.espList.remove((Integer)Integer.parseInt(astring[1]));
-			AGCEConfigurationIList.instance.modify("CEBlockESPList.txt", BlockFinder.espList);
-		    icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText("Removed from CE BlockESP list: "+astring[1]));
-		}
+		if(modify)
+			AGCEConfigurationIList.instance.modify("CEBlockESPList.txt", BlockFinder.instance.idEspList);
+		if(answer != null)
+			icommandsender.sendChatToPlayer(ChatMessageComponent.createFromText(answer));
 	}
 	
 	@Override

@@ -39,7 +39,7 @@ public class ConfigurationManager
 		new AGCEConfigurationNG(Speed.class, "Speed Value", "SPEED_VALUE", "CESpeedValue.txt", Speed.SPEED_VALUE);
 		new AGCEConfigurationNG(Step.class, "Step Value", "DEFAULT_STEP_HEIGHT", "CEStepValue.txt", Step.DEFAULT_STEP_HEIGHT);
 		new AGCEConfigurationNG(Fly.class, "Fly Speed", "FLY_SPEED", "CEFlySpeed.txt", Fly.FLY_SPEED);
-		new AGCEConfigurationIList("BlockESP List", "CEBlockESPList.txt", BlockFinder.espList);
+		new AGCEConfigurationIList("BlockESP List", "CEBlockESPList.txt", BlockFinder.instance.idEspList);
 		new AGCEConfigurationIList("X-Ray List", "CEXrayBlocks.txt", XRay.xrayList2);
 		KeybindConfiguration.instance();
 	}
