@@ -4,10 +4,16 @@ import net.minecraft.client.gui.GuiScreen;
 
 import org.lwjgl.opengl.GL11;
 
-import cheatingessentials.mod.main.CheatingEssentials;
+import cheatingessentials.mod.wrapper.Wrapper;
 
 public class LoadingScreen extends GuiScreen
 {
+	
+	public static boolean main;
+	public static boolean module;
+	public static boolean gui;
+	public static boolean config;
+	public static boolean lastshit;
 	
     public void drawScreen(int par1, int par2, float par3)
     {
@@ -18,8 +24,34 @@ public class LoadingScreen extends GuiScreen
         GL11.glClearColor(5.0F, 5.0F, 5.0F, 1.0F);
         GL11.glTranslated(0, 5, 0);
         GL11.glScalef(3.5F, 3.5F, 3.5F);
-        CheatingEssentials.INSTANCE.renderFont.drawString("Wait while we configure Cheating Essentials for you...", par1, par2, 0xfffffff);
+        Wrapper.INSTANCE.minecraft().fontRenderer.drawString("Wait while we init Cheating Essentials for you...", 0, 0, 0xfffffff);
         GL11.glScalef(2.0F, 2.0F, 2.0F);
+        
+        if(main)
+        {
+        	 Wrapper.INSTANCE.minecraft().fontRenderer.drawString("Loading main mod...", 0, 2, 0xfffffff);
+        }
+        
+        if(module)
+        {
+        	 Wrapper.INSTANCE.minecraft().fontRenderer.drawString("Loading modules...", 0, 2, 0xfffffff);
+        }
+        
+        if(gui)
+        {
+        	 Wrapper.INSTANCE.minecraft().fontRenderer.drawString("Loading Gui...", 0, 2, 0xfffffff);
+        }
+        
+        if(config)
+        {
+        	 Wrapper.INSTANCE.minecraft().fontRenderer.drawString("Preparing config...", 0, 2, 0xfffffff);
+        }
+        
+        if(lastshit)
+        {
+        	 Wrapper.INSTANCE.minecraft().fontRenderer.drawString("Completed.", 0, 2, 0xfffffff);
+        }
+        
         GL11.glPopMatrix();
     }
 }
