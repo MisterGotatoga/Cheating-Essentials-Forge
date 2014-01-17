@@ -1,16 +1,15 @@
 package cheatingessentials.mod.wrapper;
 
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
+
 import org.lwjgl.input.Keyboard;
 
-import net.minecraft.client.gui.GuiMainMenu;
-import net.minecraftforge.client.event.RenderWorldLastEvent;
 import cheatingessentials.api.module.APIModule;
 import cheatingessentials.api.module.Mod;
 import cheatingessentials.mod.main.CheatingEssentials;
-import cheatingessentials.mod.screens.LoadingScreen;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
-import cpw.mods.fml.relauncher.Side;
 
 /**
  * Forge event subscriber
@@ -41,12 +40,15 @@ public class Events
 		}
 	}
 	
+	
+	
 	@SubscribeEvent
 	public void onCTick(TickEvent.ClientTickEvent event)
 	{
 		for(Mod mod : APIModule.INSTANCE.mods)
 		{
-			if(Keyboard.isKeyDown(mod.getKeybind()) && Wrapper.INSTANCE.world() != null)
+			
+			if(checkAndSaveKeyState(mod.getKeybind()) && Wrapper.INSTANCE.world() != null)
 			{
 				mod.toggle();
 				break;
@@ -96,4 +98,24 @@ public class Events
 			mod.onWorldRender();
 		}
 	}
+	
+	public boolean checkAndSaveKeyState(int key) {
+		if (Wrapper.INSTANCE.minecraft().currentScreen != null) 
+		{
+			return false;
+		}
+		
+		if (Keyboard.isKeyDown(key) != keyStates [key]) 
+		{
+			return keyStates[key] = !keyStates[key];
+		} 
+		
+		else
+		{
+			return false;
+		}
+	}
+	
+	private boolean keyStates[] = new boolean[256];
+	
 }
