@@ -628,5 +628,55 @@ public class GLUtils {
 		GL11.glDisable(3042);
 		GL11.glPopMatrix();
 	}
+	
+	public static void startDrawingESPs(double d, double d1, double d2, double r, double b, double g)
+	{
+		GL11.glPushMatrix();
+		GL11.glEnable(3042);
+		GL11.glBlendFunc(770, 771);
+		GL11.glLineWidth(1.5F);
+		GL11.glDisable(GL11.GL_LIGHTING);
+		GL11.glDisable(GL11.GL_TEXTURE_2D);
+		GL11.glEnable(GL11.GL_LINE_SMOOTH);
+		GL11.glDisable(2929);
+		GL11.glDepthMask(false);
+		GL11.glColor4d(r, g, b, 0.185F);
+		drawBoundingBox(new AltAxisAlignedBB(d, d1, d2, d + 1.0, d1 + 1.0, d2 + 1.0));
+		GL11.glColor4d(r, g, b, 1.0F);
+		drawOutlinedBoundingBox(new AltAxisAlignedBB(d, d1, d2, d + 1.0, d1 + 1.0, d2 + 1.0));
+		GL11.glLineWidth(2.0F);
+		GL11.glDisable(GL11.GL_LINE_SMOOTH);
+		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		GL11.glEnable(GL11.GL_LIGHTING);
+		GL11.glEnable(2929);
+		GL11.glDepthMask(true);
+		GL11.glDisable(3042);
+		GL11.glPopMatrix();
+	}
+	
+	public static void startDrawingESPs(AltAxisAlignedBB bb, float r, float b, float g)
+	{
+		GL11.glPushMatrix();
+		GL11.glEnable(3042);
+		GL11.glBlendFunc(770, 771);
+		GL11.glLineWidth(1.5F);
+		GL11.glDisable(GL11.GL_LIGHTING);
+		GL11.glDisable(GL11.GL_TEXTURE_2D);
+		GL11.glEnable(GL11.GL_LINE_SMOOTH);
+		GL11.glDisable(2929);
+		GL11.glDepthMask(false);
+		GL11.glColor4d(r, b, g, 0.185F);
+		drawBoundingBox(bb);
+		GL11.glColor4d(r, b, g, 1.0F);
+		drawOutlinedBoundingBox(bb);
+		GL11.glLineWidth(2.0F);
+		GL11.glDisable(GL11.GL_LINE_SMOOTH);
+		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		GL11.glEnable(GL11.GL_LIGHTING);
+		GL11.glEnable(2929);
+		GL11.glDepthMask(true);
+		GL11.glDisable(3042);
+		GL11.glPopMatrix();
+	}
 
 }

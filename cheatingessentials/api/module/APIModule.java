@@ -29,7 +29,7 @@ public class APIModule
 		activeMods.remove(mod);
 	}
 	
-	public Mod call(Class<Mod> clazz)
+	public Mod call(Class clazz)
 	{
 		try 
 		{

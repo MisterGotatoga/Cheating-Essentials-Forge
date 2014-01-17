@@ -5,6 +5,8 @@ import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.settings.GameSettings;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IChatComponent;
 
 public class Wrapper 
 {
@@ -33,5 +35,11 @@ public class Wrapper
 	public FontRenderer fontRenderer()
 	{
 		return Minecraft.getMinecraft().fontRenderer;
+	}
+	
+	public void addChatMessage(String tosend)
+	{
+		IChatComponent chatcomponent = new ChatComponentText(tosend);
+		player().func_145747_a(chatcomponent);
 	}
 }

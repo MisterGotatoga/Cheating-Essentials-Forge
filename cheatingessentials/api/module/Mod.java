@@ -37,27 +37,7 @@ public abstract class Mod
 	{
 		return enabled;
 	}
-	
-	public boolean playerUpdate()
-	{
-		return false;
-	}
-	
-	public boolean worldUpdate()
-	{
-		return false;
-	}
-	
-	public boolean worldRender()
-	{
-		return false;
-	}
-	
-	public boolean tick()
-	{
-		return false;
-	}
-	
+
 	public void onPlayerUpdate(){}
 	public void onWorldUpdate(){}
 	public void onTick(){}
@@ -75,10 +55,12 @@ public abstract class Mod
 		if(isActive())
 		{
 			onEnableMod();
+			APIModule.INSTANCE.addActive(this);
 		}
 		else
 		{
 			onDisableMod();
+			APIModule.INSTANCE.removeActive(this);
 		}
 	}
 }

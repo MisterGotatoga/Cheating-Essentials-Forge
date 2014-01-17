@@ -1,5 +1,7 @@
 package cheatingessentials.mod.wrapper;
 
+import org.lwjgl.input.Keyboard;
+
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import cheatingessentials.api.module.APIModule;
@@ -34,7 +36,7 @@ public class Events
 	{
 		for(Mod mod : APIModule.INSTANCE.mods)
 		{
-			if(mod.isActive())
+			if(mod.isActive() && Wrapper.INSTANCE.world() != null)
 			mod.onTick();
 		}
 	}
@@ -42,17 +44,14 @@ public class Events
 	@SubscribeEvent
 	public void onCTick(TickEvent.ClientTickEvent event)
 	{
-		/*for(int i = 0; i < 301; ++i)
+		for(Mod mod : APIModule.INSTANCE.mods)
 		{
-			if(Wrapper.INSTANCE.minecraft().currentScreen instanceof GuiMainMenu && counter == 0)
+			if(Keyboard.isKeyDown(mod.getKeybind()) && Wrapper.INSTANCE.world() != null)
 			{
-				Wrapper.INSTANCE.minecraft().func_147108_a(new LoadingScreen());
+				mod.toggle();
+				break;
 			}
-			if(counter == 300)
-			{
-				Wrapper.INSTANCE.minecraft().func_147108_a(new GuiMainMenu());
-			}
-		}*/
+		}
 	}
 	
 	/**
@@ -64,10 +63,10 @@ public class Events
 	{
 		for(Mod mod : APIModule.INSTANCE.mods)
 		{
-			if(mod.isActive())
+			if(mod.isActive() && Wrapper.INSTANCE.world() != null)
 			mod.onPlayerUpdate();
 		}
-		System.out.println("Is this called?");
+		//Debugging: System.out.println("Is this called?");
 	}
 	
 	/**
@@ -79,7 +78,7 @@ public class Events
 	{
 		for(Mod mod : APIModule.INSTANCE.mods)
 		{
-			if(mod.isActive())
+			if(mod.isActive() && Wrapper.INSTANCE.world() != null)
 			mod.onWorldUpdate();
 		}
 	}
@@ -93,7 +92,7 @@ public class Events
 	{
 		for(Mod mod : APIModule.INSTANCE.mods)
 		{
-			if(mod.isActive())
+			if(mod.isActive() && Wrapper.INSTANCE.world() != null)
 			mod.onWorldRender();
 		}
 	}

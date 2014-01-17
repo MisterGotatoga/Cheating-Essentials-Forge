@@ -1,28 +1,25 @@
 package cheatingessentials.mod.logger;
 
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CELogger 
 {
 	private Logger log;
+	private String pre = "(Cheating Essentials) ";
 	
 	public CELogger(String s)
 	{
-		log = Logger.getLogger(s);
+	    log = LogManager.getLogger();
 	}
 	
 	public void info(String s)
 	{
-		log.info(s);
+		log.info(pre+s);
 	}
 
 	public void warning(String s)
 	{
-		log.warning(s);
-	}
-	
-	public void severe(String s)
-	{
-		log.severe(s);
+		log.warn(pre+s);
 	}
 }
