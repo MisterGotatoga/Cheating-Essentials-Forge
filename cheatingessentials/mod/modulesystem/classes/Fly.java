@@ -37,11 +37,11 @@ public class Fly extends Mod {
 		Wrapper.INSTANCE.player().capabilities.isFlying = true;
 	}
 	
-	public void disable(){
+	public void onDisableMod(){
 		Wrapper.INSTANCE.player().capabilities.isFlying = false;
 	}
 
-	public void tick(){
+	public void onTick(){
 		Wrapper.INSTANCE.player().capabilities.isFlying = true;
 	}
 }
