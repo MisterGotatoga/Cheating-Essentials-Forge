@@ -19,7 +19,10 @@ public class AGCEIntegerList extends AGCEConfiguration
 {
 	
 	private Collection list;
+	public volatile static AGCEIntegerList INSTANCE = new AGCEIntegerList();
 
+	private AGCEIntegerList(){}
+	
 	public AGCEIntegerList(String name, String path, Collection list){
 		this.name = name;
 		this.path = path;

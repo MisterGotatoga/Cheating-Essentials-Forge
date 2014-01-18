@@ -14,6 +14,7 @@ public class LoadingScreen extends GuiScreen
 	public static boolean gui;
 	public static boolean config;
 	public static boolean lastshit;
+	public static boolean commands;
 	
     public void drawScreen(int par1, int par2, float par3)
     {

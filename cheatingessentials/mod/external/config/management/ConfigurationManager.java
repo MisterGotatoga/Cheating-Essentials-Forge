@@ -2,6 +2,9 @@ package cheatingessentials.mod.external.config.management;
 
 import cheatingessentials.mod.external.config.agce.files.AGCEGeneric;
 import cheatingessentials.mod.external.config.agce.files.AGCEIntegerList;
+import cheatingessentials.mod.external.config.manual.KeybindConfiguration;
+import cheatingessentials.mod.external.config.manual.ModuleStateConfiguration;
+import cheatingessentials.mod.external.config.manual.SaveableGuiState;
 import cheatingessentials.mod.main.CheatingEssentials;
 import cheatingessentials.mod.modulesystem.classes.BlockFinder;
 import cheatingessentials.mod.modulesystem.classes.Fly;
@@ -24,6 +27,10 @@ public class ConfigurationManager
 		
 		new AGCEIntegerList("Block Finder list", "CE-BlockFinderList.cfg", BlockFinder.idEspList);
 		new AGCEIntegerList("Block Finder metadata list", "CE-BlockFinderMetaList.cfg", BlockFinder.metaEspList);
+		
+		new KeybindConfiguration();
+		new ModuleStateConfiguration();
+		new SaveableGuiState();
 		
 		CheatingEssentials.INSTANCE.logger.info("Automated Cheating Essentials Configuration System initialized.");
 	}

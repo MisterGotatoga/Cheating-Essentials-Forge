@@ -8,6 +8,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import cheatingessentials.api.module.APICEMod;
 import cheatingessentials.mod.commands.NCommandMT;
+import cheatingessentials.mod.commands.apicommands.APICommandManager;
+import cheatingessentials.mod.commands.apicommands.CommandManager;
 import cheatingessentials.mod.external.config.management.ConfigurationManager;
 import cheatingessentials.mod.logger.CELogger;
 import cheatingessentials.mod.modulesystem.handler.ModuleManagement;
@@ -64,6 +66,13 @@ public class CheatingEssentials
 		LoadingScreen.config = true;
 		ConfigurationManager.instance();
 		logger.info("Configuration Loaded.");
+		LoadingScreen.config = false;
+		logger.info("Loading commands...");
+		LoadingScreen.commands = true;
+		CommandManager.instance();
+		APICommandManager.addCommands();
+		LoadingScreen.commands = false;
+		logger.info("Commands loaded.");
 	}
 		
 	public void onPostInitialization(FMLPostInitializationEvent event3)

@@ -15,6 +15,9 @@ import cheatingessentials.mod.util.reflect.ReflectionHelper;
 
 public class AGCEGeneric extends AGCEConfiguration
 {
+	public volatile static AGCEGeneric INSTANCE = new AGCEGeneric();
+
+	private AGCEGeneric(){}
 	
 	public AGCEGeneric(Class clazz, String name, String fieldName, String path, Object object)
 	{

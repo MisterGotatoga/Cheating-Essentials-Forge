@@ -51,6 +51,26 @@ public abstract class Mod
 	public void onEnableMod(){}
 	public void onDisableMod(){}
 	
+	public void reset()
+	{
+		onEnableMod();
+		onDisableMod();
+	}
+	
+	public void on()
+	{
+		enabled = true;
+		onEnableMod();
+		APICEMod.INSTANCE.addActive(this);
+	}
+	
+	public void off()
+	{
+		enabled = false;
+		onDisableMod();
+		APICEMod.INSTANCE.removeActive(this);
+	}
+	
 	/**
 	 * Toggles the specified module
 	 */
@@ -68,5 +88,10 @@ public abstract class Mod
 			onDisableMod();
 			APICEMod.INSTANCE.removeActive(this);
 		}
+	}
+	
+	public void setKeybinding(int key)
+	{
+		this.keybind = key;
 	}
 }

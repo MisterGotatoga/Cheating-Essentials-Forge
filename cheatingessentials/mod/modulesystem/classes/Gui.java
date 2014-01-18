@@ -3,12 +3,14 @@ package cheatingessentials.mod.modulesystem.classes;
 import org.lwjgl.input.Keyboard;
 
 import cheatingessentials.api.module.Mod;
+import cheatingessentials.mod.gui.reeszrbteam.YouAlwaysWinClickGui;
 import cheatingessentials.mod.wrapper.ModuleCategories;
+import cheatingessentials.mod.wrapper.Wrapper;
 
 public class Gui extends Mod {
 
 	private int mode = 0;
-	//private YouAlwaysWinClickGui click = new YouAlwaysWinClickGui();;
+	private YouAlwaysWinClickGui click = new YouAlwaysWinClickGui();;
 	
 	public String getName()
 	{
@@ -28,7 +30,7 @@ public class Gui extends Mod {
 	@Override
 	public void toggle()
 	{
-		//Wrapper.INSTANCE.minecraft().displayGuiScreen(click);
+		Wrapper.INSTANCE.minecraft().func_147108_a(click);
 	}
 
 }
