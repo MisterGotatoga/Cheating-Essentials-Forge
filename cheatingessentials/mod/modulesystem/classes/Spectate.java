@@ -2,7 +2,7 @@ package cheatingessentials.mod.modulesystem.classes;
 
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.Entity;
-import cheatingessentials.api.module.APIModule;
+import cheatingessentials.api.module.APICEMod;
 import cheatingessentials.api.module.Mod;
 import cheatingessentials.mod.internal.FreecamEntity;
 import cheatingessentials.mod.wrapper.ModuleCategories;
@@ -27,12 +27,12 @@ public class Spectate extends Mod {
 	}
 
 	public void onEnableMod(){
-		APIModule.INSTANCE.call(DynamicFly.class).toggle();
+		APICEMod.INSTANCE.call(DynamicFly.class).toggle();
 		doSpectate();
 	}
 	
 	public void onDisableMod(){
-		APIModule.INSTANCE.call(DynamicFly.class).toggle();
+		APICEMod.INSTANCE.call(DynamicFly.class).toggle();
 		undoSpectate();
 	}
 	

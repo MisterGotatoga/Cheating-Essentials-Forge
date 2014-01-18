@@ -2,10 +2,10 @@ package cheatingessentials.api.module;
 
 import java.util.ArrayList;
 
-public class APIModule 
+public class APICEMod 
 {
 
-	public volatile static APIModule INSTANCE = new APIModule();
+	public volatile static APICEMod INSTANCE = new APICEMod();
 	public ArrayList<Mod> mods = new ArrayList<Mod>();	
 	public ArrayList<Mod> activeMods = new ArrayList<Mod>();	
 

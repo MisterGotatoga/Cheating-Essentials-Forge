@@ -5,7 +5,7 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 
 import org.lwjgl.input.Keyboard;
 
-import cheatingessentials.api.module.APIModule;
+import cheatingessentials.api.module.APICEMod;
 import cheatingessentials.api.module.Mod;
 import cheatingessentials.mod.main.CheatingEssentials;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -33,7 +33,7 @@ public class Events
 	@SubscribeEvent
 	public void onTick(TickEvent.ServerTickEvent event)
 	{
-		for(Mod mod : APIModule.INSTANCE.mods)
+		for(Mod mod : APICEMod.INSTANCE.mods)
 		{
 			if(mod.isActive() && Wrapper.INSTANCE.world() != null)
 			mod.onTick();
@@ -48,7 +48,7 @@ public class Events
 	@SubscribeEvent
 	public void onCTick(TickEvent.ClientTickEvent event)
 	{
-		for(Mod mod : APIModule.INSTANCE.mods)
+		for(Mod mod : APICEMod.INSTANCE.mods)
 		{
 			
 			if(checkAndSaveKeyState(mod.getKeybind()) && Wrapper.INSTANCE.world() != null)
@@ -66,7 +66,7 @@ public class Events
 	@SubscribeEvent
 	public void onPlayerUpdate(TickEvent.PlayerTickEvent event)
 	{
-		for(Mod mod : APIModule.INSTANCE.mods)
+		for(Mod mod : APICEMod.INSTANCE.mods)
 		{
 			if(mod.isActive() && Wrapper.INSTANCE.world() != null)
 			mod.onPlayerUpdate();
@@ -81,7 +81,7 @@ public class Events
 	@SubscribeEvent
 	public void onWorldUpdate(TickEvent.WorldTickEvent event)
 	{
-		for(Mod mod : APIModule.INSTANCE.mods)
+		for(Mod mod : APICEMod.INSTANCE.mods)
 		{
 			if(mod.isActive() && Wrapper.INSTANCE.world() != null)
 			mod.onWorldUpdate();
@@ -95,7 +95,7 @@ public class Events
 	@SubscribeEvent
 	public void onRenderWorld(RenderWorldLastEvent event)
 	{
-		for(Mod mod : APIModule.INSTANCE.mods)
+		for(Mod mod : APICEMod.INSTANCE.mods)
 		{
 			if(mod.isActive() && Wrapper.INSTANCE.world() != null)
 			mod.onWorldRender();

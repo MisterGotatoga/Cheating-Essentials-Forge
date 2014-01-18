@@ -6,7 +6,7 @@ import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
-import cheatingessentials.api.module.APIModule;
+import cheatingessentials.api.module.APICEMod;
 import cheatingessentials.mod.commands.NCommandMT;
 import cheatingessentials.mod.external.config.management.ConfigurationManager;
 import cheatingessentials.mod.logger.CELogger;
@@ -56,7 +56,7 @@ public class CheatingEssentials
 		logger.info("Loading Modules...");
 		ModuleManagement.INSTANCE.initModules();
 		LoadingScreen.module = true;
-		logger.info(APIModule.INSTANCE.mods.size() + " Modules loaded succefully!");
+		logger.info(APICEMod.INSTANCE.mods.size() + " Modules loaded succefully!");
 		LoadingScreen.module = false;
 		FMLCommonHandler.instance().bus().register(new Events());
 		MinecraftForge.EVENT_BUS.register(new Events());

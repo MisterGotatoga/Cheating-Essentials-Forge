@@ -1,6 +1,6 @@
 package cheatingessentials.mod.modulesystem.handler;
 
-import cheatingessentials.api.module.APIModule;
+import cheatingessentials.api.module.APICEMod;
 import cheatingessentials.api.module.Mod;
 import cheatingessentials.mod.modulesystem.classes.AdvancedTooltips;
 import cheatingessentials.mod.modulesystem.classes.AnimalESP;
@@ -47,7 +47,7 @@ public class ModuleManagement
 	
 	private void add(Mod mod)
 	{
-		APIModule.INSTANCE.enable(mod);
+		APICEMod.INSTANCE.enable(mod);
 	}
 	
 	public void initModules()

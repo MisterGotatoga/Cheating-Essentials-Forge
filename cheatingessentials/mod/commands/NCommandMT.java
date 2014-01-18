@@ -2,7 +2,7 @@ package cheatingessentials.mod.commands;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import cheatingessentials.api.module.APIModule;
+import cheatingessentials.api.module.APICEMod;
 import cheatingessentials.api.module.Mod;
 import cheatingessentials.mod.wrapper.Wrapper;
 
@@ -21,7 +21,7 @@ public class NCommandMT extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender var1, String[] var2) 
 	{
-		for(Mod mod : APIModule.INSTANCE.mods)
+		for(Mod mod : APICEMod.INSTANCE.mods)
 		{
 			String[] s0 = var2[0].split(":");
 			if(s0[0].equals("cheatingessentials"))

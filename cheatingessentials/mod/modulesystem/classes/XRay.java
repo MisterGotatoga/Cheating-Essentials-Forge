@@ -6,7 +6,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.lwjgl.input.Keyboard;
 
 import net.minecraft.block.Block;
-import cheatingessentials.api.module.APIModule;
+import cheatingessentials.api.module.APICEMod;
 import cheatingessentials.api.module.Mod;
 import cheatingessentials.mod.util.CEUtility;
 import cheatingessentials.mod.wrapper.ModuleCategories;
@@ -36,7 +36,7 @@ public class XRay extends Mod
 	@Override
 	public void onEnableMod()
 	{
-		if(!APIModule.INSTANCE.call(Fullbright.class).isActive())
+		if(!APICEMod.INSTANCE.call(Fullbright.class).isActive())
 		{
 			float[] bright = Wrapper.INSTANCE.world().provider.lightBrightnessTable;
 			for(int i = 0; i < bright.length; i++){
@@ -72,7 +72,7 @@ public class XRay extends Mod
 	@Override
 	public void onDisableMod()
 	{
-		if(!APIModule.INSTANCE.call(Fullbright.class).isActive())
+		if(!APICEMod.INSTANCE.call(Fullbright.class).isActive())
 		{
 			Wrapper.INSTANCE.world().provider.registerWorld(Wrapper.INSTANCE.world());
 		}

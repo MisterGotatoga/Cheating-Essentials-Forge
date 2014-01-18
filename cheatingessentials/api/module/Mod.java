@@ -61,12 +61,12 @@ public abstract class Mod
 		if(isActive())
 		{
 			onEnableMod();
-			APIModule.INSTANCE.addActive(this);
+			APICEMod.INSTANCE.addActive(this);
 		}
 		else
 		{
 			onDisableMod();
-			APIModule.INSTANCE.removeActive(this);
+			APICEMod.INSTANCE.removeActive(this);
 		}
 	}
 }
