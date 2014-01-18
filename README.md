@@ -7,13 +7,9 @@ cheatingessentials.* = Code.
 
 Credits:
 - Kodehawa: Code.
-
 - ReesZRB: 1.6.4 Gui code.
-
 - Exalm: Some help, Reflection code
-
 - Halalaboos: Chest ESP code.
-
 - Godshawk: 3.4.0-previous code.
 
 
