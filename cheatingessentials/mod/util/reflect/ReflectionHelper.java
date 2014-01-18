@@ -2,7 +2,6 @@ package cheatingessentials.mod.util.reflect;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.logging.Level;
 
 /**
  * Reflection Code for Cheating Essentials

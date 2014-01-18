@@ -35,11 +35,11 @@ public class FreecamEntity extends EntityOtherPlayerMP
 		super.moveEntity(x, y, z);
 	}
 	
-	public boolean isSneaking()
+	/*public boolean isSneaking()
 	{
 		return this.movementInput.sneak && !flyMode;
 	}
-	
+	*/
 	public void onLivingUpdate()
 	{
 		super.onLivingUpdate();

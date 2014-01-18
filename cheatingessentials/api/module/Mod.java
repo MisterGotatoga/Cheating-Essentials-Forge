@@ -8,6 +8,7 @@ public abstract class Mod
 {
 
 	protected String name = "unknown";
+	protected String p = "cheatingessentials:";
 	protected String description = "unknown";
 	protected int keybind = Keyboard.KEY_NONE;
 	protected boolean enabled;
@@ -16,6 +17,11 @@ public abstract class Mod
 	public String getName()
 	{
 		return name;
+	}
+	
+	public String getAlias()
+	{
+		return p+getName().toLowerCase().replaceAll(" ", "");
 	}
 	
 	public int getKeybind()

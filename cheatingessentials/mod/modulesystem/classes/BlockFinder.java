@@ -3,16 +3,12 @@ package cheatingessentials.mod.modulesystem.classes;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import net.minecraft.block.Block;
-import net.minecraftforge.oredict.RecipeSorter.Category;
-
-import org.lwjgl.input.Keyboard;
-
-import cpw.mods.fml.common.registry.GameData;
 import cheatingessentials.api.module.Mod;
 import cheatingessentials.mod.internal.CEBlockCoord;
 import cheatingessentials.mod.util.GLUtils;
 import cheatingessentials.mod.wrapper.ModuleCategories;
 import cheatingessentials.mod.wrapper.Wrapper;
+import cpw.mods.fml.common.registry.GameData;
 
 public class BlockFinder extends Mod {
 
@@ -30,9 +26,9 @@ public class BlockFinder extends Mod {
 	
 	public static BlockFinder instance;
 
-	public CopyOnWriteArrayList<Integer> idEspList = new CopyOnWriteArrayList<Integer>();
-	public CopyOnWriteArrayList<Long> metaEspList = new CopyOnWriteArrayList<Long>();
-	public CEBlockCoord[] espBlocks = new CEBlockCoord[10000000];
+	public static CopyOnWriteArrayList<Integer> idEspList = new CopyOnWriteArrayList<Integer>();
+	public static CopyOnWriteArrayList<Long> metaEspList = new CopyOnWriteArrayList<Long>();
+	public static CEBlockCoord[] espBlocks = new CEBlockCoord[10000000];
 	public static int BLOCK_RADIUS = 55; 
 	
 	@Override

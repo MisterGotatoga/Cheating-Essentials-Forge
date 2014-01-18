@@ -27,6 +27,11 @@ public class AGCEGeneric extends AGCEConfiguration
 		ReflectionHelper.setStringFieldWW(clazz, null, fieldName, newobj);
 	}
 	
+	public AGCEGeneric(Class clazz, String name, String fieldName, String path)
+	{
+		new AGCEGeneric(clazz, name, fieldName, path, null);
+	}
+	
 	@Override
 	protected void create(File file, Object obj)
 	{

@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
-import net.minecraftforge.oredict.RecipeSorter.Category;
 
 import org.lwjgl.opengl.GL11;
 

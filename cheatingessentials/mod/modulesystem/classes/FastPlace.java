@@ -33,6 +33,6 @@ public class FastPlace extends Mod {
 	@Override
 	public void onTick(){
 		Object o = Minecraft.getMinecraft();
-		ReflectionHelper.setField(Minecraft.class, o, "rightClickDelayTimer", 0);
+		ReflectionHelper.setField(Minecraft.class, o, 46, 0);
 	}
 }
