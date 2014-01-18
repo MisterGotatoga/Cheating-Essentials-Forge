@@ -27,15 +27,10 @@ public class AGCEGeneric extends AGCEConfiguration
 		ReflectionHelper.setStringFieldWW(clazz, null, fieldName, newobj);
 	}
 	
-	public AGCEGeneric(Class clazz, String name, String fieldName, String path)
-	{
-		new AGCEGeneric(clazz, name, fieldName, path, null);
-	}
-	
 	@Override
 	protected void create(File file, Object obj)
 	{
-		CheatingEssentials.INSTANCE.logger.info("Writing (Generic) ["+obj.getClass().toString().replaceAll("class java.lang.", "")+"] config file to "+path);
+		CheatingEssentials.INSTANCE.logger.info("Writing //Generic// ["+obj.getClass().toString().replaceAll("class java.lang.", "")+"] config file to "+path);
 		try
 		{
 			FileWriter filewriter = new FileWriter(file);
@@ -52,7 +47,7 @@ public class AGCEGeneric extends AGCEConfiguration
 	@Override
 	protected void read()
     {
-		CheatingEssentials.INSTANCE.logger.info("Reading (Generic) ["+obj.getClass().toString().replaceAll("class java.lang.", "")+"] config file: "+name);
+		CheatingEssentials.INSTANCE.logger.info("Reading //Generic// ["+obj.getClass().toString().replaceAll("class java.lang.", "")+"] config file: "+name);
 		try
 		{
 			FileInputStream imputstream = new FileInputStream(file.getAbsolutePath());

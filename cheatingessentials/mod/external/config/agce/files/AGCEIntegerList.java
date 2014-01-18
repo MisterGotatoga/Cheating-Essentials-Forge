@@ -24,13 +24,13 @@ public class AGCEIntegerList extends AGCEConfiguration
 		this.name = name;
 		this.path = path;
 		this.list = list;
-		this.file = new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/"+path);
+		this.file = new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating-Essentials/"+path);
 		this.createFile();
 		this.read();
 	}
 	
 	protected void create(File file, Collection list){
-		CheatingEssentials.INSTANCE.logger.info("Writing /Integer/ List config file to "+path);
+		CheatingEssentials.INSTANCE.logger.info("Writing //Integer// List config file to "+path);
 		try
 		{
 			FileWriter filewriter = new FileWriter(file);
@@ -48,7 +48,7 @@ public class AGCEIntegerList extends AGCEConfiguration
 	}
 	
 	protected void read(){
-		CheatingEssentials.INSTANCE.logger.info("Reading /Integer/ List config file: "+name);
+		CheatingEssentials.INSTANCE.logger.info("Reading //Integer// List config file: "+name);
 		try
 		{
 			FileInputStream imputstream = new FileInputStream(file.getAbsolutePath());

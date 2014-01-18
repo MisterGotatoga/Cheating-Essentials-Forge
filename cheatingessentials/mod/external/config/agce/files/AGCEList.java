@@ -37,7 +37,7 @@ public class AGCEList extends AGCEConfiguration
 	}
 	
 	protected void create(File file, Collection list){
-		CheatingEssentials.INSTANCE.logger.info("Writing /String/ List config file to "+path);
+		CheatingEssentials.INSTANCE.logger.info("Writing //String// List config file to "+path);
 		try
 		{
 			FileWriter filewriter = new FileWriter(file);
@@ -55,7 +55,7 @@ public class AGCEList extends AGCEConfiguration
 	}
 	
 	protected void read(){
-		CheatingEssentials.INSTANCE.logger.info("Reading /String/ List config file: "+name);
+		CheatingEssentials.INSTANCE.logger.info("Reading //String// List config file: "+name);
 		try
 		{
 			FileInputStream imputstream = new FileInputStream(file.getAbsolutePath());
