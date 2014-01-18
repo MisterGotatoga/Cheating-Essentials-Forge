@@ -41,7 +41,10 @@ public class Events
 	}
 	
 	
-	
+	/**
+	 * Client tick. Used for keybind check
+	 * @param event
+	 */
 	@SubscribeEvent
 	public void onCTick(TickEvent.ClientTickEvent event)
 	{
@@ -86,7 +89,7 @@ public class Events
 	}
 	
 	/**
-	 * This should draw shit when world is rendering.
+	 * This should draw things when world is rendering.
 	 * @param event
 	 */
 	@SubscribeEvent

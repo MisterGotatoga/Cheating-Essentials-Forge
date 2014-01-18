@@ -26,8 +26,8 @@ public class NCommandMT extends CommandBase {
 			String[] s0 = var2[0].split(":");
 			if(s0[0].equals("cheatingessentials"))
 			{
-				System.out.println(s0[1]);
-				System.out.println(mod.getName().toLowerCase().replaceAll(" ", ""));
+				//System.out.println(s0[1]);
+				//System.out.println(mod.getName().toLowerCase().replaceAll(" ", ""));
 				if(mod.getName().toLowerCase().replaceAll(" ", "").equalsIgnoreCase(s0[1]))
 				{
 					mod.toggle();
