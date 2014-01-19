@@ -7,9 +7,9 @@ import cheatingessentials.mod.wrapper.ModuleCategories;
 
 public class Day extends Mod {
 
-	public ModuleCategories getCategory()
+	public Day()
 	{
-		return ModuleCategories.WORLD;
+		this.setCategory(ModuleCategories.WORLD);
 	}
 
 	@Override

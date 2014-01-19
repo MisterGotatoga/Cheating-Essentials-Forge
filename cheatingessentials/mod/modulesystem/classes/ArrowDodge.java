@@ -7,6 +7,11 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class ArrowDodge extends Mod {
 	
+	public ArrowDodge()
+	{
+		this.setCategory(ModuleCategories.WORLD);
+	}
+	
 	public String getName()
 	{
 		return "Arrow Dodge";
@@ -15,11 +20,6 @@ public class ArrowDodge extends Mod {
 	public String getDescription()
 	{
 		return "Say bye to the arrows!";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.WORLD;
 	}
 	
 	public void onPlayerUpdate()

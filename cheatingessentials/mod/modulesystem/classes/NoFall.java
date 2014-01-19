@@ -7,19 +7,15 @@ import cheatingessentials.mod.wrapper.ModuleCategories;
 
 public class NoFall extends Mod {
 
+	public NoFall()
+	{
+		this.setCategory(ModuleCategories.PLAYER);
+		this.setKeybinding(Keyboard.KEY_V);
+	}
+	
 	@Override
 	public String getName(){
 		return "No Fall";
-	}
-	
-	public int getKeybind()
-	{
-		return Keyboard.KEY_V;
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.PLAYER;
 	}
 	
 	@Override

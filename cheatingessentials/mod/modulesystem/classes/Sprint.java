@@ -1,13 +1,16 @@
 package cheatingessentials.mod.modulesystem.classes;
 
-import org.lwjgl.input.Keyboard;
-
 import cheatingessentials.api.module.Mod;
 import cheatingessentials.mod.wrapper.ModuleCategories;
 import cheatingessentials.mod.wrapper.Wrapper;
 
 public class Sprint extends Mod {
 
+	public Sprint()
+	{
+		this.setCategory(ModuleCategories.PLAYER);
+	}
+	
 	@Override
 	public String getName(){
 		return "Sprint";
@@ -16,16 +19,6 @@ public class Sprint extends Mod {
 	@Override
 	public String getDescription(){
 		return "Sprints automatically when you should be walking.";
-	}
-	
-	public int getKeybind()
-	{
-		return Keyboard.KEY_H;
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.PLAYER;
 	}
 	
 	@Override

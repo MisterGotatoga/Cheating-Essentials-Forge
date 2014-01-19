@@ -10,6 +10,11 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class Speed extends Mod {
 		
+	public Speed()
+	{
+		this.setCategory(ModuleCategories.PLAYER);
+	}
+	
 	public String getName()
 	{
 		return "Speed";
@@ -19,11 +24,6 @@ public class Speed extends Mod {
 	public String getDescription()
 	{
 		return "Makes the player to run faster.";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.PLAYER;
 	}
 	
 	public static double SPEED_VALUE = 1.4;

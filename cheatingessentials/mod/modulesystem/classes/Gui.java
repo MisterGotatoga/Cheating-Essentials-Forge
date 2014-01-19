@@ -9,22 +9,17 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class Gui extends Mod {
 
-	private int mode = 0;
+	public Gui()
+	{
+		this.setCategory(ModuleCategories.NONE);
+		this.setKeybinding(Keyboard.KEY_G);
+	}
+	
 	private YouAlwaysWinClickGui click = new YouAlwaysWinClickGui();;
 	
 	public String getName()
 	{
 		return "Gui";
-	}
-	
-	public int getKeybind()
-	{
-		return Keyboard.KEY_G;
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.NONE;
 	}
 	
 	@Override

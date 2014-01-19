@@ -9,9 +9,9 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class NoWeb extends Mod {
 
-	public ModuleCategories getCategory()
+	public NoWeb()
 	{
-		return ModuleCategories.PLAYER;
+		this.setCategory(ModuleCategories.PLAYER);
 	}
 	
 	@Override

@@ -11,6 +11,11 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class Tracers extends Mod {
 
+	public Tracers()
+	{
+		this.setCategory(ModuleCategories.MOVEMENT);
+	}
+	
 	public String getModuleName(){
 		return "Tracers";
 	}
@@ -18,11 +23,6 @@ public class Tracers extends Mod {
 	@Override
 	public String getDescription(){
 		return "Traces a line to the players in MP";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.RENDER;
 	}
 	
 	@Override
@@ -42,9 +42,9 @@ public class Tracers extends Mod {
             		if (entities instanceof EntityPlayer){ //Add EntityMob also if you want to lol.
             			EntityPlayer entity = (EntityPlayer)entities;
                         float distance = Wrapper.INSTANCE.minecraft().renderViewEntity.getDistanceToEntity(entity);
-                        double posX = ((entity.lastTickPosX + (entity.posX - entity.lastTickPosX) - RenderManager.instance.renderPosX));
-                        double posY = ((entity.lastTickPosY + 1.4 + (entity.posY - entity.lastTickPosY) - RenderManager.instance.renderPosY));
-                        double posZ = ((entity.lastTickPosZ + (entity.posZ - entity.lastTickPosZ) - RenderManager.instance.renderPosZ));
+                        double posX = ((entity.lastTickPosX + (entity.posX - entity.lastTickPosX) - RenderManager.renderPosX));
+                        double posY = ((entity.lastTickPosY + 1.4 + (entity.posY - entity.lastTickPosY) - RenderManager.renderPosY));
+                        double posZ = ((entity.lastTickPosZ + (entity.posZ - entity.lastTickPosZ) - RenderManager.renderPosZ));
                        /* if(PlayerRelations.instance().friends.contains(entity.username)){
                         	GL11.glColor3f(0.0F, 1.0F, 0.0F);
                         if(PlayerRelations.instance().enemies.contains(entity.username)){

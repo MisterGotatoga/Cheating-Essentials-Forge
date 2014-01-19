@@ -11,6 +11,12 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class DynamicFly extends Mod {
 
+	public DynamicFly()
+	{
+		this.setCategory(ModuleCategories.PLAYER);
+		this.setKeybinding(Keyboard.KEY_H);
+	}
+	
 	@Override
 	public String getName(){
 		return "Dynamic Fly";
@@ -19,11 +25,6 @@ public class DynamicFly extends Mod {
 	@Override
 	public String getDescription(){
 		return "Another way to fly. Also called static fly";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.PLAYER;
 	}
 	
 	@Override 

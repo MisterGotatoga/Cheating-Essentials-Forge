@@ -7,13 +7,13 @@ import cheatingessentials.mod.wrapper.ModuleCategories;
 
 public class NoRain extends Mod {
 
-	public String getName(){
-		return "No Rain";
+	public NoRain()
+	{
+		this.setCategory(ModuleCategories.WORLD);
 	}
 	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.WORLD;
+	public String getName(){
+		return "No Rain";
 	}
 	
 	@Override

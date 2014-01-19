@@ -41,7 +41,10 @@ public class APICEMod
 				}
 			}
 		} 
-		catch (Exception e){}
+		catch (Exception exception)
+		{
+			throw new IllegalStateException("Why you use this for a non-module class?");
+		}
 		
 		return null;
 	}

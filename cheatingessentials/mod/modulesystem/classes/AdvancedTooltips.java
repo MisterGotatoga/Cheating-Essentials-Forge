@@ -6,9 +6,9 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class AdvancedTooltips extends Mod {
 
-	public ModuleCategories getCategory()
+	public AdvancedTooltips()
 	{
-		return ModuleCategories.MISC;
+		this.setCategory(ModuleCategories.MISC);
 	}
 	
 	public String getName(){

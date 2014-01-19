@@ -8,13 +8,13 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class JumpStep extends Mod {
 
-	public String getName(){
-		return "Jump Step";
+	public JumpStep()
+	{
+		this.setCategory(ModuleCategories.MOVEMENT);
 	}
 	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.MOVEMENT;
+	public String getName(){
+		return "Jump Step";
 	}
 	
 	@Override

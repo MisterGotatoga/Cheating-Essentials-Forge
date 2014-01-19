@@ -6,9 +6,9 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class CreativeFly extends Mod {
 
-	public ModuleCategories getCategory()
+	public CreativeFly()
 	{
-		return ModuleCategories.PLAYER;
+		this.setCategory(ModuleCategories.PLAYER);
 	}
 	
 	@Override

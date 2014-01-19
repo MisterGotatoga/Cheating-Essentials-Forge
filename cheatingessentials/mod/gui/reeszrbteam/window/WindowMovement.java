@@ -9,7 +9,7 @@ public class WindowMovement extends YAWWindow
 {
 	public WindowMovement()
 	{
-		super("World", 210, 14);
+		super("Movement", 210, 14);
 	}
 	
 	public YAWWindow init()

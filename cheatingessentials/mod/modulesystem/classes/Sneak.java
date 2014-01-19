@@ -6,14 +6,14 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class Sneak extends Mod {
 	
+	public Sneak()
+	{
+		this.setCategory(ModuleCategories.MOVEMENT);
+	}
+	
 	@Override
 	public String getName(){
 		return "Sneak";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.MOVEMENT;
 	}
 	
 	@Override

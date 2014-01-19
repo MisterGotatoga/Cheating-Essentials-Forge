@@ -12,14 +12,10 @@ public class Fly extends Mod {
 
 	public static float FLY_SPEED = 0.05F;
 	
-	public int getKeybind()
+	public Fly()
 	{
-		return Keyboard.KEY_R;
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.PLAYER;
+		this.setCategory(ModuleCategories.PLAYER);
+		this.setKeybinding(Keyboard.KEY_R);
 	}
 	
 	@Override

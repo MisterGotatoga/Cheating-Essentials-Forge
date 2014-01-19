@@ -8,14 +8,14 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class HighJump extends Mod {
 	
+	public HighJump()
+	{
+		this.setCategory(ModuleCategories.MOVEMENT);
+	}
+	
 	@Override
 	public String getName(){
 		return "High Jump";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.MOVEMENT;
 	}
 	
 	@Override

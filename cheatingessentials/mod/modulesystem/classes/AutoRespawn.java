@@ -6,10 +6,10 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class AutoRespawn extends Mod
 {
-	
-	public ModuleCategories getCategory()
+
+	public AutoRespawn()
 	{
-		return ModuleCategories.PLAYER;
+		this.setCategory(ModuleCategories.PLAYER);
 	}
 	
 	@Override

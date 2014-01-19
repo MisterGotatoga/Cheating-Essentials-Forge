@@ -15,11 +15,7 @@ public class BlockFinder extends Mod {
 	public BlockFinder() 
 	{
 		instance = this;
-	}
-
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.RENDER;
+		this.setCategory(ModuleCategories.RENDER);
 	}
 	
 	private int size = 0, timer = 0;

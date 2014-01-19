@@ -1,27 +1,20 @@
 package cheatingessentials.mod.modulesystem.classes;
 
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.tileentity.TileEntityChest;
-import net.minecraftforge.oredict.RecipeSorter.Category;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import cheatingessentials.api.module.Mod;
-import cheatingessentials.mod.external.axis.AltAxisAlignedBB;
 import cheatingessentials.mod.wrapper.ModuleCategories;
 import cheatingessentials.mod.wrapper.Wrapper;
 
 public class ChestFinder extends Mod {
 	
-	public int getKeybinding()
+	public ChestFinder()
 	{
-		return Keyboard.KEY_N;
-	}
-
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.RENDER;
+		this.setKeybinding(Keyboard.KEY_N);
+		this.setCategory(ModuleCategories.RENDER);
 	}
 	
 	@Override
@@ -33,9 +26,7 @@ public class ChestFinder extends Mod {
 	public String getDescription(){
 		return "Allows to the player to localize chests easily";
 	}
-	
-	private int size = 0, timer = 0;
-	
+		
 	@Override
 	public void onWorldRender(){
 		
@@ -44,8 +35,8 @@ public class ChestFinder extends Mod {
 		 */
 		for (Object o : Wrapper.INSTANCE.world().field_147482_g) {
             if (o instanceof TileEntityChest) {
-                final TileEntityChest chest = (TileEntityChest) o;
-                /*final double renderX = chest.xCoord - RenderManager.renderPosX;
+                /*final TileEntityChest chest = (TileEntityChest) o;
+                final double renderX = chest.xCoord - RenderManager.renderPosX;
                 final double renderY = chest.yCoord - RenderManager.renderPosY;
                 final double renderZ = chest.zCoord - RenderManager.renderPosZ;
                 GL11.glPushMatrix();

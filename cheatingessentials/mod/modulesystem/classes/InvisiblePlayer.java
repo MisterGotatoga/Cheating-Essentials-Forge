@@ -6,16 +6,16 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class InvisiblePlayer extends Mod {
 
+	public InvisiblePlayer()
+	{
+		this.setCategory(ModuleCategories.PLAYER);
+	}
+	
 	@Override
 	public String getName(){
 		return "Invisible Player";
 	}
 
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.PLAYER;
-	}
-	
 	@Override
 	public String getDescription(){
 		return "Makes the player... invisible :)";

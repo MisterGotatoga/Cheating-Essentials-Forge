@@ -17,6 +17,11 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class BlockOverlay extends Mod {
 	
+	public BlockOverlay()
+	{
+		this.setCategory(ModuleCategories.RENDER);
+	}
+	
 	public String getName()
 	{
 		return "Block Overlay";
@@ -25,11 +30,6 @@ public class BlockOverlay extends Mod {
 	public String getDescription()
 	{
 		return "More intituive block overlay";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.RENDER;
 	}
 	
 	@Override

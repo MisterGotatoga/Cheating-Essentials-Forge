@@ -7,6 +7,7 @@ import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import cheatingessentials.api.module.APICEMod;
+import cheatingessentials.mod.commands.NCommandMList;
 import cheatingessentials.mod.commands.NCommandMT;
 import cheatingessentials.mod.commands.apicommands.APICommandManager;
 import cheatingessentials.mod.commands.apicommands.CommandManager;
@@ -56,7 +57,7 @@ public class CheatingEssentials
 	{
 		LoadingScreen.main = false;
 		logger.info("Loading Modules...");
-		ModuleManagement.INSTANCE.initModules();
+		ModuleManagement.instance();
 		LoadingScreen.module = true;
 		logger.info(APICEMod.INSTANCE.mods.size() + " Modules loaded succefully!");
 		LoadingScreen.module = false;
@@ -89,6 +90,7 @@ public class CheatingEssentials
 		ServerCommandManager commandhandler = ((ServerCommandManager) icommand);
 		
 		commandhandler.registerCommand(new NCommandMT());
+		commandhandler.registerCommand(new NCommandMList());
 		logger.info("Natural Vanilla commands registered!");
 	}
 }

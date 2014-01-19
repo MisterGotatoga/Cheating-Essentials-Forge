@@ -7,9 +7,12 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ChatAllowedCharacters;
 
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 
 import cheatingessentials.api.command.Command;
 import cheatingessentials.mod.commands.apicommands.CommandManager;
+import cheatingessentials.mod.external.config.manual.ModuleStateConfiguration;
+import cheatingessentials.mod.external.config.manual.SaveableGuiState;
 import cheatingessentials.mod.gui.reeszrbteam.element.YAWWindow;
 import cheatingessentials.mod.gui.reeszrbteam.window.WindowActives;
 import cheatingessentials.mod.gui.reeszrbteam.window.WindowHub;
@@ -57,7 +60,7 @@ public class YouAlwaysWinClickGui extends GuiScreen
 	public void initGui()
 	{
 		super.initGui();
-		//SaveableGuiState.instance().read();
+		SaveableGuiState.instance().read();
         Keyboard.enableRepeatEvents(true);
 		guiHub.setOpen(true);
 	}
@@ -67,8 +70,8 @@ public class YouAlwaysWinClickGui extends GuiScreen
 		//super.onGuiClosed();
     	this.message = "";
         Keyboard.enableRepeatEvents(false);
-		//ModuleStateConfiguration.instance().writeToFile();
-		//SaveableGuiState.instance().writeToFile();
+		ModuleStateConfiguration.instance().writeToFile();
+		SaveableGuiState.instance().writeToFile();
 	}
 	
 	public static void sendPanelToFront(YAWWindow window)
@@ -103,6 +106,11 @@ public class YouAlwaysWinClickGui extends GuiScreen
             }
         }
  
+        if(var1 == 43)
+        {
+            this.message = this.message.substring(0, this.message.length() - 1);
+        }
+        
         if (var2 == 1)
         {
             Wrapper.INSTANCE.minecraft().func_147108_a(null);
@@ -136,7 +144,7 @@ public class YouAlwaysWinClickGui extends GuiScreen
                 this.message = this.message.substring(0, this.message.length() - 1);
             }
  
-            if (allowedCharacters.length >= 0 && this.message.length() < 100)
+            if (this.message.length() < 100 && var1 != 43)
             {
                 this.message = this.message + var1;
             }
@@ -193,11 +201,11 @@ public class YouAlwaysWinClickGui extends GuiScreen
 		catch(Exception e) {}
 	}
 	
-	public void mouseMovedOrUp(int x, int y, int button)
+    protected void func_146286_b(int p_146286_1_, int p_146286_2_, int p_146286_3_)
 	{
 		for(YAWWindow window: windows)
 		{
-			window.mouseMovedOrUp(x, y, button);
+			window.mouseMovedOrUp(p_146286_1_, p_146286_2_, p_146286_3_);
 		}
 	}
 	

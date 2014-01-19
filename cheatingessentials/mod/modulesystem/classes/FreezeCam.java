@@ -15,14 +15,14 @@ public class FreezeCam extends Mod {
 
 	LocationHelper location;
 	
+	public FreezeCam()
+	{
+		this.setCategory(ModuleCategories.RENDER);
+	}
+	
 	@Override
 	public String getName(){
 		return "Freeze Cam";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.RENDER;
 	}
 	
 	@Override

@@ -12,13 +12,13 @@ public class Spectate extends Mod {
 	
 	private LocationHelper loc;
 	
-	public String getName(){
-		return "Spectator";
+	public Spectate()
+	{
+		this.setCategory(ModuleCategories.RENDER);
 	}
 	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.RENDER;
+	public String getName(){
+		return "Spectator";
 	}
 	
 	@Override

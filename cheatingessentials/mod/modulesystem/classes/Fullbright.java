@@ -8,6 +8,12 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class Fullbright extends Mod {
 
+	public Fullbright()
+	{
+		this.setCategory(ModuleCategories.WORLD);
+		this.setKeybinding(Keyboard.KEY_F);
+	}
+	
 	@Override
 	public String getName(){
 		return "Fullbright";
@@ -16,16 +22,6 @@ public class Fullbright extends Mod {
 	@Override
 	public String getDescription(){
 		return "Makes the world brighter";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.WORLD;
-	}
-	
-	public int getKeybind()
-	{
-		return Keyboard.KEY_F;
 	}
 	
 	@Override

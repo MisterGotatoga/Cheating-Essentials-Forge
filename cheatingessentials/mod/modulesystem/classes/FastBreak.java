@@ -8,9 +8,9 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class FastBreak extends Mod {
 
-	public ModuleCategories getCategory()
+	public FastBreak()
 	{
-		return ModuleCategories.WORLD;
+		this.setCategory(ModuleCategories.WORLD);
 	}
 	
 	@Override

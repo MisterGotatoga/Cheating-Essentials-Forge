@@ -10,14 +10,10 @@ import cheatingessentials.mod.wrapper.ModuleCategories;
 
 public class FastPlace extends Mod {
 
-	public int getKeybinding()
+	public FastPlace()
 	{
-		return Keyboard.KEY_K;
-	}
-		
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.WORLD;
+		this.setCategory(ModuleCategories.WORLD);
+		this.setKeybinding(Keyboard.KEY_K);
 	}
 	
 	@Override

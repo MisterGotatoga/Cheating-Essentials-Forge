@@ -1,21 +1,20 @@
 package cheatingessentials.mod.modulesystem.classes;
 
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraftforge.oredict.RecipeSorter.Category;
 import cheatingessentials.api.module.Mod;
 import cheatingessentials.mod.wrapper.ModuleCategories;
 import cheatingessentials.mod.wrapper.Wrapper;
 
 public class AutoSprint extends Mod {
 
+	public AutoSprint()
+	{
+		this.setCategory(ModuleCategories.MOVEMENT);
+	}
+	
 	@Override
 	public String getName(){
 		return "Auto Sprint";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.MOVEMENT;
 	}
 	
 	@Override

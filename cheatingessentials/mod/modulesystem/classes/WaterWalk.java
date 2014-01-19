@@ -8,19 +8,15 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class WaterWalk extends Mod {
 
+	public WaterWalk()
+	{
+		this.setCategory(ModuleCategories.MOVEMENT);
+		this.setKeybinding(Keyboard.KEY_J);
+	}
+	
 	@Override
 	public String getName(){
 		return "Water Walk";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.MOVEMENT;
-	}
-
-	public int getKeybind()
-	{
-		return Keyboard.KEY_J;
 	}
 	
 	public boolean tick()

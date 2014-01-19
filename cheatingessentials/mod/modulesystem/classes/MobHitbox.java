@@ -6,11 +6,11 @@ import cheatingessentials.mod.wrapper.ModuleCategories;
 
 public class MobHitbox extends Mod {
 
-	public ModuleCategories getCategory()
+	public MobHitbox()
 	{
-		return ModuleCategories.MISC;
+		this.setCategory(ModuleCategories.MISC);
 	}
-
+	
 	@Override
 	public String getName(){
 		return "Mob Hitbox";

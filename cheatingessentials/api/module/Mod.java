@@ -2,11 +2,17 @@ package cheatingessentials.api.module;
 
 import org.lwjgl.input.Keyboard;
 
+import cheatingessentials.mod.main.CheatingEssentials;
 import cheatingessentials.mod.wrapper.ModuleCategories;
 
 public abstract class Mod 
 {
-
+	
+	public Mod()
+	{
+		CheatingEssentials.INSTANCE.logger.info("Loaded: " + getName() + " ("+getAlias()+")" + "Category: "+ getCategory());
+	}
+	
 	protected String name = "unknown";
 	protected String p = "cheatingessentials:";
 	protected String description = "unknown";
@@ -93,5 +99,10 @@ public abstract class Mod
 	public void setKeybinding(int key)
 	{
 		this.keybind = key;
+	}
+	
+	public void setCategory(ModuleCategories category)
+	{
+		this.category = category;
 	}
 }

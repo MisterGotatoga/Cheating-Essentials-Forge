@@ -6,16 +6,16 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class Unpushable extends Mod {
 	
+	public Unpushable()
+	{
+		this.setCategory(ModuleCategories.PLAYER);
+	}
+	
 	@Override
 	public String getName(){
 		return "Unpushable";
 	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.MOVEMENT;
-	}
-	
+
 	@Override
 	public String getDescription(){
 		return "No more knockback! :)";

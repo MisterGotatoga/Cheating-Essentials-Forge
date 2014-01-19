@@ -6,15 +6,14 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class ReloadChunks extends Mod {
 
-
+	public ReloadChunks()
+	{
+		this.setCategory(ModuleCategories.MISC);
+	}
+	
 	@Override
 	public String getName(){
 		return "Reload Chunks";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.MISC;
 	}
 	
 	@Override

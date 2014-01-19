@@ -12,17 +12,17 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class MobAura extends Mod {
 	
+	public MobAura()
+	{
+		this.setCategory(ModuleCategories.PLAYER);
+	}
+	
 	public String getName(){
 		return "Auto Hit";
 	}
 
 	public String getDescription(){
 		return "Hit mobs automatically!";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.PLAYER;
 	}
 	
 	@Override

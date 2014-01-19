@@ -17,16 +17,16 @@ import cheatingessentials.mod.wrapper.Wrapper;
 public class PlayerESP extends Mod 
 {
 	
+	public PlayerESP()
+	{
+		this.setCategory(ModuleCategories.RENDER);
+	}
+	
 	public String getName()
 	{
 		return "Player ESP";
 	}
 	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.RENDER;
-	}
-
 	public void onEnableMod()
 	{
 		Wrapper.INSTANCE.addChatMessage("CE PlayerESP. Now with added bugs for extra game experience!");

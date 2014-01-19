@@ -45,6 +45,10 @@ public class ModuleManagement
 {
 	public volatile static ModuleManagement INSTANCE = new ModuleManagement();
 	
+	public ModuleManagement(){
+		initModules();
+	}
+	
 	private void add(Mod mod)
 	{
 		APICEMod.INSTANCE.enable(mod);
@@ -90,5 +94,10 @@ public class ModuleManagement
 		add(new Unpushable());
 		add(new WaterWalk());
 		add(new XRay());
+	}
+	
+	public static ModuleManagement instance()
+	{
+		return INSTANCE;
 	}
 }

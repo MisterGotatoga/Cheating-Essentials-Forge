@@ -11,15 +11,14 @@ public class Step extends Mod {
 	
 	public static float DEFAULT_STEP_HEIGHT = 1.0F;
 	
-	@Override
-	public String getName(){
-		return "Step";
+	public Step()
+	{
+		this.setCategory(ModuleCategories.MOVEMENT);
 	}
 	
 	@Override
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.MOVEMENT;
+	public String getName(){
+		return "Step";
 	}
 
 	@Override

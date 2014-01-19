@@ -8,14 +8,14 @@ public class DieCoordinates extends Mod
 {
 	int countdown = 80;
 		
+	public DieCoordinates()
+	{
+		this.setCategory(ModuleCategories.MISC);
+	}
+	
 	public String getName()
 	{
 		return "Die Coordinates";
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.MISC;
 	}
 
 	public String getDescription()

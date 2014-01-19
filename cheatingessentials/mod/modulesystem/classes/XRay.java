@@ -18,6 +18,8 @@ public class XRay extends Mod
 	
 	public XRay() 
 	{
+		this.setCategory(ModuleCategories.RENDER);
+		this.setKeybinding(Keyboard.KEY_X);
 		xrayList2.add("coal_ore");
 		xrayList2.add("iron_ore");
 		xrayList2.add("diamond_ore");
@@ -57,16 +59,6 @@ public class XRay extends Mod
 		}
 		
 		addDefaultList();
-	}
-	
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.WORLD;
-	}
-
-	public int getKeybind()
-	{
-		return Keyboard.KEY_X;
 	}
 	
 	@Override

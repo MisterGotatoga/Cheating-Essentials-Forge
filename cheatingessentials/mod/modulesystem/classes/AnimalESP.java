@@ -12,11 +12,11 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class AnimalESP extends Mod {
 
-	public ModuleCategories getCategory()
+	public AnimalESP()
 	{
-		return ModuleCategories.RENDER;
+		this.setCategory(ModuleCategories.RENDER);
 	}
-	
+
 	@Override
 	public String getName(){
 		return "Entity Finder";

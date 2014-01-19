@@ -15,13 +15,13 @@ public class Breadcrumb extends Mod {
 
     public static ArrayList<double[]> positionsList = new ArrayList<double[]>();
 
+    public Breadcrumb()
+    {
+    	this.setCategory(ModuleCategories.RENDER);
+    }
+    
 	public String getName(){
 		return "Breadcrumb";
-	}
-
-	public ModuleCategories getCategory()
-	{
-		return ModuleCategories.RENDER;
 	}
 	
 	@Override
