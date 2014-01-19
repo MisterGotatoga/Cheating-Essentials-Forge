@@ -8,7 +8,7 @@ public class Sneak extends Mod {
 	
 	public Sneak()
 	{
-		this.setCategory(ModuleCategories.MOVEMENT);
+		super(ModuleCategories.MOVEMENT);
 	}
 	
 	@Override

@@ -12,7 +12,7 @@ public class Speed extends Mod {
 		
 	public Speed()
 	{
-		this.setCategory(ModuleCategories.PLAYER);
+		super(ModuleCategories.PLAYER);
 	}
 	
 	public String getName()

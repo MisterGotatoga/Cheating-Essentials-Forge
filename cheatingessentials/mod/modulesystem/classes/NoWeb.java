@@ -11,7 +11,7 @@ public class NoWeb extends Mod {
 
 	public NoWeb()
 	{
-		this.setCategory(ModuleCategories.PLAYER);
+		super(ModuleCategories.PLAYER);
 	}
 	
 	@Override

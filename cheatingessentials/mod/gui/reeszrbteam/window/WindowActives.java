@@ -2,7 +2,6 @@ package cheatingessentials.mod.gui.reeszrbteam.window;
 
 import net.minecraft.client.Minecraft;
 import cheatingessentials.api.module.APICEMod;
-import cheatingessentials.mod.gui.reeszrbteam.element.YAWButton;
 import cheatingessentials.mod.gui.reeszrbteam.element.YAWWindow;
 import cheatingessentials.mod.util.GLUtils;
 
@@ -31,13 +30,8 @@ public class WindowActives extends YAWWindow {
 					GLUtils.drawGradientBorderedRect(getX() + dragX, getY() + 14 + dragY, getX() + 90 + dragX, getY() + 14 + dragY + APICEMod.INSTANCE.activeMods.size() + ((12*(i+1)) - (i*4)), 0.5F, 0xFF000000, 0xFF999999, 0xFF777777);
 				}
 					for(int i = 0; i < APICEMod.INSTANCE.activeMods.size(); i++){
-					Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(" " + APICEMod.INSTANCE.activeMods.get(i), getX() + dragX,
+					Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(" " + APICEMod.INSTANCE.activeMods.get(i).getName(), getX() + dragX,
 							(i <= 5 ? getY() : getY() - 8) + dragY + 1 + APICEMod.INSTANCE.activeMods.size() + ((12*(i+1)) - (i*3)), 0x55FFFF);
-				}
-				
-				for(YAWButton button: buttons)
-				{
-					button.draw();
 				}
 			}
 		}

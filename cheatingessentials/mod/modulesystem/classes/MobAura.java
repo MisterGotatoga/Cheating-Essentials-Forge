@@ -14,7 +14,7 @@ public class MobAura extends Mod {
 	
 	public MobAura()
 	{
-		this.setCategory(ModuleCategories.PLAYER);
+		super(ModuleCategories.PLAYER);
 	}
 	
 	public String getName(){

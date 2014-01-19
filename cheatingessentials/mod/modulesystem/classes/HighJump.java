@@ -10,7 +10,7 @@ public class HighJump extends Mod {
 	
 	public HighJump()
 	{
-		this.setCategory(ModuleCategories.MOVEMENT);
+		super(ModuleCategories.MOVEMENT);
 	}
 	
 	@Override

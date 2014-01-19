@@ -13,7 +13,7 @@ public class Tracers extends Mod {
 
 	public Tracers()
 	{
-		this.setCategory(ModuleCategories.MOVEMENT);
+		super(ModuleCategories.MOVEMENT);
 	}
 	
 	public String getModuleName(){

@@ -8,7 +8,7 @@ public class ReloadChunks extends Mod {
 
 	public ReloadChunks()
 	{
-		this.setCategory(ModuleCategories.MISC);
+		super(ModuleCategories.MISC);
 	}
 	
 	@Override

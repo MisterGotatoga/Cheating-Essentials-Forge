@@ -8,8 +8,9 @@ import cheatingessentials.mod.wrapper.ModuleCategories;
 public abstract class Mod 
 {
 	
-	public Mod()
+	public Mod(ModuleCategories category)
 	{
+		this.category = category;
 		CheatingEssentials.INSTANCE.logger.info("Loaded: " + getName() + " ("+getAlias()+")" + "Category: "+ getCategory());
 	}
 	
@@ -18,8 +19,18 @@ public abstract class Mod
 	protected String description = "unknown";
 	protected int keybind = Keyboard.KEY_NONE;
 	protected boolean enabled;
-	protected ModuleCategories category = ModuleCategories.MISC;
+	protected ModuleCategories category;
 
+	public void setKeybinding(int key)
+	{
+		this.keybind = key;
+	}
+	
+	public void setCategory(ModuleCategories category)
+	{
+		this.category = category;
+	}
+	
 	public String getName()
 	{
 		return name;
@@ -94,15 +105,5 @@ public abstract class Mod
 			onDisableMod();
 			APICEMod.INSTANCE.removeActive(this);
 		}
-	}
-	
-	public void setKeybinding(int key)
-	{
-		this.keybind = key;
-	}
-	
-	public void setCategory(ModuleCategories category)
-	{
-		this.category = category;
 	}
 }

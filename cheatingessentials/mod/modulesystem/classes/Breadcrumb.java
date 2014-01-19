@@ -17,7 +17,7 @@ public class Breadcrumb extends Mod {
 
     public Breadcrumb()
     {
-    	this.setCategory(ModuleCategories.RENDER);
+    	super(ModuleCategories.RENDER);
     }
     
 	public String getName(){

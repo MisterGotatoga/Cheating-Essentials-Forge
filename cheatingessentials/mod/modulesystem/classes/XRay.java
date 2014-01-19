@@ -18,7 +18,7 @@ public class XRay extends Mod
 	
 	public XRay() 
 	{
-		this.setCategory(ModuleCategories.RENDER);
+		super(ModuleCategories.RENDER);
 		this.setKeybinding(Keyboard.KEY_X);
 		xrayList2.add("coal_ore");
 		xrayList2.add("iron_ore");

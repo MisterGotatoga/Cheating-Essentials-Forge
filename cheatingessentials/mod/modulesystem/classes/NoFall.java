@@ -9,7 +9,7 @@ public class NoFall extends Mod {
 
 	public NoFall()
 	{
-		this.setCategory(ModuleCategories.PLAYER);
+		super(ModuleCategories.PLAYER);
 		this.setKeybinding(Keyboard.KEY_V);
 	}
 	

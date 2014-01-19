@@ -14,7 +14,7 @@ public class Spectate extends Mod {
 	
 	public Spectate()
 	{
-		this.setCategory(ModuleCategories.RENDER);
+		super(ModuleCategories.RENDER);
 	}
 	
 	public String getName(){

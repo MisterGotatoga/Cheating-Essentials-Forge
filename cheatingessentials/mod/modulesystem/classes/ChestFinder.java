@@ -13,8 +13,8 @@ public class ChestFinder extends Mod {
 	
 	public ChestFinder()
 	{
+		super(ModuleCategories.RENDER);
 		this.setKeybinding(Keyboard.KEY_N);
-		this.setCategory(ModuleCategories.RENDER);
 	}
 	
 	@Override

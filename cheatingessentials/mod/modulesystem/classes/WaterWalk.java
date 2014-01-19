@@ -10,7 +10,7 @@ public class WaterWalk extends Mod {
 
 	public WaterWalk()
 	{
-		this.setCategory(ModuleCategories.MOVEMENT);
+		super(ModuleCategories.MOVEMENT);
 		this.setKeybinding(Keyboard.KEY_J);
 	}
 	

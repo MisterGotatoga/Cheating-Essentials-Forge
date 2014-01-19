@@ -10,7 +10,7 @@ public class FastBreak extends Mod {
 
 	public FastBreak()
 	{
-		this.setCategory(ModuleCategories.WORLD);
+		super(ModuleCategories.WORLD);
 	}
 	
 	@Override

@@ -9,7 +9,7 @@ public class NoRain extends Mod {
 
 	public NoRain()
 	{
-		this.setCategory(ModuleCategories.WORLD);
+		super(ModuleCategories.WORLD);
 	}
 	
 	public String getName(){

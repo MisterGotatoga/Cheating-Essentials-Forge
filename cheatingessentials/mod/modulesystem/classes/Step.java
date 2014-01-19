@@ -13,7 +13,7 @@ public class Step extends Mod {
 	
 	public Step()
 	{
-		this.setCategory(ModuleCategories.MOVEMENT);
+		super(ModuleCategories.MOVEMENT);
 	}
 	
 	@Override

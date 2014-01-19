@@ -17,7 +17,7 @@ public class FreezeCam extends Mod {
 	
 	public FreezeCam()
 	{
-		this.setCategory(ModuleCategories.RENDER);
+		super(ModuleCategories.RENDER);
 	}
 	
 	@Override

@@ -19,7 +19,7 @@ public class BlockOverlay extends Mod {
 	
 	public BlockOverlay()
 	{
-		this.setCategory(ModuleCategories.RENDER);
+		super(ModuleCategories.RENDER);
 	}
 	
 	public String getName()

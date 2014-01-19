@@ -13,7 +13,7 @@ public class DynamicFly extends Mod {
 
 	public DynamicFly()
 	{
-		this.setCategory(ModuleCategories.PLAYER);
+		super(ModuleCategories.PLAYER);
 		this.setKeybinding(Keyboard.KEY_H);
 	}
 	

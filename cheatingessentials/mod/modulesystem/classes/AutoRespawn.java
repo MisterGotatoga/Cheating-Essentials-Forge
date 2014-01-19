@@ -9,7 +9,7 @@ public class AutoRespawn extends Mod
 
 	public AutoRespawn()
 	{
-		this.setCategory(ModuleCategories.PLAYER);
+		super(ModuleCategories.PLAYER);
 	}
 	
 	@Override

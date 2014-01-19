@@ -11,7 +11,7 @@ public class Gui extends Mod {
 
 	public Gui()
 	{
-		this.setCategory(ModuleCategories.NONE);
+		super(ModuleCategories.NONE);
 		this.setKeybinding(Keyboard.KEY_G);
 	}
 	

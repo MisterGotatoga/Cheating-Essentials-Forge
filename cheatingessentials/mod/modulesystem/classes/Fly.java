@@ -14,7 +14,7 @@ public class Fly extends Mod {
 	
 	public Fly()
 	{
-		this.setCategory(ModuleCategories.PLAYER);
+		super(ModuleCategories.PLAYER);
 		this.setKeybinding(Keyboard.KEY_R);
 	}
 	

@@ -9,7 +9,7 @@ public class Day extends Mod {
 
 	public Day()
 	{
-		this.setCategory(ModuleCategories.WORLD);
+		super(ModuleCategories.WORLD);
 	}
 
 	@Override

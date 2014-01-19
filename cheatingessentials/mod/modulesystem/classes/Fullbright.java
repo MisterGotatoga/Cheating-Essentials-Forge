@@ -10,7 +10,7 @@ public class Fullbright extends Mod {
 
 	public Fullbright()
 	{
-		this.setCategory(ModuleCategories.WORLD);
+		super(ModuleCategories.WORLD);
 		this.setKeybinding(Keyboard.KEY_F);
 	}
 	

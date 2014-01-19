@@ -8,7 +8,7 @@ public class CreativeFly extends Mod {
 
 	public CreativeFly()
 	{
-		this.setCategory(ModuleCategories.PLAYER);
+		super(ModuleCategories.PLAYER);
 	}
 	
 	@Override

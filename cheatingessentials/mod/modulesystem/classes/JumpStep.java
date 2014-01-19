@@ -10,7 +10,7 @@ public class JumpStep extends Mod {
 
 	public JumpStep()
 	{
-		this.setCategory(ModuleCategories.MOVEMENT);
+		super(ModuleCategories.MOVEMENT);
 	}
 	
 	public String getName(){

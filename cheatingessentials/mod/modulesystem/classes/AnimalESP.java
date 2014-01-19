@@ -14,7 +14,7 @@ public class AnimalESP extends Mod {
 
 	public AnimalESP()
 	{
-		this.setCategory(ModuleCategories.RENDER);
+		super(ModuleCategories.RENDER);
 	}
 
 	@Override

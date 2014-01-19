@@ -8,7 +8,7 @@ public class InvisiblePlayer extends Mod {
 
 	public InvisiblePlayer()
 	{
-		this.setCategory(ModuleCategories.PLAYER);
+		super(ModuleCategories.PLAYER);
 	}
 	
 	@Override

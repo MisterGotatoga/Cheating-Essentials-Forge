@@ -10,7 +10,7 @@ public class DieCoordinates extends Mod
 		
 	public DieCoordinates()
 	{
-		this.setCategory(ModuleCategories.MISC);
+		super(ModuleCategories.MISC);
 	}
 	
 	public String getName()

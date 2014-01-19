@@ -9,7 +9,7 @@ public class AutoSprint extends Mod {
 
 	public AutoSprint()
 	{
-		this.setCategory(ModuleCategories.MOVEMENT);
+		super(ModuleCategories.MOVEMENT);
 	}
 	
 	@Override

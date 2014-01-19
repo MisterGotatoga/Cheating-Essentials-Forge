@@ -8,7 +8,7 @@ public class Sprint extends Mod {
 
 	public Sprint()
 	{
-		this.setCategory(ModuleCategories.PLAYER);
+		super(ModuleCategories.PLAYER);
 	}
 	
 	@Override

@@ -19,7 +19,7 @@ public class PlayerESP extends Mod
 	
 	public PlayerESP()
 	{
-		this.setCategory(ModuleCategories.RENDER);
+		super(ModuleCategories.RENDER);
 	}
 	
 	public String getName()

@@ -8,7 +8,7 @@ public class Unpushable extends Mod {
 	
 	public Unpushable()
 	{
-		this.setCategory(ModuleCategories.PLAYER);
+		super(ModuleCategories.PLAYER);
 	}
 	
 	@Override

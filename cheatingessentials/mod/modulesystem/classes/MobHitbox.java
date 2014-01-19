@@ -8,7 +8,7 @@ public class MobHitbox extends Mod {
 
 	public MobHitbox()
 	{
-		this.setCategory(ModuleCategories.MISC);
+		super(ModuleCategories.MISC);
 	}
 	
 	@Override

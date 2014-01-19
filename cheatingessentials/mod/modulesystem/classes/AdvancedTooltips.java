@@ -8,7 +8,7 @@ public class AdvancedTooltips extends Mod {
 
 	public AdvancedTooltips()
 	{
-		this.setCategory(ModuleCategories.MISC);
+		super(ModuleCategories.MISC);
 	}
 	
 	public String getName(){

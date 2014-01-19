@@ -9,7 +9,7 @@ public class ArrowDodge extends Mod {
 	
 	public ArrowDodge()
 	{
-		this.setCategory(ModuleCategories.WORLD);
+		super(ModuleCategories.WORLD);
 	}
 	
 	public String getName()
