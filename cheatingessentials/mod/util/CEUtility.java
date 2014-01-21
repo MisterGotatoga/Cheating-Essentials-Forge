@@ -3,6 +3,10 @@ package cheatingessentials.mod.util;
 import java.util.Collection;
 import java.util.HashSet;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.util.MathHelper;
+import cheatingessentials.mod.wrapper.Wrapper;
+
 public class CEUtility
 {
 	
@@ -12,5 +16,4 @@ public class CEUtility
         list.clear();
         list.addAll(set);
     }
-
 }
