@@ -68,5 +68,4 @@ public class TMCommandSMKeybind extends CommandBase {
 	{
 		return true;
 	}
-
 }

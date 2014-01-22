@@ -1,5 +1,6 @@
 package cheatingessentials.mod.commands.apicommands;
 
+import net.minecraft.command.ICommandSender;
 import cheatingessentials.api.command.Command;
 import cheatingessentials.mod.external.config.agce.files.AGCEGeneric;
 import cheatingessentials.mod.modulesystem.classes.Speed;
@@ -28,6 +29,11 @@ public class ACommandSpeedValue extends Command {
 	public String getSyntax() {
 		// TODO Auto-generated method stub
 		return this.getCommand()+" number of blocks/second";
+	}
+	
+	public boolean canCommandSenderUseCommand(ICommandSender var1)
+	{
+		return true;
 	}
 
 }

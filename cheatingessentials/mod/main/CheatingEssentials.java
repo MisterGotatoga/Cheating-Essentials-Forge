@@ -9,10 +9,12 @@ import net.minecraftforge.common.MinecraftForge;
 import cheatingessentials.api.module.APICEMod;
 import cheatingessentials.mod.commands.NCommandMList;
 import cheatingessentials.mod.commands.NCommandMT;
+import cheatingessentials.mod.commands.NCommandSH;
+import cheatingessentials.mod.commands.NCommandSV;
+import cheatingessentials.mod.commands.TMCommandSMKeybind;
 import cheatingessentials.mod.commands.apicommands.APICommandManager;
 import cheatingessentials.mod.commands.apicommands.CommandManager;
 import cheatingessentials.mod.external.config.management.ConfigurationManager;
-import cheatingessentials.mod.gui.reeszrbteam.YouAlwaysWinClickGui;
 import cheatingessentials.mod.logger.CELogger;
 import cheatingessentials.mod.modulesystem.handler.ModuleManagement;
 import cheatingessentials.mod.screens.LoadingScreen;
@@ -96,6 +98,9 @@ public class CheatingEssentials
 		
 		commandhandler.registerCommand(new NCommandMT());
 		commandhandler.registerCommand(new NCommandMList());
+		commandhandler.registerCommand(new NCommandSH());
+		commandhandler.registerCommand(new NCommandSV());
+		commandhandler.registerCommand(new TMCommandSMKeybind());
 		logger.info("Natural Vanilla commands registered!");
 	}
 }
