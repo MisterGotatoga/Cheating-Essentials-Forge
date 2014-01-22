@@ -7,7 +7,6 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ChatAllowedCharacters;
 
 import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
 
 import cheatingessentials.api.command.Command;
 import cheatingessentials.mod.commands.apicommands.CommandManager;
@@ -39,17 +38,10 @@ public class YouAlwaysWinClickGui extends GuiScreen
 	private static final char[] allowedCharacters = ChatAllowedCharacters.allowedCharactersArray;
 	
 	public YAWWindow guiHub = new WindowHub();
-	public YAWWindow player = new WindowPlayer().init();
-	public YAWWindow world = new WindowWorld().init();
-	public YAWWindow info = new WindowInfo();
-	public YAWWindow radar = new WindowRadar();
-    public YAWWindow render = new WindowRender().init();
-    public YAWWindow utils = new WindowUtils().init();
-    public YAWWindow actives = new WindowActives();
-    public YAWWindow movement = new WindowMovement().init();
 	
     public YouAlwaysWinClickGui()
     {
+    	this.initWindows();
     	this.cmds.clear();
 	    for(Command c : CommandManager.commands)
 	    {
@@ -57,10 +49,25 @@ public class YouAlwaysWinClickGui extends GuiScreen
 	    }
     }
     
+    /**
+     * If here you can start recognizing the fucking modules I'll be happy.
+     */
+    public void initWindows()
+    {
+    	new WindowPlayer().init();
+    	new WindowWorld().init();
+    	new WindowMovement().init();
+    	new WindowRender().init();
+    	new WindowUtils().init();
+    	new WindowInfo();
+    	new WindowActives();
+    	new WindowRadar();
+    }
+    
 	public void initGui()
 	{
 		super.initGui();
-		SaveableGuiState.instance().read();
+		//SaveableGuiState.instance().read();
         Keyboard.enableRepeatEvents(true);
 		guiHub.setOpen(true);
 	}
@@ -144,7 +151,7 @@ public class YouAlwaysWinClickGui extends GuiScreen
                 this.message = this.message.substring(0, this.message.length() - 1);
             }
  
-            if (this.message.length() < 100 && var1 != 43)
+            if (String.valueOf(allowedCharacters).indexOf(var1) >= 0 || this.message.length() < 100)
             {
                 this.message = this.message + var1;
             }

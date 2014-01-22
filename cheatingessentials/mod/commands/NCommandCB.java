@@ -1,30 +1,29 @@
 package cheatingessentials.mod.commands;
 
+import cheatingessentials.mod.modulesystem.classes.Breadcrumb;
+import cheatingessentials.mod.wrapper.Wrapper;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import cheatingessentials.api.module.APICEMod;
-import cheatingessentials.api.module.Mod;
-import cheatingessentials.mod.wrapper.Wrapper;
 
-public class NCommandMList extends CommandBase {
+public class NCommandCB extends CommandBase {
 
 	@Override
 	public String getCommandName() {
-		return "ml";
+		// TODO Auto-generated method stub
+		return "breadcrumb";
 	}
 
 	@Override
 	public String getCommandUsage(ICommandSender var1) {
-		return "Shows module list.";
+		// TODO Auto-generated method stub
+		return "Clear breadcrumb";
 	}
 
 	@Override
-	public void processCommand(ICommandSender var1, String[] var2) 
+	public void processCommand(ICommandSender var1, String[] var2)
 	{
-		for(Mod mod : APICEMod.INSTANCE.mods)
-		{
-			Wrapper.INSTANCE.addChatMessage(mod.getName() + " - " + mod.getDescription() + " - " + mod.getAlias());
-		}
+		Breadcrumb.positionsList.clear();
+		Wrapper.INSTANCE.addChatMessage("Cleared breadcrumb list.");
 	}
 
 	@Override

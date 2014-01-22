@@ -1,6 +1,6 @@
 package cheatingessentials.mod.modulesystem.classes;
 
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +13,7 @@ import cheatingessentials.mod.wrapper.Wrapper;
 
 public class Breadcrumb extends Mod {
 
-    public static ArrayList<double[]> positionsList = new ArrayList<double[]>();
+    public static CopyOnWriteArrayList<double[]> positionsList = new CopyOnWriteArrayList<double[]>();
 
     public Breadcrumb()
     {

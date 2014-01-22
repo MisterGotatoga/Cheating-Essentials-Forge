@@ -12,6 +12,7 @@ import cheatingessentials.mod.commands.NCommandMT;
 import cheatingessentials.mod.commands.apicommands.APICommandManager;
 import cheatingessentials.mod.commands.apicommands.CommandManager;
 import cheatingessentials.mod.external.config.management.ConfigurationManager;
+import cheatingessentials.mod.gui.reeszrbteam.YouAlwaysWinClickGui;
 import cheatingessentials.mod.logger.CELogger;
 import cheatingessentials.mod.modulesystem.handler.ModuleManagement;
 import cheatingessentials.mod.screens.LoadingScreen;
@@ -56,18 +57,22 @@ public class CheatingEssentials
 	public void onInitialization(FMLInitializationEvent event2)
 	{
 		LoadingScreen.main = false;
+		
 		logger.info("Loading Modules...");
 		ModuleManagement.instance();
 		LoadingScreen.module = true;
 		logger.info(APICEMod.INSTANCE.mods.size() + " Modules loaded succefully!");
 		LoadingScreen.module = false;
+		
 		FMLCommonHandler.instance().bus().register(new Events());
 		MinecraftForge.EVENT_BUS.register(new Events());
+		
 		logger.info("Loading Configuration...");
 		LoadingScreen.config = true;
 		ConfigurationManager.instance();
 		logger.info("Configuration Loaded.");
 		LoadingScreen.config = false;
+		
 		logger.info("Loading commands...");
 		LoadingScreen.commands = true;
 		CommandManager.instance();
