@@ -2,7 +2,7 @@ package cheatingessentials.mod.commands.apicommands;
 
 import net.minecraft.command.ICommandSender;
 import cheatingessentials.api.command.Command;
-import cheatingessentials.mod.external.config.agce.files.AGCEGeneric;
+import cheatingessentials.mod.external.config.forge.GeneralConfiguration;
 import cheatingessentials.mod.modulesystem.classes.Speed;
 import cheatingessentials.mod.wrapper.Wrapper;
 
@@ -16,7 +16,8 @@ public class ACommandSpeedValue extends Command {
 	public void runCommand(String s, String[] subcommands) {
 		Double speedvalue = Double.parseDouble(subcommands[0]);
 		Speed.SPEED_VALUE = speedvalue;
-		AGCEGeneric.INSTANCE.modify("CESpeedValue.txt", speedvalue);
+		GeneralConfiguration.instance().configuration.save();
+		GeneralConfiguration.instance().configuration.load();
 		Wrapper.INSTANCE.addChatMessage("Set speed to: "+speedvalue);
 	}
 

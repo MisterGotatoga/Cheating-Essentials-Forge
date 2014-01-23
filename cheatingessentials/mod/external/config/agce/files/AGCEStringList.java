@@ -15,7 +15,7 @@ import cheatingessentials.mod.external.config.agce.AGCEConfiguration;
 import cheatingessentials.mod.main.CheatingEssentials;
 import cheatingessentials.mod.util.CEUtility;
 
-public class AGCEList extends AGCEConfiguration
+public class AGCEStringList extends AGCEConfiguration
 {
 	
 	private Collection list;
@@ -26,12 +26,12 @@ public class AGCEList extends AGCEConfiguration
 	 * @param path
 	 * @param list
 	 */
-	public AGCEList(String name, String path, Collection list)
+	public AGCEStringList(String name, String path, Collection list)
 	{
 		this.name = name;
 		this.list = list;
 		this.path = path;
-		this.file = new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating Essentials/"+path);
+		this.file = new File(Minecraft.getMinecraft().mcDataDir, "/config/Cheating-Essentials/"+path);
 		this.createFile();
 		this.read();
 	}

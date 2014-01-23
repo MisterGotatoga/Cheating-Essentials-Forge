@@ -13,7 +13,7 @@ public class LoadingScreen extends GuiScreen
 	public static boolean module;
 	public static boolean gui;
 	public static boolean config;
-	public static boolean lastshit;
+	public static boolean last;
 	public static boolean commands;
 	
     public void drawScreen(int par1, int par2, float par3)
@@ -48,7 +48,7 @@ public class LoadingScreen extends GuiScreen
         	 Wrapper.INSTANCE.minecraft().fontRenderer.drawString("Preparing config...", 0, 2, 0xfffffff);
         }
         
-        if(lastshit)
+        if(last)
         {
         	 Wrapper.INSTANCE.minecraft().fontRenderer.drawString("Completed.", 0, 2, 0xfffffff);
         }

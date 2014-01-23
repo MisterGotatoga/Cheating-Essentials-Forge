@@ -7,6 +7,8 @@ import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import cheatingessentials.api.module.APICEMod;
+import cheatingessentials.mod.commands.NCommandEnemy;
+import cheatingessentials.mod.commands.NCommandFriend;
 import cheatingessentials.mod.commands.NCommandMList;
 import cheatingessentials.mod.commands.NCommandMT;
 import cheatingessentials.mod.commands.NCommandSH;
@@ -14,6 +16,7 @@ import cheatingessentials.mod.commands.NCommandSV;
 import cheatingessentials.mod.commands.TMCommandSMKeybind;
 import cheatingessentials.mod.commands.apicommands.APICommandManager;
 import cheatingessentials.mod.commands.apicommands.CommandManager;
+import cheatingessentials.mod.external.config.forge.GeneralConfiguration;
 import cheatingessentials.mod.external.config.management.ConfigurationManager;
 import cheatingessentials.mod.logger.CELogger;
 import cheatingessentials.mod.modulesystem.handler.ModuleManagement;
@@ -29,6 +32,13 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
+/**
+ * Main Cheating Essentials class. Inits everything and sets everything up for a smooth and unbuggy usage. This class
+ * is automatically detected by Forge for loading and then add it to the Mod List. 
+ * This class also start and register all the vanilla commands used for debugging while CEConsole and YAWGui doesn't work
+ * correctly (The first doesn't want to type and the second doesn't want to detect all the modules, lolwut)
+ * @author Kodehawa
+ */
 @Mod(modid = "cheatingessentials", name = "Cheating Essentials", version = CheatingEssentials.version, canBeDeactivated = true)
 public class CheatingEssentials
 {
@@ -71,6 +81,7 @@ public class CheatingEssentials
 		
 		logger.info("Loading Configuration...");
 		LoadingScreen.config = true;
+		GeneralConfiguration.instance();
 		ConfigurationManager.instance();
 		logger.info("Configuration Loaded.");
 		LoadingScreen.config = false;
@@ -86,7 +97,7 @@ public class CheatingEssentials
 	public void onPostInitialization(FMLPostInitializationEvent event3)
 	{
 		logger.info("All things loaded succefully.");
-		LoadingScreen.lastshit = true;
+		LoadingScreen.last = true;
 	}
 	
 	@EventHandler
@@ -100,6 +111,8 @@ public class CheatingEssentials
 		commandhandler.registerCommand(new NCommandMList());
 		commandhandler.registerCommand(new NCommandSH());
 		commandhandler.registerCommand(new NCommandSV());
+		commandhandler.registerCommand(new NCommandEnemy());
+		commandhandler.registerCommand(new NCommandFriend());
 		commandhandler.registerCommand(new TMCommandSMKeybind());
 		logger.info("Natural Vanilla commands registered!");
 	}

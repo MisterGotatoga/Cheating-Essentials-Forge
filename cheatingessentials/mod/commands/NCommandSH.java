@@ -1,10 +1,10 @@
 package cheatingessentials.mod.commands;
 
-import cheatingessentials.mod.external.config.agce.files.AGCEGeneric;
-import cheatingessentials.mod.modulesystem.classes.Step;
-import cheatingessentials.mod.wrapper.Wrapper;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
+import cheatingessentials.mod.external.config.forge.GeneralConfiguration;
+import cheatingessentials.mod.modulesystem.classes.Step;
+import cheatingessentials.mod.wrapper.Wrapper;
 
 public class NCommandSH extends CommandBase {
 
@@ -28,7 +28,8 @@ public class NCommandSH extends CommandBase {
 			if(string < 100F){
 				Step.DEFAULT_STEP_HEIGHT = string;
 				Wrapper.INSTANCE.addChatMessage("Set step height to: "+string);
-				AGCEGeneric.INSTANCE.modify("CEStepValue.txt", Step.DEFAULT_STEP_HEIGHT);
+				GeneralConfiguration.instance().configuration.save();
+				GeneralConfiguration.instance().configuration.load();
 			}
 			else{
 				Wrapper.INSTANCE.addChatMessage("Can't set step height more than 100 blocks!");

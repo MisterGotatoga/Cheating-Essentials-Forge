@@ -1,8 +1,7 @@
 package cheatingessentials.mod.commands.apicommands;
 
-import net.minecraft.client.Minecraft;
 import cheatingessentials.api.command.Command;
-import cheatingessentials.mod.external.config.agce.files.AGCEGeneric;
+import cheatingessentials.mod.external.config.forge.GeneralConfiguration;
 import cheatingessentials.mod.modulesystem.classes.BlockFinder;
 import cheatingessentials.mod.wrapper.Wrapper;
 
@@ -17,7 +16,8 @@ public class ACommandBFRadius extends Command {
 	public void runCommand(String s, String[] subcommands) {
 		// TODO Auto-generated method stub
 		BlockFinder.BLOCK_RADIUS = Integer.parseInt(subcommands[0]);
-		AGCEGeneric.INSTANCE.modify("CEBFRadius.txt", BlockFinder.BLOCK_RADIUS);
+		GeneralConfiguration.instance().configuration.save();
+		GeneralConfiguration.instance().configuration.load();
 		Wrapper.INSTANCE.addChatMessage("Block Finder radius set to: "+subcommands[0]+" blocks.");
 	}
 

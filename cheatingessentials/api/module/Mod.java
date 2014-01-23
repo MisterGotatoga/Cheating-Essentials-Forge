@@ -11,7 +11,7 @@ public abstract class Mod
 	public Mod(ModuleCategories category)
 	{
 		this.category = category;
-		CheatingEssentials.INSTANCE.logger.info("Loaded: " + getName() + " ("+getAlias()+")" + "Category: "+ getCategory());
+		CheatingEssentials.INSTANCE.logger.info("Loaded: " + getName() + " ("+getAlias()+")" + " Category: "+ getCategory());
 	}
 	
 	protected String name = "unknown";

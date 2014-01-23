@@ -1,10 +1,10 @@
 package cheatingessentials.mod.commands;
 
-import cheatingessentials.mod.external.config.agce.files.AGCEGeneric;
-import cheatingessentials.mod.modulesystem.classes.Speed;
-import cheatingessentials.mod.wrapper.Wrapper;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
+import cheatingessentials.mod.external.config.forge.GeneralConfiguration;
+import cheatingessentials.mod.modulesystem.classes.Speed;
+import cheatingessentials.mod.wrapper.Wrapper;
 
 public class NCommandSV extends CommandBase {
 
@@ -25,7 +25,8 @@ public class NCommandSV extends CommandBase {
 		// TODO Auto-generated method stub
 		Double speedvalue = Double.parseDouble(var2[0]);
 		Speed.SPEED_VALUE = speedvalue;
-		AGCEGeneric.INSTANCE.modify("CESpeedValue.txt", speedvalue);
+		GeneralConfiguration.instance().configuration.save();
+		GeneralConfiguration.instance().configuration.load();
 		Wrapper.INSTANCE.addChatMessage("Set speed to: "+speedvalue);
 	}
 

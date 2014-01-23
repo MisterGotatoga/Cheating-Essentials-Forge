@@ -6,6 +6,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import org.lwjgl.opengl.GL11;
 
 import cheatingessentials.api.module.Mod;
+import cheatingessentials.mod.relationsystem.Enemy;
+import cheatingessentials.mod.relationsystem.Friend;
 import cheatingessentials.mod.wrapper.ModuleCategories;
 import cheatingessentials.mod.wrapper.Wrapper;
 
@@ -45,13 +47,14 @@ public class Tracers extends Mod {
                         double posX = ((entity.lastTickPosX + (entity.posX - entity.lastTickPosX) - RenderManager.renderPosX));
                         double posY = ((entity.lastTickPosY + 1.4 + (entity.posY - entity.lastTickPosY) - RenderManager.renderPosY));
                         double posZ = ((entity.lastTickPosZ + (entity.posZ - entity.lastTickPosZ) - RenderManager.renderPosZ));
-                       /* if(PlayerRelations.instance().friends.contains(entity.username)){
+                        String playerName = Wrapper.INSTANCE.player().func_146103_bH().getName();
+                        if(Friend.instance().readFriend(playerName)){
                         	GL11.glColor3f(0.0F, 1.0F, 0.0F);
-                        if(PlayerRelations.instance().enemies.contains(entity.username)){
-                        	GL11.glColor3f(1.0F, 0.0F, 0.0F);
-                        	}*
                         }
-                        else{*/
+                        if(Enemy.instance().readEnemy(playerName)){
+                        	GL11.glColor3f(1.0F, 0.0F, 0.0F);
+                        }
+                        else{
                         	if (distance <= 6F){
                         		GL11.glColor3f(1.0F, 0.0F, 0.0F);
                             }
@@ -61,7 +64,7 @@ public class Tracers extends Mod {
                         	else if (distance > 96F){
                         		GL11.glColor3f(0.1F, 0.6F, 255.0F);
                             }
-                       //}
+                       }
                         	
                        GL11.glBegin(GL11.GL_LINE_LOOP);
                        GL11.glVertex3d(0, 0, 0);

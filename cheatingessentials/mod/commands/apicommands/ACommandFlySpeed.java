@@ -2,7 +2,7 @@ package cheatingessentials.mod.commands.apicommands;
 
 import net.minecraft.client.Minecraft;
 import cheatingessentials.api.command.Command;
-import cheatingessentials.mod.external.config.agce.files.AGCEGeneric;
+import cheatingessentials.mod.external.config.forge.GeneralConfiguration;
 import cheatingessentials.mod.modulesystem.classes.Fly;
 import cheatingessentials.mod.wrapper.Wrapper;
 
@@ -21,7 +21,8 @@ public class ACommandFlySpeed extends Command {
 		try{
 			if(string < 0.7F){
 				Minecraft.getMinecraft().thePlayer.capabilities.setFlySpeed(Fly.FLY_SPEED);
-				AGCEGeneric.INSTANCE.modify("CEFlySpeed.txt", Fly.FLY_SPEED);
+				GeneralConfiguration.instance().configuration.save();
+				GeneralConfiguration.instance().configuration.load();
 				Wrapper.INSTANCE.addChatMessage("Set Fly Speed to: "+Fly.FLY_SPEED);
 			}
 			else{

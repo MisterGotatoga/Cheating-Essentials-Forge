@@ -4,6 +4,11 @@ import java.io.File;
 
 import cheatingessentials.mod.wrapper.Wrapper;
 
+/**
+ * Standard Cheating Essentials configuration file creator. This help the other AGCE classes to exist and
+ * prevents set variables in each one of them.
+ * @author Kodehawa
+ */
 public class AGCEConfiguration
 {
 
@@ -28,16 +33,15 @@ public class AGCEConfiguration
 		}
 	}
 	
-	public void modify(String path, Object o)
+	public void modify(String fileName, Object o)
 	{
-		this.path = path;
-		this.file = new File(Wrapper.INSTANCE.minecraft().mcDataDir, "/config/Cheating Essentials/"+path);
+		this.path = fileName;
+		this.file = new File(Wrapper.INSTANCE.minecraft().mcDataDir, "/config/Cheating-Essentials/"+path);
 		create(file, o);
 	}
 	
 	protected void create(File file, Object obj){}
 	
-	@SuppressWarnings("unused")
 	protected void read(){}
 
 }
